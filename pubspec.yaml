@@ -37,22 +37,32 @@ flutter:
    - assets/step_02/bin/
    - assets/step_02/lib/
    - assets/step_03/
+   - assets/step_03/assets/
+   - assets/step_03/assets/images/
    - assets/step_03/bin/
    - assets/step_03/lib/
    - assets/step_03/lib/components/
    - assets/step_04/
+   - assets/step_04/assets/
+   - assets/step_04/assets/images/
    - assets/step_04/bin/
    - assets/step_04/lib/
    - assets/step_04/lib/components/
    - assets/step_05/
+   - assets/step_05/assets/
+   - assets/step_05/assets/images/
    - assets/step_05/bin/
    - assets/step_05/lib/
    - assets/step_05/lib/components/
    - assets/step_06/
+   - assets/step_06/assets/
+   - assets/step_06/assets/images/
    - assets/step_06/bin/
    - assets/step_06/lib/
    - assets/step_06/lib/components/
    - assets/step_07/
+   - assets/step_07/assets/
+   - assets/step_07/assets/images/
    - assets/step_07/bin/
    - assets/step_07/lib/
    - assets/step_07/lib/components/
