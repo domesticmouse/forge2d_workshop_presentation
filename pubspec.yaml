@@ -7,13 +7,27 @@ environment:
   sdk: '>=3.4.0-282.3.beta <4.0.0'
 
 dependencies:
+  checked_yaml: ^2.0.3
   flutter:
     sdk: flutter
+  flutter_fancy_tree_view: ^1.6.0
+  flutter_markdown: ^0.7.1
+  flutter_riverpod: ^2.5.1
+  flutter_svg: ^2.0.10+1
+  google_fonts: ^6.2.1
+  riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+  super_text_layout: ^0.1.9
+  syntax_highlight: ^0.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  riverpod_generator: ^2.4.0
+  build_runner: ^2.4.9
+  custom_lint: ^0.6.4
+  riverpod_lint: ^2.3.10
 
 flutter:
   uses-material-design: true
