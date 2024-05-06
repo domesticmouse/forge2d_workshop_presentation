@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: '>=3.4.0-282.3.beta <4.0.0'
+  sdk: '>=3.4.0-0 <4.0.0'
 
 dependencies:
   checked_yaml: ^2.0.3
@@ -33,6 +33,7 @@ flutter:
   uses-material-design: true
   assets:
    - assets/
+   - assets/md/
    - assets/step_02/
    - assets/step_02/bin/
    - assets/step_02/lib/
