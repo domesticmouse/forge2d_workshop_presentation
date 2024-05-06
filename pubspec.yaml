@@ -15,6 +15,7 @@ dependencies:
   flutter_riverpod: ^2.5.1
   flutter_svg: ^2.0.10+1
   google_fonts: ^6.2.1
+  json_annotation: ^4.9.0
   riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
   super_text_layout: ^0.1.9
@@ -26,8 +27,10 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
+  json_serializable: ^6.8.0
   riverpod_generator: ^2.4.0
   riverpod_lint: ^2.3.10
+  test: ^1.25.2
 
 flutter:
   uses-material-design: true
