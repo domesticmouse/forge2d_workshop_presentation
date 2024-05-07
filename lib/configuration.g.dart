@@ -86,7 +86,7 @@ SubStep _$SubStepFromJson(Map json) => $checkedCreate(
           displayCode: $checkedConvert('display-code', (v) => v as String?),
           displayMarkdown:
               $checkedConvert('display-markdown', (v) => v as String?),
-          showGame: $checkedConvert('show-game', (v) => (v as num?)?.toInt()),
+          showGame: $checkedConvert('show-game', (v) => v as String?),
           fileType: $checkedConvert('file-type', (v) => v as String?),
         );
         return val;

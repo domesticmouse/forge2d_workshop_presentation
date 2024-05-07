@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:super_text_layout/super_text_layout.dart';
 
 import '../configuration.dart';
 import '../providers.dart';
@@ -64,7 +67,7 @@ class _DisplayCodeState extends ConsumerState<DisplayCode> {
   }
 }
 
-class _DisplayCodeHelper extends StatelessWidget {
+class _DisplayCodeHelper extends StatefulWidget {
   const _DisplayCodeHelper({
     required this.assetPath,
     required this.content,
@@ -80,8 +83,120 @@ class _DisplayCodeHelper extends StatelessWidget {
   final Highlighters highlighters;
 
   @override
+  State<_DisplayCodeHelper> createState() => _DisplayCodeHelperState();
+}
+
+class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
+  late final TreeController<Node> treeController;
+  late final ScrollController scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    treeController = TreeController<Node>(
+      roots: widget.tree,
+      childrenProvider: (node) => node.children ?? [],
+      defaultExpansionState: true,
+    );
+
+    scrollController = ScrollController();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 350,
+          child: AnimatedTreeView(
+            padding: const EdgeInsets.all(12),
+            treeController: treeController,
+            nodeBuilder: (context, entry) => TreeIndentation(
+              guide: IndentGuide.connectingLines(
+                indent: 32,
+                color: Colors.grey,
+                thickness: 2.0,
+                origin: 0.5,
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                // roundCorners: true,
+              ),
+              entry: entry,
+              child: Text(
+                entry.node.title,
+                style: GoogleFonts.robotoMono(
+                  textStyle: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black.withOpacity(0.8),
+                    fontWeight: entry.node.title == 'game.dart'
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        VerticalDivider(
+          thickness: 1,
+          color: Colors.black.withOpacity(0.5),
+          indent: 12,
+          endIndent: 12,
+        ),
+        SizedBox(width: 12), // Add some space between the tree and the code
+        Expanded(
+          child: SingleChildScrollView(
+            controller: scrollController,
+            child: SuperText(
+              richText: TextSpan(
+                style: GoogleFonts.robotoMono(
+                  textStyle: const TextStyle(fontSize: 34),
+                ),
+                children: [
+                  switch (widget.fileType) {
+                    'dart' => widget.highlighters.dartHighlighter
+                        .highlight(widget.content),
+                    'yaml' => widget.highlighters.yamlHighlighter
+                        .highlight(widget.content),
+                    _ => TextSpan(text: widget.content),
+                  },
+                ],
+              ),
+              layerAboveBuilder: (context, textLayout) {
+                return Stack(
+                  children: [
+                    TextLayoutCaret(
+                      textLayout: textLayout,
+                      style: const CaretStyle(
+                        color: Colors.red,
+                        width: 2,
+                      ),
+                      position: const TextPosition(offset: 0),
+                    ),
+                  ],
+                );
+              },
+              layerBeneathBuilder: (context, textLayout) {
+                return Stack(
+                  children: [
+                    TextLayoutSelectionHighlight(
+                      textLayout: textLayout,
+                      style: SelectionHighlightStyle(
+                        color: Colors.blue.withOpacity(0.3),
+                      ),
+                      selection: const TextSelection(
+                        baseOffset: 0,
+                        extentOffset: 0,
+                        affinity: TextAffinity.downstream,
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }

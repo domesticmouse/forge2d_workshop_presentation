@@ -15,6 +15,8 @@ steps:
         file-type: dart
       - name: Modify macOS config
         display-markdown: assets/markdown/02_modify_macos_config.md
+      - name: Show game step 2
+        show-game: step_02
     tree:
       - directory: .vscode
       - directory: android
@@ -58,7 +60,7 @@ steps:
         display-code: assets/step_03/lib/main.dart
         file-type: dart
       - name: Show game step 3
-        show-game: 3
+        show-game: step_03
     tree:
       - directory: .vscode
       - directory: android
@@ -136,7 +138,7 @@ steps:
         display-code: assets/step_04/lib/components/game.dart
         file-type: dart
       - name: Show game step 4
-        show-game: 4
+        show-game: step_04
     tree:
       - directory: .vscode
       - directory: android
@@ -222,7 +224,7 @@ steps:
         display-code: assets/step_05/lib/components/game.dart
         file-type: dart
       - name: Show game step 5
-        show-game: 5
+        show-game: step_05
     tree:
       - directory: .vscode
       - directory: android
@@ -309,7 +311,7 @@ steps:
         display-code: assets/step_06/lib/components/game.dart
         file-type: dart
       - name: Show game step 6
-        show-game: 6
+        show-game: step_06
     tree:
       - directory: .vscode
       - directory: android
@@ -411,7 +413,7 @@ steps:
         display-code: assets/step_06/lib/components/game.dart
         file-type: dart
       - name: Show game step 7
-        show-game: 7
+        show-game: step_07
     tree:
       - directory: .vscode
       - directory: android

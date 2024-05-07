@@ -84,7 +84,7 @@ class SubStep {
   final String? displayMarkdown;
 
   @JsonKey(name: 'show-game')
-  final int? showGame;
+  final String? showGame;
 
   @JsonKey(name: 'file-type')
   final String? fileType;
@@ -110,10 +110,6 @@ class SubStep {
     if (displayMarkdown != null && showGame != null) {
       throw ArgumentError.value(displayMarkdown, 'display-markdown',
           'Cannot have both display-markdown and show-game.');
-    }
-    if (showGame != null && showGame! < 1) {
-      throw ArgumentError.value(
-          showGame, 'show-game', 'Cannot be less than 1 if not null.');
     }
     if (displayCode != null && fileType == null) {
       throw ArgumentError.value(
@@ -149,6 +145,8 @@ class Node {
   final String? fileType;
   final List<Node>? children;
   final String? contents;
+
+  String get title => directory ?? file ?? '';
 
   Node({
     this.directory,

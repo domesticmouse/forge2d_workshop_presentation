@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'configuration.dart';
 import 'providers.dart';
 import 'slides/slides.dart';
 
@@ -21,8 +22,25 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          body: DisplayMarkdown(
-            assetPath: 'assets/markdown/01_create_project.md',
+          body: DisplayCode(
+            assetPath: 'assets/step_07/lib/components/game.dart',
+            fileType: 'dart',
+            tree: [
+              Node(
+                directory: 'lib',
+                children: [
+                  Node(
+                    directory: 'components',
+                    children: [
+                      Node(
+                        file: 'game.dart',
+                        fileType: 'dart',
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
