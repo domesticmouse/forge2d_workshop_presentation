@@ -40,7 +40,7 @@ flutter:
   assets:
    - assets/
    - assets/images/
-   - assets/md/
+   - assets/markdown/
    - assets/step_02/
    - assets/step_02/bin/
    - assets/step_02/lib/

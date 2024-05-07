@@ -4,11 +4,14 @@
 
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
   runApp(
-    GameWidget.controlled(
-      gameFactory: FlameGame.new,
+    ProviderScope(
+      child: GameWidget.controlled(
+        gameFactory: FlameGame.new,
+      ),
     ),
   );
 }

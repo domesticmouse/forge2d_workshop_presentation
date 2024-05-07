@@ -76,7 +76,8 @@ SubStep _$SubStepFromJson(Map json) => $checkedCreate(
             'name',
             'display-code',
             'display-markdown',
-            'show-game'
+            'show-game',
+            'file-type'
           ],
           requiredKeys: const ['name'],
         );
@@ -86,13 +87,15 @@ SubStep _$SubStepFromJson(Map json) => $checkedCreate(
           displayMarkdown:
               $checkedConvert('display-markdown', (v) => v as String?),
           showGame: $checkedConvert('show-game', (v) => (v as num?)?.toInt()),
+          fileType: $checkedConvert('file-type', (v) => v as String?),
         );
         return val;
       },
       fieldKeyMap: const {
         'displayCode': 'display-code',
         'displayMarkdown': 'display-markdown',
-        'showGame': 'show-game'
+        'showGame': 'show-game',
+        'fileType': 'file-type'
       },
     );
 
@@ -101,6 +104,7 @@ Map<String, dynamic> _$SubStepToJson(SubStep instance) => <String, dynamic>{
       'display-code': instance.displayCode,
       'display-markdown': instance.displayMarkdown,
       'show-game': instance.showGame,
+      'file-type': instance.fileType,
     };
 
 Node _$NodeFromJson(Map json) => $checkedCreate(

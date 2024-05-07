@@ -1,7 +1,7 @@
 ## Create your Flutter project
 
 
-1. On a command line, create a Flutter project:
+### On a command line, create a Flutter project:
 
 ```console
 $ flutter create --empty forge2d_game 
@@ -23,7 +23,7 @@ In order to run your empty application, type:
 Your empty application code is in forge2d_game/lib/main.dart.
 ```
 
-2. Modify the project's dependencies to add Flame and Forge2D:
+### Modify the project's dependencies to add Flame and Forge2D:
 
 ```console
 $ cd forge2d_game

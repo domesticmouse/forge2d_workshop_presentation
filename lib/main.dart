@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'slides/show_game.dart';
-import 'step_07/components/game.dart' as step_07;
+import 'providers.dart';
+import 'slides/slides.dart';
 
 void main() {
   runApp(
@@ -17,11 +17,27 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: ShowGame(gameFactory: step_07.MyPhysicsGame.new),
+    return _EagerInitialization(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: DisplayMarkdown(
+            assetPath: 'assets/markdown/01_create_project.md',
+          ),
+        ),
       ),
     );
+  }
+}
+
+class _EagerInitialization extends ConsumerWidget {
+  const _EagerInitialization({required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Force the eager loading and parsing of the assets/steps.yaml file
+    ref.watch(configurationProvider);
+    return child;
   }
 }

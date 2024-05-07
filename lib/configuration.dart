@@ -86,11 +86,16 @@ class SubStep {
   @JsonKey(name: 'show-game')
   final int? showGame;
 
-  SubStep(
-      {required this.name,
-      this.displayCode,
-      this.displayMarkdown,
-      this.showGame}) {
+  @JsonKey(name: 'file-type')
+  final String? fileType;
+
+  SubStep({
+    required this.name,
+    this.displayCode,
+    this.displayMarkdown,
+    this.showGame,
+    this.fileType,
+  }) {
     if (name.isEmpty) {
       throw ArgumentError.value(name, 'name', 'Cannot be empty.');
     }
@@ -106,9 +111,17 @@ class SubStep {
       throw ArgumentError.value(displayMarkdown, 'display-markdown',
           'Cannot have both display-markdown and show-game.');
     }
-    if (showGame != null && showGame! < 0) {
+    if (showGame != null && showGame! < 1) {
       throw ArgumentError.value(
-          showGame, 'show-game', 'Cannot be less than 0 if not null.');
+          showGame, 'show-game', 'Cannot be less than 1 if not null.');
+    }
+    if (displayCode != null && fileType == null) {
+      throw ArgumentError.value(
+          fileType, 'file-type', 'Cannot be null if display-code is not null.');
+    }
+    if (fileType != null && displayCode == null) {
+      throw ArgumentError.value(
+          fileType, 'file-type', 'Cannot be not null if display-code is null.');
     }
     if (showGame == null && displayCode == null && displayMarkdown == null) {
       throw ArgumentError.value(showGame, 'show-game',
