@@ -265,6 +265,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  flame:
+    dependency: "direct main"
+    description:
+      name: flame
+      sha256: da1812e2f17a8ffd5d43ea6a83137794e7f482bcf50419bc9847b8efdb39f791
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.17.0"
+  flame_forge2d:
+    dependency: "direct main"
+    description:
+      name: flame_forge2d
+      sha256: "78d31cde83d30c8d9a4028296ac881334af1676ec556e4170bb81eb2829cdf27"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -315,6 +331,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  forge2d:
+    dependency: transitive
+    description:
+      name: forge2d
+      sha256: "40915333b688ddaaa616d9c8ab9ff205faea0adf83dddc1a6e617694ffa9e16e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.13.0"
   freezed_annotation:
     dependency: transitive
     description:
@@ -507,6 +531,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
+  ordered_set:
+    dependency: transitive
+    description:
+      name: ordered_set
+      sha256: "1bfaaaee0419e43ecc9eaebd410eb4bd5039657b72011de75ff3e2915c9aac60"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.3"
   package_config:
     dependency: transitive
     description:
@@ -961,7 +993,7 @@ packages:
     source: hosted
     version: "1.0.4"
   xml:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: xml
       sha256: b015a8ad1c488f66851d762d3090a21c600e479dc75e68328c52774040cf9226

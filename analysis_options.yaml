@@ -3,10 +3,12 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   exclude:
     - assets/**
+    - build/**
   plugins:
     - custom_lint
 
 linter:
   rules:
-    - directives_ordering
-    - sort_pub_dependencies
+    directives_ordering: true
+    prefer_const_constructors: false
+    sort_pub_dependencies: true
