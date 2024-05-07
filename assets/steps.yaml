@@ -50,6 +50,8 @@ steps:
         display-code: assets/step_03/lib/components/game.dart
       - name: lib/main.dart
         display-code: assets/step_03/lib/main.md
+      - name: Show game step 3
+        show-game: 3
     tree:
       - directory: .vscode
       - directory: android
@@ -124,6 +126,8 @@ steps:
         display-code: assets/step_04/lib/components/ground.dart
       - name: lib/components/game.dart
         display-code: assets/step_04/lib/components/game.dart
+      - name: Show game step 4
+        show-game: 4
     tree:
       - directory: .vscode
       - directory: android
@@ -205,6 +209,8 @@ steps:
         display-code: assets/step_05/lib/components/brick.dart
       - name: lib/components/game.dart
         display-code: assets/step_05/lib/components/game.dart
+      - name: Show game step 5
+        show-game: 5
     tree:
       - directory: .vscode
       - directory: android
@@ -288,6 +294,8 @@ steps:
         display-code: assets/step_06/lib/components/player.dart
       - name: lib/components/game.dart
         display-code: assets/step_06/lib/components/game.dart
+      - name: Show game step 6
+        show-game: 6
     tree:
       - directory: .vscode
       - directory: android
@@ -382,6 +390,8 @@ steps:
         display-code: assets/step_07/lib/components/brick.dart
       - name: lib/components/game.dart
         display-code: assets/step_06/lib/components/game.dart
+      - name: Show game step 7
+        show-game: 7
     tree:
       - directory: .vscode
       - directory: android

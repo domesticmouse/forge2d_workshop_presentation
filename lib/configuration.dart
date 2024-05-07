@@ -83,13 +83,36 @@ class SubStep {
   @JsonKey(name: 'display-markdown')
   final String? displayMarkdown;
 
-  SubStep({required this.name, this.displayCode, this.displayMarkdown}) {
+  @JsonKey(name: 'show-game')
+  final int? showGame;
+
+  SubStep(
+      {required this.name,
+      this.displayCode,
+      this.displayMarkdown,
+      this.showGame}) {
     if (name.isEmpty) {
       throw ArgumentError.value(name, 'name', 'Cannot be empty.');
     }
     if (displayCode != null && displayMarkdown != null) {
-      throw ArgumentError.value(displayCode, 'displayCode',
-          'Cannot have both displayCode and displayMarkdown.');
+      throw ArgumentError.value(displayCode, 'display-code',
+          'Cannot have both display-code and display-markdown.');
+    }
+    if (displayCode != null && showGame != null) {
+      throw ArgumentError.value(displayCode, 'display-code',
+          'Cannot have both display-code and show-game.');
+    }
+    if (displayMarkdown != null && showGame != null) {
+      throw ArgumentError.value(displayMarkdown, 'display-markdown',
+          'Cannot have both display-markdown and show-game.');
+    }
+    if (showGame != null && showGame! < 0) {
+      throw ArgumentError.value(
+          showGame, 'show-game', 'Cannot be less than 0 if not null.');
+    }
+    if (showGame == null && displayCode == null && displayMarkdown == null) {
+      throw ArgumentError.value(showGame, 'show-game',
+          'Cannot be null if display-code and display-markdown are null.');
     }
   }
 

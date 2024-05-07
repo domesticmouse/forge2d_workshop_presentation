@@ -72,7 +72,12 @@ SubStep _$SubStepFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         $checkKeys(
           json,
-          allowedKeys: const ['name', 'display-code', 'display-markdown'],
+          allowedKeys: const [
+            'name',
+            'display-code',
+            'display-markdown',
+            'show-game'
+          ],
           requiredKeys: const ['name'],
         );
         final val = SubStep(
@@ -80,12 +85,14 @@ SubStep _$SubStepFromJson(Map json) => $checkedCreate(
           displayCode: $checkedConvert('display-code', (v) => v as String?),
           displayMarkdown:
               $checkedConvert('display-markdown', (v) => v as String?),
+          showGame: $checkedConvert('show-game', (v) => (v as num?)?.toInt()),
         );
         return val;
       },
       fieldKeyMap: const {
         'displayCode': 'display-code',
-        'displayMarkdown': 'display-markdown'
+        'displayMarkdown': 'display-markdown',
+        'showGame': 'show-game'
       },
     );
 
@@ -93,6 +100,7 @@ Map<String, dynamic> _$SubStepToJson(SubStep instance) => <String, dynamic>{
       'name': instance.name,
       'display-code': instance.displayCode,
       'display-markdown': instance.displayMarkdown,
+      'show-game': instance.showGame,
     };
 
 Node _$NodeFromJson(Map json) => $checkedCreate(
