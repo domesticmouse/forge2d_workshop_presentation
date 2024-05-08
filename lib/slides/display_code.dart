@@ -107,6 +107,9 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+    debugPrint('size: ${size.width} x ${size.height}');
+
     const textSelection = TextSelection(
       baseOffset: 0,
       extentOffset: 0,
@@ -117,13 +120,23 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: 300,
+          width: switch (size.width) {
+            > 2500 => 400,
+            > 1900 => 350,
+            > 1500 => 300,
+            > 1000 => 250,
+            _ => 200,
+          },
           child: AnimatedTreeView(
             padding: const EdgeInsets.all(12),
             treeController: treeController,
             nodeBuilder: (context, entry) => TreeIndentation(
               guide: IndentGuide.connectingLines(
-                indent: 16,
+                indent: switch (size.width) {
+                  > 2500 => 32,
+                  > 1900 => 24,
+                  _ => 16
+                },
                 color: Colors.grey,
                 thickness: 2.0,
                 origin: 0.6,
@@ -136,7 +149,11 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
                 maxLines: 1,
                 style: GoogleFonts.robotoMono(
                   textStyle: TextStyle(
-                    fontSize: 22,
+                    fontSize: switch (size.height) {
+                      > 1400 => 32,
+                      > 1000 => 26,
+                      _ => 18
+                    },
                     color: Colors.black.withOpacity(0.8),
                     fontWeight: entry.node.title == 'game.dart'
                         ? FontWeight.w500
@@ -167,8 +184,12 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
               child: SuperText(
                 richText: TextSpan(
                   style: GoogleFonts.robotoMono(
-                    textStyle: const TextStyle(
-                      fontSize: 26,
+                    textStyle: TextStyle(
+                      fontSize: switch (size.height) {
+                        > 1400 => 34,
+                        > 1000 => 24,
+                        _ => 16
+                      },
                       fontWeight: FontWeight.w300,
                     ),
                   ),

@@ -19,6 +19,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+
     return _EagerInitialization(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -27,13 +29,18 @@ class MainApp extends StatelessWidget {
             title: Text(
               'goo.gle/forge2d-workshop',
               style: GoogleFonts.roboto(
-                textStyle:
-                    const TextStyle(fontSize: 32, fontWeight: FontWeight.w300),
+                textStyle: TextStyle(
+                    fontSize: switch (size.height) {
+                      > 1400 => 40,
+                      > 1000 => 30,
+                      _ => 24,
+                    },
+                    fontWeight: FontWeight.w300),
               ),
             ),
           ),
           body: DisplayCode(
-            assetPath: 'assets/step_07/lib/components/enemy.dart',
+            assetPath: 'assets/screen-test.txt',
             fileType: 'dart',
             tree: [
               Node(
