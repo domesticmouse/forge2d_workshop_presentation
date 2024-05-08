@@ -11,6 +11,8 @@ class ShowGame<T extends Game> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final gameHeight = 0.9275204 * MediaQuery.sizeOf(context).height - 79.46149;
+
     return Stack(
       children: [
         Positioned.fill(
@@ -35,8 +37,8 @@ class ShowGame<T extends Game> extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: SizedBox(
-                    width: 800,
-                    height: 600,
+                    width: gameHeight * 1.3333333333333333,
+                    height: gameHeight,
                     child: Stack(
                       children: [
                         Center(
