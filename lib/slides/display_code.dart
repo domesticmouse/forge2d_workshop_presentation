@@ -61,7 +61,7 @@ class _DisplayCodeState extends ConsumerState<DisplayCode> {
         child: CircularProgressIndicator(),
       ),
       error: (error, stack) => Center(
-        child: Text('Error: $error'),
+        child: Text('Error: $error\n$stack'),
       ),
     );
   }
@@ -99,38 +99,49 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
       defaultExpansionState: true,
     );
 
-    scrollController = ScrollController();
+    scrollController = ScrollController()
+      ..addListener(() {
+        debugPrint('scrollController.offset: ${scrollController.offset}');
+      });
   }
 
   @override
   Widget build(BuildContext context) {
+    const textSelection = TextSelection(
+      baseOffset: 0,
+      extentOffset: 0,
+      affinity: TextAffinity.downstream,
+    );
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: 350,
+          width: 300,
           child: AnimatedTreeView(
             padding: const EdgeInsets.all(12),
             treeController: treeController,
             nodeBuilder: (context, entry) => TreeIndentation(
               guide: IndentGuide.connectingLines(
-                indent: 32,
+                indent: 16,
                 color: Colors.grey,
                 thickness: 2.0,
-                origin: 0.5,
+                origin: 0.6,
                 padding: EdgeInsets.symmetric(horizontal: 8),
                 // roundCorners: true,
               ),
               entry: entry,
               child: Text(
                 entry.node.title,
+                maxLines: 1,
                 style: GoogleFonts.robotoMono(
                   textStyle: TextStyle(
-                    fontSize: 30,
+                    fontSize: 22,
                     color: Colors.black.withOpacity(0.8),
                     fontWeight: entry.node.title == 'game.dart'
-                        ? FontWeight.bold
-                        : FontWeight.normal,
+                        ? FontWeight.w500
+                        : FontWeight.w300,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ),
@@ -139,60 +150,72 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
         ),
         VerticalDivider(
           thickness: 1,
-          color: Colors.black.withOpacity(0.5),
-          indent: 12,
-          endIndent: 12,
+          color: Colors.black.withOpacity(0.3),
         ),
         SizedBox(width: 12), // Add some space between the tree and the code
         Expanded(
-          child: SingleChildScrollView(
-            controller: scrollController,
-            child: SuperText(
-              richText: TextSpan(
-                style: GoogleFonts.robotoMono(
-                  textStyle: const TextStyle(fontSize: 34),
+          child: NotificationListener<ScrollMetricsNotification>(
+            onNotification: (notification) {
+              debugPrint('ScrollMetricsNotification.metrics.minScrollExtent: '
+                  '${notification.metrics.minScrollExtent}');
+              debugPrint('ScrollMetricsNotification.metrics.maxScrollExtent: '
+                  '${notification.metrics.maxScrollExtent}');
+              return false;
+            },
+            child: SingleChildScrollView(
+              controller: scrollController,
+              child: SuperText(
+                richText: TextSpan(
+                  style: GoogleFonts.robotoMono(
+                    textStyle: const TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  children: [
+                    switch (widget.fileType) {
+                      'dart' =>
+                        widget.highlighters.dart.highlight(widget.content),
+                      'yaml' =>
+                        widget.highlighters.yaml.highlight(widget.content),
+                      'xml' =>
+                        widget.highlighters.xml.highlight(widget.content),
+                      _ => TextSpan(
+                          text: widget.content,
+                          style: const TextStyle(color: Colors.black),
+                        ),
+                    },
+                  ],
                 ),
-                children: [
-                  switch (widget.fileType) {
-                    'dart' => widget.highlighters.dartHighlighter
-                        .highlight(widget.content),
-                    'yaml' => widget.highlighters.yamlHighlighter
-                        .highlight(widget.content),
-                    _ => TextSpan(text: widget.content),
-                  },
-                ],
+                layerAboveBuilder: (context, textLayout) {
+                  return Stack(
+                    children: [
+                      TextLayoutCaret(
+                        textLayout: textLayout,
+                        style: const CaretStyle(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                        position:
+                            TextPosition(offset: textSelection.extentOffset),
+                      ),
+                    ],
+                  );
+                },
+                layerBeneathBuilder: (context, textLayout) {
+                  return Stack(
+                    children: [
+                      TextLayoutSelectionHighlight(
+                        textLayout: textLayout,
+                        style: SelectionHighlightStyle(
+                          color: Colors.blue.withOpacity(0.3),
+                        ),
+                        selection: textSelection,
+                      ),
+                    ],
+                  );
+                },
               ),
-              layerAboveBuilder: (context, textLayout) {
-                return Stack(
-                  children: [
-                    TextLayoutCaret(
-                      textLayout: textLayout,
-                      style: const CaretStyle(
-                        color: Colors.red,
-                        width: 2,
-                      ),
-                      position: const TextPosition(offset: 0),
-                    ),
-                  ],
-                );
-              },
-              layerBeneathBuilder: (context, textLayout) {
-                return Stack(
-                  children: [
-                    TextLayoutSelectionHighlight(
-                      textLayout: textLayout,
-                      style: SelectionHighlightStyle(
-                        color: Colors.blue.withOpacity(0.3),
-                      ),
-                      selection: const TextSelection(
-                        baseOffset: 0,
-                        extentOffset: 0,
-                        affinity: TextAffinity.downstream,
-                      ),
-                    ),
-                  ],
-                );
-              },
             ),
           ),
         ),

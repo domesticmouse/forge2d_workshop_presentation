@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'configuration.dart';
 import 'providers.dart';
@@ -22,8 +23,17 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'goo.gle/forge2d-workshop',
+              style: GoogleFonts.roboto(
+                textStyle:
+                    const TextStyle(fontSize: 32, fontWeight: FontWeight.w300),
+              ),
+            ),
+          ),
           body: DisplayCode(
-            assetPath: 'assets/step_07/lib/components/game.dart',
+            assetPath: 'assets/step_07/lib/components/enemy.dart',
             fileType: 'dart',
             tree: [
               Node(
@@ -34,6 +44,10 @@ class MainApp extends StatelessWidget {
                     children: [
                       Node(
                         file: 'game.dart',
+                        fileType: 'dart',
+                      ),
+                      Node(
+                        file: 'body_component_with_user_data.dart',
                         fileType: 'dart',
                       ),
                     ],
