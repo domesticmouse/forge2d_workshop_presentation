@@ -30,11 +30,7 @@ class MainApp extends StatelessWidget {
               'goo.gle/forge2d-workshop',
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
-                    fontSize: switch (size.height) {
-                      > 1400 => 40,
-                      > 1000 => 30,
-                      _ => 24,
-                    },
+                    fontSize: 0.02297297 * size.height + 7.594595,
                     fontWeight: FontWeight.w300),
               ),
             ),
