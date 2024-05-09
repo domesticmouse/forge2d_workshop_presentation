@@ -14,12 +14,50 @@ void main() {
   );
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends ConsumerWidget {
   const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.sizeOf(context);
+    final configuration = ref.watch(configurationProvider).asData;
+    final List<Widget> drawerSteps = [];
+    if (configuration != null) {
+      for (var step in configuration.value.steps) {
+        drawerSteps.add(
+          ListTile(
+            title: Flexible(
+              child: Text(
+                step.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ),
+          ),
+        );
+        for (var subStep in step.steps) {
+          drawerSteps.add(
+            ListTile(
+              title: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(width: 16),
+                  Flexible(
+                    child: Text(
+                      subStep.name,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+      }
+    }
 
     return _EagerInitialization(
       child: MaterialApp(
@@ -33,6 +71,11 @@ class MainApp extends StatelessWidget {
                     fontSize: 0.02297297 * size.height + 7.594595,
                     fontWeight: FontWeight.w300),
               ),
+            ),
+          ),
+          drawer: Drawer(
+            child: ListView(
+              children: drawerSteps,
             ),
           ),
           body: DisplayCode(
