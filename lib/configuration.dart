@@ -35,7 +35,7 @@ class Step {
   final String name;
 
   @JsonKey(required: true, name: 'step-number')
-  final int stepNumber;
+  final int displayStepNumber;
 
   @JsonKey(required: true)
   final List<SubStep> steps;
@@ -47,16 +47,10 @@ class Step {
     required this.name,
     required this.steps,
     required this.tree,
-    required this.stepNumber,
+    required this.displayStepNumber,
   }) {
     if (name.isEmpty) {
       throw ArgumentError.value(name, 'name', 'Cannot be empty.');
-    }
-    if (steps.isEmpty) {
-      throw ArgumentError.value(steps, 'steps', 'Cannot be empty.');
-    }
-    if (tree.isEmpty) {
-      throw ArgumentError.value(tree, 'tree', 'Cannot be empty.');
     }
   }
 

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path/path.dart' as path;
 import 'package:super_text_layout/super_text_layout.dart';
 
 import '../configuration.dart';
@@ -28,7 +29,12 @@ class _DisplayCodeState extends ConsumerState<DisplayCode> {
   @override
   void initState() {
     super.initState();
+    content = rootBundle.loadString(widget.assetPath);
+  }
 
+  @override
+  void didUpdateWidget(covariant DisplayCode oldWidget) {
+    super.didUpdateWidget(oldWidget);
     content = rootBundle.loadString(widget.assetPath);
   }
 
@@ -106,6 +112,12 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
   }
 
   @override
+  void didUpdateWidget(covariant _DisplayCodeHelper oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    treeController.roots = widget.tree;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     debugPrint('size: ${size.width} x ${size.height}');
@@ -141,9 +153,10 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
                   textStyle: TextStyle(
                     fontSize: 0.01972973 * size.height + 4.945946,
                     color: Colors.black.withOpacity(0.8),
-                    fontWeight: entry.node.title == 'game.dart'
-                        ? FontWeight.w500
-                        : FontWeight.w300,
+                    fontWeight:
+                        entry.node.title == path.split(widget.assetPath).last
+                            ? FontWeight.w500
+                            : FontWeight.w300,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

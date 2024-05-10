@@ -52,16 +52,17 @@ Step _$StepFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>)
                   .map((e) => Node.fromJson(e as Map))
                   .toList()),
-          stepNumber: $checkedConvert('step-number', (v) => (v as num).toInt()),
+          displayStepNumber:
+              $checkedConvert('step-number', (v) => (v as num).toInt()),
         );
         return val;
       },
-      fieldKeyMap: const {'stepNumber': 'step-number'},
+      fieldKeyMap: const {'displayStepNumber': 'step-number'},
     );
 
 Map<String, dynamic> _$StepToJson(Step instance) => <String, dynamic>{
       'name': instance.name,
-      'step-number': instance.stepNumber,
+      'step-number': instance.displayStepNumber,
       'steps': instance.steps,
       'tree': instance.tree,
     };

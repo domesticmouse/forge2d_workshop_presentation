@@ -18,7 +18,12 @@ class _DisplayMarkdownState extends State<DisplayMarkdown> {
   @override
   void initState() {
     super.initState();
+    content = rootBundle.loadString(widget.assetPath);
+  }
 
+  @override
+  void didUpdateWidget(covariant DisplayMarkdown oldWidget) {
+    super.didUpdateWidget(oldWidget);
     content = rootBundle.loadString(widget.assetPath);
   }
 

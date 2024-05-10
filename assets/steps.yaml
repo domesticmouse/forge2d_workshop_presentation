@@ -216,7 +216,7 @@ steps:
         display-code: assets/step_05/bin/generate_brick_file_names.dart
         file-type: dart
       - name: Generate brick file names
-        display-markdown: assets/markdown/05_generate_brick_file_names.md
+        display-markdown: assets/markdown/04_generate_brick_file_names.md
       - name: lib/components/brick.dart
         display-code: assets/step_05/lib/components/brick.dart
         file-type: dart

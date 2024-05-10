@@ -25,6 +25,130 @@ class Highlighters {
 }
 
 @riverpod
+class CurrentStep extends _$CurrentStep {
+  var _stepNumber = 0;
+  set stepNumber(int value) {
+    _stepNumber = value;
+    ref.invalidateSelf();
+  }
+
+  bool get _hasNext {
+    return ref.watch(currentSubStepProvider.notifier)._hasNext ||
+        (ref.watch(configurationProvider).asData?.value.steps.length ?? 0) >
+            _stepNumber + 1;
+  }
+
+  void next() {
+    var currentSubStep = ref.read(currentSubStepProvider.notifier);
+    if (currentSubStep._hasNext) {
+      currentSubStep.next();
+      return;
+    }
+
+    if (_hasNext) {
+      _stepNumber++;
+      ref.invalidateSelf();
+      currentSubStep.reset();
+    }
+  }
+
+  bool get _hasPrevious => _stepNumber > 0;
+
+  void previous() {
+    var currentSubStep = ref.read(currentSubStepProvider.notifier);
+    if (currentSubStep._hasPrevious) {
+      currentSubStep.previous();
+      return;
+    }
+
+    if (_hasPrevious) {
+      _stepNumber--;
+      ref.invalidateSelf();
+      var subSteps = ref
+          .read(configurationProvider)
+          .asData!
+          .value
+          .steps[_stepNumber]
+          .steps;
+      currentSubStep.subStepNumber = subSteps.length - 1;
+    }
+  }
+
+  @override
+  Step build() => ref.watch(configurationProvider).when(
+        data: (config) {
+          if (_stepNumber < 0 || _stepNumber >= config.steps.length) {
+            return Step(
+              name: 'Error: Invalid step number',
+              steps: [],
+              tree: [],
+              displayStepNumber: -1,
+            );
+          }
+          return config.steps[_stepNumber];
+        },
+        error: (error, _) => Step(
+          name: 'Error: $error',
+          steps: [],
+          tree: [],
+          displayStepNumber: -1,
+        ),
+        loading: () => Step(
+          name: 'Loading',
+          steps: [],
+          tree: [],
+          displayStepNumber: 0,
+        ),
+      );
+}
+
+@riverpod
+class CurrentSubStep extends _$CurrentSubStep {
+  var _subStepNumber = 0;
+  set subStepNumber(int value) {
+    _subStepNumber = value;
+    ref.invalidateSelf();
+  }
+
+  bool get _hasNext =>
+      ref.watch(currentStepProvider).steps.length > _subStepNumber + 1;
+
+  void next() {
+    if (_hasNext) {
+      _subStepNumber++;
+      ref.invalidateSelf();
+    }
+  }
+
+  bool get _hasPrevious => _subStepNumber > 0;
+
+  void previous() {
+    if (_hasPrevious) {
+      _subStepNumber--;
+      ref.invalidateSelf();
+    }
+  }
+
+  void reset() {
+    _subStepNumber = 0;
+    ref.invalidateSelf();
+  }
+
+  @override
+  SubStep build() {
+    final step = ref.watch(currentStepProvider);
+    if (step.steps.length <= _subStepNumber) {
+      return SubStep(
+        name: 'Empty sub step',
+        displayCode: 'assets/screen-test.txt',
+        fileType: 'dart',
+      );
+    }
+    return step.steps[_subStepNumber];
+  }
+}
+
+@riverpod
 Future<Highlighters> highlighters(HighlightersRef ref) async {
   await Highlighter.initialize(['dart', 'yaml']);
   Highlighter.addLanguage('xml', xmlSyntax);
