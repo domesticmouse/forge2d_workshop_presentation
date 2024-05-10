@@ -120,7 +120,6 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    debugPrint('size: ${size.width} x ${size.height}');
 
     const textSelection = TextSelection(
       baseOffset: 0,

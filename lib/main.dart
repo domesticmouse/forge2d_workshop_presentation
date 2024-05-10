@@ -33,6 +33,10 @@ class MainApp extends ConsumerWidget {
     return _EagerInitialization(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          textTheme: GoogleFonts.robotoTextTheme(),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        ),
         home: CallbackShortcuts(
           bindings: <ShortcutActivator, VoidCallback>{
             SingleActivator(LogicalKeyboardKey.arrowRight): () =>
