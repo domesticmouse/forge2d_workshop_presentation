@@ -45,6 +45,7 @@ flutter:
    - assets/step_02/
    - assets/step_02/bin/
    - assets/step_02/lib/
+   - assets/step_02/macos/Runner/Base.lproj/
    - assets/step_03/
    - assets/step_03/assets/
    - assets/step_03/assets/images/

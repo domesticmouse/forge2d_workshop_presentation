@@ -65,7 +65,7 @@ class MainApp extends ConsumerWidget {
                       children: configuration != null
                           ? [
                               for (final (stepNumber, step)
-                                  in configuration.value.steps.indexed) ...[
+                                  in configuration.value.sections.indexed) ...[
                                 ListTile(
                                   title: Text(
                                     step.name,
@@ -128,10 +128,12 @@ class MainApp extends ConsumerWidget {
                 (String code, _, _) => DisplayCode(
                     assetPath: code,
                     fileType: currentStep.fileType ?? 'txt',
-                    tree: currentSection.tree,
+                    tree: currentStep.tree ?? [],
                     baseOffset: currentSubStep.baseOffset,
-                    extentOffset: currentSubStep.extentOffset,
-                    scrollPercentage: currentSubStep.scrollPercentage,
+                    extentOffset: currentSubStep.extentOffset ??
+                        currentSubStep.baseOffset,
+                    scrollPercentage: currentSubStep.scrollPercentage ?? 0,
+                    scrollSeconds: currentSubStep.scrollSeconds ?? 0,
                   ),
                 (_, String markdown, _) => DisplayMarkdown(assetPath: markdown),
                 (_, _, 'step_02') => ShowGame(gameFactory: FlameGame.new),
@@ -146,7 +148,7 @@ class MainApp extends ConsumerWidget {
                 (_, _, 'step_07') =>
                   ShowGame(gameFactory: step_07.MyPhysicsGame.new),
                 _ => DisplayMarkdown(
-                    assetPath: 'assets/screen-test.txt',
+                    assetPath: 'assets/empty.txt',
                   )
               },
             ),

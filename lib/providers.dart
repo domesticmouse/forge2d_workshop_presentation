@@ -34,7 +34,7 @@ class CurrentSection extends _$CurrentSection {
 
   bool get _hasNext {
     return ref.read(currentStepProvider.notifier)._hasNext ||
-        (ref.read(configurationProvider).asData?.value.steps.length ?? 0) >
+        (ref.read(configurationProvider).asData?.value.sections.length ?? 0) >
             _stepNumber + 1;
   }
 
@@ -68,7 +68,7 @@ class CurrentSection extends _$CurrentSection {
           .read(configurationProvider)
           .asData!
           .value
-          .steps[_stepNumber]
+          .sections[_stepNumber]
           .steps;
       currentStep.stepNumber = subSteps.length - 1;
     }
@@ -77,26 +77,23 @@ class CurrentSection extends _$CurrentSection {
   @override
   Section build() => ref.watch(configurationProvider).when(
         data: (config) {
-          if (_stepNumber < 0 || _stepNumber >= config.steps.length) {
+          if (_stepNumber < 0 || _stepNumber >= config.sections.length) {
             return Section(
               name: 'Error: Invalid step number',
               steps: [],
-              tree: [],
               displayStepNumber: -1,
             );
           }
-          return config.steps[_stepNumber];
+          return config.sections[_stepNumber];
         },
         error: (error, _) => Section(
           name: 'Error: $error',
           steps: [],
-          tree: [],
           displayStepNumber: -1,
         ),
         loading: () => Section(
           name: 'Loading',
           steps: [],
-          tree: [],
           displayStepNumber: 0,
         ),
       );
@@ -156,9 +153,10 @@ class CurrentStep extends _$CurrentStep {
     if (section.steps.length <= _stepNumber) {
       return Step(
         name: 'Empty  step',
-        displayCode: 'assets/screen-test.txt',
+        displayCode: 'assets/empty.txt',
         fileType: 'dart',
         subSteps: [],
+        tree: [],
       );
     }
     return section.steps[_stepNumber];
@@ -203,6 +201,7 @@ class CurrentSubStep extends _$CurrentSubStep {
     final step = ref.watch(currentStepProvider);
     if (step.subSteps == null || step.subSteps!.length <= _subStepNumber) {
       return SubStep(
+        name: '',
         baseOffset: 0,
         extentOffset: 0,
         scrollPercentage: 0,

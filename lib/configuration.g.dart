@@ -12,12 +12,12 @@ Configuration _$ConfigurationFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         $checkKeys(
           json,
-          allowedKeys: const ['steps'],
-          requiredKeys: const ['steps'],
+          allowedKeys: const ['sections'],
+          requiredKeys: const ['sections'],
         );
         final val = Configuration(
-          steps: $checkedConvert(
-              'steps',
+          sections: $checkedConvert(
+              'sections',
               (v) => (v as List<dynamic>)
                   .map((e) => Section.fromJson(e as Map))
                   .toList()),
@@ -28,7 +28,7 @@ Configuration _$ConfigurationFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$ConfigurationToJson(Configuration instance) =>
     <String, dynamic>{
-      'steps': instance.steps,
+      'sections': instance.sections,
     };
 
 Section _$SectionFromJson(Map json) => $checkedCreate(
@@ -37,8 +37,8 @@ Section _$SectionFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         $checkKeys(
           json,
-          allowedKeys: const ['name', 'step-number', 'steps', 'tree'],
-          requiredKeys: const ['name', 'step-number', 'steps', 'tree'],
+          allowedKeys: const ['name', 'step-number', 'steps'],
+          requiredKeys: const ['name', 'step-number', 'steps'],
         );
         final val = Section(
           name: $checkedConvert('name', (v) => v as String),
@@ -46,11 +46,6 @@ Section _$SectionFromJson(Map json) => $checkedCreate(
               'steps',
               (v) => (v as List<dynamic>)
                   .map((e) => Step.fromJson(e as Map))
-                  .toList()),
-          tree: $checkedConvert(
-              'tree',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Node.fromJson(e as Map))
                   .toList()),
           displayStepNumber:
               $checkedConvert('step-number', (v) => (v as num).toInt()),
@@ -64,7 +59,6 @@ Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{
       'name': instance.name,
       'step-number': instance.displayStepNumber,
       'steps': instance.steps,
-      'tree': instance.tree,
     };
 
 Step _$StepFromJson(Map json) => $checkedCreate(
@@ -79,7 +73,8 @@ Step _$StepFromJson(Map json) => $checkedCreate(
             'display-markdown',
             'show-game',
             'file-type',
-            'sub-steps'
+            'sub-steps',
+            'tree'
           ],
           requiredKeys: const ['name'],
         );
@@ -94,6 +89,11 @@ Step _$StepFromJson(Map json) => $checkedCreate(
               'sub-steps',
               (v) => (v as List<dynamic>?)
                   ?.map((e) => SubStep.fromJson(e as Map))
+                  .toList()),
+          tree: $checkedConvert(
+              'tree',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Node.fromJson(e as Map))
                   .toList()),
         );
         return val;
@@ -114,6 +114,7 @@ Map<String, dynamic> _$StepToJson(Step instance) => <String, dynamic>{
       'show-game': instance.showGame,
       'file-type': instance.fileType,
       'sub-steps': instance.subSteps,
+      'tree': instance.tree,
     };
 
 SubStep _$SubStepFromJson(Map json) => $checkedCreate(
@@ -122,23 +123,40 @@ SubStep _$SubStepFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         $checkKeys(
           json,
-          allowedKeys: const ['baseOffset', 'extentOffset', 'scrollPercentage'],
+          allowedKeys: const [
+            'name',
+            'base-offset',
+            'extent-offset',
+            'scroll-percentage',
+            'scroll-seconds'
+          ],
         );
         final val = SubStep(
-          baseOffset: $checkedConvert('baseOffset', (v) => (v as num).toInt()),
+          name: $checkedConvert('name', (v) => v as String),
+          baseOffset: $checkedConvert('base-offset', (v) => (v as num).toInt()),
           extentOffset:
-              $checkedConvert('extentOffset', (v) => (v as num).toInt()),
-          scrollPercentage:
-              $checkedConvert('scrollPercentage', (v) => (v as num).toDouble()),
+              $checkedConvert('extent-offset', (v) => (v as num?)?.toInt()),
+          scrollPercentage: $checkedConvert(
+              'scroll-percentage', (v) => (v as num?)?.toDouble()),
+          scrollSeconds:
+              $checkedConvert('scroll-seconds', (v) => (v as num?)?.toInt()),
         );
         return val;
+      },
+      fieldKeyMap: const {
+        'baseOffset': 'base-offset',
+        'extentOffset': 'extent-offset',
+        'scrollPercentage': 'scroll-percentage',
+        'scrollSeconds': 'scroll-seconds'
       },
     );
 
 Map<String, dynamic> _$SubStepToJson(SubStep instance) => <String, dynamic>{
-      'baseOffset': instance.baseOffset,
-      'extentOffset': instance.extentOffset,
-      'scrollPercentage': instance.scrollPercentage,
+      'name': instance.name,
+      'base-offset': instance.baseOffset,
+      'extent-offset': instance.extentOffset,
+      'scroll-percentage': instance.scrollPercentage,
+      'scroll-seconds': instance.scrollSeconds,
     };
 
 Node _$NodeFromJson(Map json) => $checkedCreate(

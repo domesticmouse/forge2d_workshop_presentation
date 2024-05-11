@@ -35,7 +35,7 @@ final highlightersProvider = AutoDisposeFutureProvider<Highlighters>.internal(
 );
 
 typedef HighlightersRef = AutoDisposeFutureProviderRef<Highlighters>;
-String _$currentSectionHash() => r'f57761b6f22f57f07335eeccd8ce4b7b55ec4341';
+String _$currentSectionHash() => r'59de2f1b45012f3eddce41a3f50cc955b2aaae9b';
 
 /// See also [CurrentSection].
 @ProviderFor(CurrentSection)
@@ -51,7 +51,7 @@ final currentSectionProvider =
 );
 
 typedef _$CurrentSection = AutoDisposeNotifier<Section>;
-String _$currentStepHash() => r'9b3961245acd8a686d41c93ce973a89a1bec7016';
+String _$currentStepHash() => r'ee10b3c0279069a03a91548b1eb5f3a45c32c352';
 
 /// See also [CurrentStep].
 @ProviderFor(CurrentStep)
@@ -66,7 +66,7 @@ final currentStepProvider =
 );
 
 typedef _$CurrentStep = AutoDisposeNotifier<Step>;
-String _$currentSubStepHash() => r'da837113bccc91e7bfe414d78867d44a7799761e';
+String _$currentSubStepHash() => r'372872fa170ce16c8277427c13cc0e8487e1a364';
 
 /// See also [CurrentSubStep].
 @ProviderFor(CurrentSubStep)

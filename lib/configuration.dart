@@ -9,11 +9,11 @@ part 'configuration.g.dart';
 )
 class Configuration {
   @JsonKey(required: true)
-  final List<Section> steps;
+  final List<Section> sections;
 
-  Configuration({required this.steps}) {
-    if (steps.isEmpty) {
-      throw ArgumentError.value(steps, 'steps', 'Cannot be empty.');
+  Configuration({required this.sections}) {
+    if (sections.isEmpty) {
+      throw ArgumentError.value(sections, 'steps', 'Cannot be empty.');
     }
   }
 
@@ -40,13 +40,9 @@ class Section {
   @JsonKey(required: true)
   final List<Step> steps;
 
-  @JsonKey(required: true)
-  final List<Node> tree;
-
   Section({
     required this.name,
     required this.steps,
-    required this.tree,
     required this.displayStepNumber,
   }) {
     if (name.isEmpty) {
@@ -86,6 +82,8 @@ class Step {
   @JsonKey(name: 'sub-steps')
   final List<SubStep>? subSteps;
 
+  final List<Node>? tree;
+
   Step({
     required this.name,
     this.displayCode,
@@ -93,6 +91,7 @@ class Step {
     this.showGame,
     this.fileType,
     this.subSteps,
+    this.tree,
   }) {
     if (name.isEmpty) {
       throw ArgumentError.value(name, 'name', 'Cannot be empty.');
@@ -117,6 +116,10 @@ class Step {
       throw ArgumentError.value(
           subSteps, 'sub-steps', 'Cannot be null if display-code is not null.');
     }
+    if (displayCode != null && tree == null) {
+      throw ArgumentError.value(
+          tree, 'tree', 'Cannot be null if display-code is not null.');
+    }
     if (fileType != null && displayCode == null) {
       throw ArgumentError.value(
           fileType, 'file-type', 'Cannot be not null if display-code is null.');
@@ -124,6 +127,10 @@ class Step {
     if (subSteps != null && displayCode == null) {
       throw ArgumentError.value(
           subSteps, 'sub-steps', 'Cannot be not null if display-code is null.');
+    }
+    if (tree != null && displayCode == null) {
+      throw ArgumentError.value(
+          tree, 'tree', 'Cannot be not null if display-code is null.');
     }
     if (showGame == null && displayCode == null && displayMarkdown == null) {
       throw ArgumentError.value(showGame, 'show-game',
@@ -145,26 +152,39 @@ class Step {
   disallowUnrecognizedKeys: true,
 )
 class SubStep {
+  final String name;
+
+  @JsonKey(name: 'base-offset')
   final int baseOffset;
-  final int extentOffset;
-  final double scrollPercentage;
+
+  @JsonKey(name: 'extent-offset')
+  int? extentOffset;
+
+  @JsonKey(name: 'scroll-percentage')
+  final double? scrollPercentage;
+
+  @JsonKey(name: 'scroll-seconds')
+  final int? scrollSeconds;
 
   SubStep({
+    required this.name,
     required this.baseOffset,
-    required this.extentOffset,
-    required this.scrollPercentage,
+    this.extentOffset,
+    this.scrollPercentage,
+    this.scrollSeconds,
   }) {
     if (baseOffset < 0) {
       throw ArgumentError.value(
           baseOffset, 'baseOffset', 'Cannot be negative.');
     }
-    if (extentOffset < 0) {
+    if (extentOffset != null && extentOffset! < 0) {
       throw ArgumentError.value(
           extentOffset, 'extentOffset', 'Cannot be negative.');
     }
-    if (scrollPercentage < 0 || scrollPercentage > 1) {
+    if (scrollPercentage != null &&
+        (scrollPercentage! < 0 || scrollPercentage! > 100)) {
       throw ArgumentError.value(
-          scrollPercentage, 'scrollPercentage', 'Must be between 0 and 1.');
+          scrollPercentage, 'scrollPercentage', 'Must be between 0 and 100.');
     }
   }
 

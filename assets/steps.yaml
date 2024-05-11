@@ -1,4 +1,4 @@
-steps:
+sections:
   - name: Create a project
     step-number: 2
     steps:
@@ -8,58 +8,198 @@ steps:
         display-code: assets/step_02/pubspec.yaml
         file-type: yaml
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
-          - baseOffset: 10
-            extentOffset: 20
-            scrollPercentage: 0
-          - baseOffset: 25
-            extentOffset: 30
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+          - name: Characters for UTF8 correctness
+            base-offset: 146
+            extent-offset: 164
+          - name: Flame is a game engine built atop Flutter
+            base-offset: 167
+            extent-offset: 181
+          - name: Flame Forge2D is an adaptor
+            base-offset: 184
+            extent-offset: 206
+          - name: XML is a library for easily parsing and modifying XML
+            base-offset: 237
+            extent-offset: 248
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_02/pubspec.yaml
+            file-type: yaml      
       - name: lib/main.dart
         display-code: assets/step_02/lib/main.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+          - name: GameWidget.controlled is Flutter widget that manages a Flame game instance
+            base-offset: 103
+            extent-offset: 124
+          - name: FlameGame.new is a tear off constructor for the world's most boring game
+            base-offset: 145
+            extent-offset: 158
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: ios
+          - directory: lib
+            children:
+              - file: main.dart
+                contents: assets/step_02/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_02/pubspec.yaml
+            file-type: yaml
+      - name: macos/Runner/Base.lproj/MainMenu.xib
+        display-code: assets/step_02/macos/Runner/Base.lproj/MainMenu.xib
+        file-type: xml
+        sub-steps:
+          - name: top
+            base-offset: 0
+          - name: bottom
+            base-offset: 0
+            scroll-percentage: 100
+            scroll-seconds: 5
+          - name: titlebarAppearsTransparent
+            base-offset: 23180
+            extent-offset: 23212
+            scroll-percentage: 100
+          - name: titleVisibility
+            base-offset: 23213
+            extent-offset: 23237
+            scroll-percentage: 100
+          - name: fullSizeContentView
+            base-offset: 23349
+            extent-offset: 23374
+            scroll-percentage: 100
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+            children:
+              - directory: Flutter
+              - directory: Runner
+                children:
+                  - directory: Assets.xcassets
+                  - directory: Base.lproj
+                    children:
+                      - file: MainMenu.xib
+                        file-type: xml
+                  - directory: Configs
+                  - file: AppDelegate.swift
+                    file-type: swift
+                  - file: DebugProfile.entitlements
+                    file-type: xml
+                  - file: Info.plist
+                    file-type: plist
+                  - file: MainFlutterWindow.swift
+                    file-type: swift
+                  - file: Release.entitlements
+                    file-type: xml
+              - directory: Runner.xcodeproj
+              - directory: Runner.xcworkspace
+              - directory: RunnerTests
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_02/pubspec.yaml
+            file-type: yaml
       - name: bin/modify_macos_config.dart
         display-code: assets/step_02/bin/modify_macos_config.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+          - name: dart:io gives us an easy way to access files on disk
+            base-offset: 0
+            extent-offset: 17
+          - name: package:xml/xml.dart makes it easy to parse XML files
+            base-offset: 18
+            extent-offset: 48
+          - name: package:xml/xquery.dart makes it easy to navigate XML files using Xquery
+            base-offset: 49
+            extent-offset: 81
+          - name: File allows us to name a file
+            base-offset: 112
+            extent-offset: 156
+          - name: file.readAsStringSync() slurps the whole file in one go.
+            base-offset: 193
+            extent-offset: 216
+          - name: XmlDocument.parse parses it into a tree structure
+            base-offset: 175
+            extent-offset: 192
+          - name: //document/objects/window
+            base-offset: 237
+            extent-offset: 262
+          - name: first
+            base-offset: 265
+            extent-offset: 270
+          - name: setAttribute('titlebarAppearsTransparent', 'YES')
+            base-offset: 277
+            extent-offset: 326
+          - name: setAttribute('titleVisibility', 'hidden')
+            base-offset: 333
+            extent-offset: 374
+          - name: fullSizeContentView
+            base-offset: 378
+            extent-offset: 508
+          - name: writeAsStringSync
+            base-offset: 511
+            extent-offset: 555
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: bin
+            children:
+              - file: modify_macos_config.dart
+                contents: assets/step_02/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_02/pubspec.yaml
+            file-type: yaml
       - name: Modify macOS config
         display-markdown: assets/markdown/02_modify_macos_config.md
       - name: Show game step 2
         show-game: step_02
-    tree:
-      - directory: .vscode
-      - directory: android
-      - directory: bin
-        children:
-          - file: modify_macos_config.dart
-            contents: assets/step_02/bin/modify_macos_config.dart
-            file-type: dart
-      - directory: ios
-      - directory: lib
-        children:
-          - file: main.dart
-            contents: assets/step_02/lib/main.dart
-            file-type: dart
-      - directory: linux
-      - directory: macos
-      - directory: web
-      - directory: windows
-      - file: .gitignore
-        file-type: gitignore
-      - file: analysis_options.yaml
-        file-type: yaml
-      - file: pubspec.yaml
-        contents: assets/step_02/pubspec.yaml
-        file-type: yaml
+
   - name: Add image assets
     step-number: 3
     steps:
@@ -69,105 +209,369 @@ steps:
         display-code: assets/step_03/pubspec.yaml
         file-type: yaml
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/background.dart
         display-code: assets/step_03/lib/components/background.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/game.dart
         display-code: assets/step_03/lib/components/game.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
-          - baseOffset: 10
-            extentOffset: 10
-            scrollPercentage: 0.1
-          - baseOffset: 200
-            extentOffset: 250
-            scrollPercentage: 0.2
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/main.dart
         display-code: assets/step_03/lib/main.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: Show game step 3
         show-game: step_03
-    tree:
-      - directory: .vscode
-      - directory: android
-      - directory: assets
-        children:
-          - directory: images
-            children:
-              - file: colored_desert.png
-                contents: assets/step_03/assets/images/colored_desert.png
-                file-type: png
-              - file: colored_grass.png
-                contents: assets/step_03/assets/images/colored_grass.png
-                file-type: png
-              - file: colored_land.png
-                contents: assets/step_03/assets/images/colored_land.png
-                file-type: png
-              - file: colored_shrooms.png
-                contents: assets/step_03/assets/images/colored_shrooms.png
-                file-type: png
-              - file: spritesheet_aliens.png
-                contents: assets/step_03/assets/images/spritesheet_aliens.png
-                file-type: png
-              - file: spritesheet_elements.png
-                contents: assets/step_03/assets/images/spritesheet_elements.png
-                file-type: png
-              - file: spritesheet_tiles.png
-                contents: assets/step_03/assets/images/spritesheet_tiles.png
-                file-type: png
-          - file: spritesheet_aliens.xml
-            contents: assets/step_03/assets/spritesheet_aliens.xml
-            file-type: xml
-          - file: spritesheet_elements.xml
-            contents: assets/step_03/assets/spritesheet_elements.xml
-            file-type: xml
-          - file: spritesheet_tiles.xml
-            contents: assets/step_03/assets/spritesheet_tiles.xml
-            file-type: xml
-      - directory: bin
-        children:
-          - file: modify_macos_config.dart
-            contents: assets/step_03/bin/modify_macos_config.dart
-            file-type: dart
-      - directory: ios
-      - directory: lib
-        children:
-          - directory: components
-            children:
-              - file: background.dart
-                contents: assets/step_03/lib/components/background.dart
-                file-type: dart
-              - file: game.dart
-                contents: assets/step_03/lib/components/game.dart
-                file-type: dart
-          - file: main.dart
-            contents: assets/step_03/lib/main.dart
-            file-type: dart
-      - directory: linux
-      - directory: macos
-      - directory: web
-      - directory: windows
-      - file: .gitignore
-        file-type: gitignore
-      - file: analysis_options.yaml
-        file-type: yaml
-      - file: pubspec.yaml
-        contents: assets/step_03/pubspec.yaml
-        file-type: yaml
+
   - name: Add the ground
     step-number: 4
     steps:
@@ -175,88 +579,187 @@ steps:
         display-code: assets/step_04/lib/components/ground.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/game.dart
         display-code: assets/step_04/lib/components/game.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: Show game step 4
         show-game: step_04
-    tree:
-      - directory: .vscode
-      - directory: android
-      - directory: assets
-        children:
-          - directory: images
-            children:
-              - file: colored_desert.png
-                contents: assets/step_04/assets/images/colored_desert.png
-                file-type: png
-              - file: colored_grass.png
-                contents: assets/step_04/assets/images/colored_grass.png
-                file-type: png
-              - file: colored_land.png
-                contents: assets/step_04/assets/images/colored_land.png
-                file-type: png
-              - file: colored_shrooms.png
-                contents: assets/step_04/assets/images/colored_shrooms.png
-                file-type: png
-              - file: spritesheet_aliens.png
-                contents: assets/step_04/assets/images/spritesheet_aliens.png
-                file-type: png
-              - file: spritesheet_elements.png
-                contents: assets/step_04/assets/images/spritesheet_elements.png
-                file-type: png
-              - file: spritesheet_tiles.png
-                contents: assets/step_04/assets/images/spritesheet_tiles.png
-                file-type: png
-          - file: spritesheet_aliens.xml
-            contents: assets/step_04/assets/spritesheet_aliens.xml
-            file-type: xml
-          - file: spritesheet_elements.xml
-            contents: assets/step_04/assets/spritesheet_elements.xml
-            file-type: xml
-          - file: spritesheet_tiles.xml
-            contents: assets/step_04/assets/spritesheet_tiles.xml
-            file-type: xml
-      - directory: bin
-        children:
-          - file: modify_macos_config.dart
-            contents: assets/step_04/bin/modify_macos_config.dart
-            file-type: dart
-      - directory: ios
-      - directory: lib
-        children:
-          - directory: components
-            children:
-              - file: background.dart
-                contents: assets/step_04/lib/components/background.dart
-                file-type: dart
-              - file: game.dart
-                contents: assets/step_04/lib/components/game.dart
-                file-type: dart
-              - file: ground.dart
-                contents: assets/step_04/lib/components/ground.dart
-                file-type: dart
-          - file: main.dart
-            contents: assets/step_04/lib/main.dart
-            file-type: dart
-      - directory: linux
-      - directory: macos
-      - directory: web
-      - directory: windows
-      - file: .gitignore
-        file-type: gitignore
-      - file: analysis_options.yaml
-        file-type: yaml
-      - file: pubspec.yaml
-        contents: assets/step_04/pubspec.yaml
-        file-type: yaml
+
   - name: Add the bricks
     step-number: 5
     steps:
@@ -264,103 +767,280 @@ steps:
         display-code: assets/step_05/bin/generate_brick_file_names.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: Generate brick file names
         display-markdown: assets/markdown/04_generate_brick_file_names.md
       - name: lib/components/brick.dart
         display-code: assets/step_05/lib/components/brick.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/game.dart
         display-code: assets/step_05/lib/components/game.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: Show game step 5
         show-game: step_05
-    tree:
-      - directory: .vscode
-      - directory: android
-      - directory: assets
-        children:
-          - directory: images
-            children:
-              - file: colored_desert.png
-                contents: assets/step_05/assets/images/colored_desert.png
-                file-type: png
-              - file: colored_grass.png
-                contents: assets/step_05/assets/images/colored_grass.png
-                file-type: png
-              - file: colored_land.png
-                contents: assets/step_05/assets/images/colored_land.png
-                file-type: png
-              - file: colored_shrooms.png
-                contents: assets/step_05/assets/images/colored_shrooms.png
-                file-type: png
-              - file: spritesheet_aliens.png
-                contents: assets/step_05/assets/images/spritesheet_aliens.png
-                file-type: png
-              - file: spritesheet_elements.png
-                contents: assets/step_05/assets/images/spritesheet_elements.png
-                file-type: png
-              - file: spritesheet_tiles.png
-                contents: assets/step_05/assets/images/spritesheet_tiles.png
-                file-type: png
-          - file: spritesheet_aliens.xml
-            contents: assets/step_05/assets/spritesheet_aliens.xml
-            file-type: xml
-          - file: spritesheet_elements.xml
-            contents: assets/step_05/assets/spritesheet_elements.xml
-            file-type: xml
-          - file: spritesheet_tiles.xml
-            contents: assets/step_05/assets/spritesheet_tiles.xml
-            file-type: xml
-      - directory: bin
-        children:
-          - file: generate_brick_file_names.dart
-            contents: assets/step_05/bin/generate_brick_file_names.dart
-            file-type: dart
-          - file: modify_macos_config.dart
-            contents: assets/step_05/bin/modify_macos_config.dart
-            file-type: dart
-      - directory: ios
-      - directory: lib
-        children:
-          - directory: components
-            children:
-              - file: background.dart
-                contents: assets/step_05/lib/components/background.dart
-                file-type: dart
-              - file: brick.dart
-                contents: assets/step_05/lib/components/brick.dart
-                file-type: dart
-              - file: game.dart
-                contents: assets/step_05/lib/components/game.dart
-                file-type: dart
-              - file: ground.dart
-                contents: assets/step_05/lib/components/ground.dart
-                file-type: dart
-          - file: main.dart
-            contents: assets/step_05/lib/main.dart
-            file-type: dart
-      - directory: linux
-      - directory: macos
-      - directory: web
-      - directory: windows
-      - file: .gitignore
-        file-type: gitignore
-      - file: analysis_options.yaml
-        file-type: yaml
-      - file: pubspec.yaml
-        contents: assets/step_05/pubspec.yaml
-        file-type: yaml
+
   - name: Add the player
     step-number: 6
     steps:
@@ -368,97 +1048,187 @@ steps:
         display-code: assets/step_06/lib/components/player.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/game.dart
         display-code: assets/step_06/lib/components/game.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: Show game step 6
         show-game: step_06
-    tree:
-      - directory: .vscode
-      - directory: android
-      - directory: assets
-        children:
-          - directory: images
-            children:
-              - file: colored_desert.png
-                contents: assets/step_06/assets/images/colored_desert.png
-                file-type: png
-              - file: colored_grass.png
-                contents: assets/step_06/assets/images/colored_grass.png
-                file-type: png
-              - file: colored_land.png
-                contents: assets/step_06/assets/images/colored_land.png
-                file-type: png
-              - file: colored_shrooms.png
-                contents: assets/step_06/assets/images/colored_shrooms.png
-                file-type: png
-              - file: spritesheet_aliens.png
-                contents: assets/step_06/assets/images/spritesheet_aliens.png
-                file-type: png
-              - file: spritesheet_elements.png
-                contents: assets/step_06/assets/images/spritesheet_elements.png
-                file-type: png
-              - file: spritesheet_tiles.png
-                contents: assets/step_06/assets/images/spritesheet_tiles.png
-                file-type: png
-          - file: spritesheet_aliens.xml
-            contents: assets/step_06/assets/spritesheet_aliens.xml
-            file-type: xml
-          - file: spritesheet_elements.xml
-            contents: assets/step_06/assets/spritesheet_elements.xml
-            file-type: xml
-          - file: spritesheet_tiles.xml
-            contents: assets/step_06/assets/spritesheet_tiles.xml
-            file-type: xml
-      - directory: bin
-        children:
-          - file: generate_brick_file_names.dart
-            contents: assets/step_06/bin/generate_brick_file_names.dart
-            file-type: dart
-          - file: modify_macos_config.dart
-            contents: assets/step_06/bin/modify_macos_config.dart
-            file-type: dart
-      - directory: ios
-      - directory: lib
-        children:
-          - directory: components
-            children:
-              - file: background.dart
-                contents: assets/step_06/lib/components/background.dart
-                file-type: dart
-              - file: brick.dart
-                contents: assets/step_06/lib/components/brick.dart
-                file-type: dart
-              - file: game.dart
-                contents: assets/step_06/lib/components/game.dart
-                file-type: dart
-              - file: ground.dart
-                contents: assets/step_06/lib/components/ground.dart
-                file-type: dart
-              - file: player.dart
-                contents: assets/step_06/lib/components/player.dart
-                file-type: dart
-          - file: main.dart
-            contents: assets/step_06/lib/main.dart
-            file-type: dart
-      - directory: linux
-      - directory: macos
-      - directory: web
-      - directory: windows
-      - file: .gitignore
-        file-type: gitignore
-      - file: analysis_options.yaml
-        file-type: yaml
-      - file: pubspec.yaml
-        contents: assets/step_06/pubspec.yaml
-        file-type: yaml
+
   - name: React to impact
     step-number: 7
     steps:
@@ -466,128 +1236,547 @@ steps:
         display-code: assets/step_07/lib/components/enemy.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/body_component_with_user_data.dart
         display-code: assets/step_07/lib/components/body_component_with_user_data.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/ground.dart
         display-code: assets/step_07/lib/components/ground.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/player.dart
         display-code: assets/step_07/lib/components/player.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/brick.dart
         display-code: assets/step_07/lib/components/brick.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: lib/components/game.dart
         display-code: assets/step_06/lib/components/game.dart
         file-type: dart
         sub-steps:
-          - baseOffset: 0
-            extentOffset: 0
-            scrollPercentage: 0
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_07/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_07/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_07/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shrooms.png
+                    contents: assets/step_07/assets/images/colored_shrooms.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_07/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_07/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_07/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_07/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_07/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_07/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+            children:
+              - file: generate_brick_file_names.dart
+                contents: assets/step_07/bin/generate_brick_file_names.dart
+                file-type: dart
+              - file: modify_macos_config.dart
+                contents: assets/step_07/bin/modify_macos_config.dart
+                file-type: dart
+          - directory: ios
+          - directory: lib
+            children:
+              - directory: components
+                children:
+                  - file: background.dart
+                    contents: assets/step_07/lib/components/background.dart
+                    file-type: dart
+                  - file: body_component_with_user_data.dart
+                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
+                    file-type: dart
+                  - file: brick.dart
+                    contents: assets/step_07/lib/components/brick.dart
+                    file-type: dart
+                  - file: enemy.dart
+                    contents: assets/step_07/lib/components/enemy.dart
+                    file-type: dart
+                  - file: game.dart
+                    contents: assets/step_07/lib/components/game.dart
+                    file-type: dart
+                  - file: ground.dart
+                    contents: assets/step_07/lib/components/ground.dart
+                    file-type: dart
+                  - file: player.dart
+                    contents: assets/step_07/lib/components/player.dart
+                    file-type: dart
+              - file: main.dart
+                contents: assets/step_07/lib/main.dart
+                file-type: dart
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_07/pubspec.yaml
+            file-type: yaml
       - name: Show game step 7
         show-game: step_07
-    tree:
-      - directory: .vscode
-      - directory: android
-      - directory: assets
-        children:
-          - directory: images
-            children:
-              - file: colored_desert.png
-                contents: assets/step_07/assets/images/colored_desert.png
-                file-type: png
-              - file: colored_grass.png
-                contents: assets/step_07/assets/images/colored_grass.png
-                file-type: png
-              - file: colored_land.png
-                contents: assets/step_07/assets/images/colored_land.png
-                file-type: png
-              - file: colored_shrooms.png
-                contents: assets/step_07/assets/images/colored_shrooms.png
-                file-type: png
-              - file: spritesheet_aliens.png
-                contents: assets/step_07/assets/images/spritesheet_aliens.png
-                file-type: png
-              - file: spritesheet_elements.png
-                contents: assets/step_07/assets/images/spritesheet_elements.png
-                file-type: png
-              - file: spritesheet_tiles.png
-                contents: assets/step_07/assets/images/spritesheet_tiles.png
-                file-type: png
-          - file: spritesheet_aliens.xml
-            contents: assets/step_07/assets/spritesheet_aliens.xml
-            file-type: xml
-          - file: spritesheet_elements.xml
-            contents: assets/step_07/assets/spritesheet_elements.xml
-            file-type: xml
-          - file: spritesheet_tiles.xml
-            contents: assets/step_07/assets/spritesheet_tiles.xml
-            file-type: xml
-      - directory: bin
-        children:
-          - file: generate_brick_file_names.dart
-            contents: assets/step_07/bin/generate_brick_file_names.dart
-            file-type: dart
-          - file: modify_macos_config.dart
-            contents: assets/step_07/bin/modify_macos_config.dart
-            file-type: dart
-      - directory: ios
-      - directory: lib
-        children:
-          - directory: components
-            children:
-              - file: background.dart
-                contents: assets/step_07/lib/components/background.dart
-                file-type: dart
-              - file: body_component_with_user_data.dart
-                contents: assets/step_07/lib/components/body_component_with_user_data.dart
-                file-type: dart
-              - file: brick.dart
-                contents: assets/step_07/lib/components/brick.dart
-                file-type: dart
-              - file: enemy.dart
-                contents: assets/step_07/lib/components/enemy.dart
-                file-type: dart
-              - file: game.dart
-                contents: assets/step_07/lib/components/game.dart
-                file-type: dart
-              - file: ground.dart
-                contents: assets/step_07/lib/components/ground.dart
-                file-type: dart
-              - file: player.dart
-                contents: assets/step_07/lib/components/player.dart
-                file-type: dart
-          - file: main.dart
-            contents: assets/step_07/lib/main.dart
-            file-type: dart
-      - directory: linux
-      - directory: macos
-      - directory: web
-      - directory: windows
-      - file: .gitignore
-        file-type: gitignore
-      - file: analysis_options.yaml
-        file-type: yaml
-      - file: pubspec.yaml
-        contents: assets/step_07/pubspec.yaml
-        file-type: yaml

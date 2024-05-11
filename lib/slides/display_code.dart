@@ -18,6 +18,7 @@ class DisplayCode extends ConsumerStatefulWidget {
     required this.baseOffset,
     required this.extentOffset,
     required this.scrollPercentage,
+    required this.scrollSeconds,
   });
 
   final String assetPath;
@@ -26,6 +27,7 @@ class DisplayCode extends ConsumerStatefulWidget {
   final int baseOffset;
   final int extentOffset;
   final double scrollPercentage;
+  final int scrollSeconds;
 
   @override
   ConsumerState<DisplayCode> createState() => _DisplayCodeState();
@@ -63,6 +65,7 @@ class _DisplayCodeState extends ConsumerState<DisplayCode> {
               baseOffset: widget.baseOffset,
               extentOffset: widget.extentOffset,
               scrollPercentage: widget.scrollPercentage,
+              scrollSeconds: widget.scrollSeconds,
             ),
           (_, true) => Center(
               child: Text('Error: ${snapshot.error}'),
@@ -92,6 +95,7 @@ class _DisplayCodeHelper extends StatefulWidget {
     required this.baseOffset,
     required this.extentOffset,
     required this.scrollPercentage,
+    required this.scrollSeconds,
   });
 
   final String assetPath;
@@ -102,6 +106,7 @@ class _DisplayCodeHelper extends StatefulWidget {
   final int baseOffset;
   final int extentOffset;
   final double scrollPercentage;
+  final int scrollSeconds;
 
   @override
   State<_DisplayCodeHelper> createState() => _DisplayCodeHelperState();
@@ -130,11 +135,19 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
   void didUpdateWidget(covariant _DisplayCodeHelper oldWidget) {
     super.didUpdateWidget(oldWidget);
     treeController.roots = widget.tree;
-    scrollController.animateTo(
-      scrollController.position.maxScrollExtent * widget.scrollPercentage,
-      duration: Durations.long4,
-      curve: Curves.easeInOut,
-    );
+    if (widget.scrollSeconds > 0) {
+      scrollController.animateTo(
+        scrollController.position.maxScrollExtent *
+            widget.scrollPercentage /
+            100,
+        duration: Duration(seconds: widget.scrollSeconds),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      scrollController.jumpTo(scrollController.position.maxScrollExtent *
+          widget.scrollPercentage /
+          100);
+    }
   }
 
   @override
@@ -144,7 +157,7 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
     final textSelection = TextSelection(
       baseOffset: widget.baseOffset,
       extentOffset: widget.extentOffset,
-      affinity: TextAffinity.downstream,
+      affinity: TextAffinity.upstream,
     );
 
     return Row(
