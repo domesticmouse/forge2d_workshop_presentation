@@ -8,7 +8,7 @@ import 'package:super_text_layout/super_text_layout.dart';
 import '../configuration.dart';
 import '../providers.dart';
 
-class DisplayCode extends ConsumerStatefulWidget {
+class DisplayCode extends StatefulWidget {
   const DisplayCode({
     super.key,
     required this.assetPath,
@@ -29,91 +29,11 @@ class DisplayCode extends ConsumerStatefulWidget {
   final int scrollSeconds;
 
   @override
-  ConsumerState<DisplayCode> createState() => _DisplayCodeState();
+  State<DisplayCode> createState() => _DisplayCodeState();
 }
 
-class _DisplayCodeState extends ConsumerState<DisplayCode> {
-  @override
-  void initState() {
-    super.initState();
-    content = rootBundle.loadString(widget.assetPath);
-  }
-
-  @override
-  void didUpdateWidget(covariant DisplayCode oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    content = rootBundle.loadString(widget.assetPath);
-  }
-
-  late Future<String> content;
-
-  @override
-  Widget build(BuildContext context) {
-    final highlightersAsync = ref.watch(highlightersProvider);
-    return highlightersAsync.when(
-      data: (highlighters) => FutureBuilder<String>(
-        future: content,
-        builder: (context, snapshot) =>
-            switch ((snapshot.hasData, snapshot.hasError)) {
-          (true, _) => _DisplayCodeHelper(
-              assetPath: widget.assetPath,
-              content: snapshot.data ?? '',
-              fileType: widget.fileType,
-              tree: widget.tree,
-              highlighters: highlighters,
-              baseOffset: widget.baseOffset,
-              extentOffset: widget.extentOffset,
-              scrollPercentage: widget.scrollPercentage,
-              scrollSeconds: widget.scrollSeconds,
-            ),
-          (_, true) => Center(
-              child: Text('Error: ${snapshot.error}'),
-            ),
-          _ => Center(
-              child: CircularProgressIndicator(),
-            ),
-        },
-      ),
-      loading: () => Center(
-        child: CircularProgressIndicator(),
-      ),
-      error: (error, stack) => Center(
-        child: Text('Error: $error\n$stack'),
-      ),
-    );
-  }
-}
-
-class _DisplayCodeHelper extends StatefulWidget {
-  const _DisplayCodeHelper({
-    required this.assetPath,
-    required this.content,
-    required this.fileType,
-    required this.tree,
-    required this.highlighters,
-    required this.baseOffset,
-    required this.extentOffset,
-    required this.scrollPercentage,
-    required this.scrollSeconds,
-  });
-
-  final String assetPath;
-  final String content;
-  final String fileType;
-  final List<Node> tree;
-  final Highlighters highlighters;
-  final int baseOffset;
-  final int extentOffset;
-  final double scrollPercentage;
-  final int scrollSeconds;
-
-  @override
-  State<_DisplayCodeHelper> createState() => _DisplayCodeHelperState();
-}
-
-class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
+class _DisplayCodeState extends State<DisplayCode> {
   late final TreeController<Node> treeController;
-  late final ScrollController scrollController;
 
   @override
   void initState() {
@@ -123,41 +43,17 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
       childrenProvider: (node) => node.children ?? [],
       defaultExpansionState: true,
     );
-
-    scrollController = ScrollController()
-      ..addListener(() {
-        debugPrint('scrollController.offset: ${scrollController.offset}');
-      });
   }
 
   @override
-  void didUpdateWidget(covariant _DisplayCodeHelper oldWidget) {
+  void didUpdateWidget(covariant DisplayCode oldWidget) {
     super.didUpdateWidget(oldWidget);
     treeController.roots = widget.tree;
-    if (widget.scrollSeconds > 0) {
-      scrollController.animateTo(
-        scrollController.position.maxScrollExtent *
-            widget.scrollPercentage /
-            100,
-        duration: Duration(seconds: widget.scrollSeconds),
-        curve: Curves.easeInOut,
-      );
-    } else {
-      scrollController.jumpTo(scrollController.position.maxScrollExtent *
-          widget.scrollPercentage /
-          100);
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-
-    final textSelection = TextSelection(
-      baseOffset: widget.baseOffset,
-      extentOffset: widget.extentOffset,
-      affinity: TextAffinity.upstream,
-    );
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -198,74 +94,231 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
           thickness: 1,
           color: Colors.black.withOpacity(0.3),
         ),
-        SizedBox(width: 12), // Add some space between the tree and the code
-        Expanded(
-          child: NotificationListener<ScrollMetricsNotification>(
-            onNotification: (notification) {
-              debugPrint('ScrollMetricsNotification.metrics.minScrollExtent: '
-                  '${notification.metrics.minScrollExtent}');
-              debugPrint('ScrollMetricsNotification.metrics.maxScrollExtent: '
-                  '${notification.metrics.maxScrollExtent}');
-              return false;
-            },
-            child: SingleChildScrollView(
-              controller: scrollController,
-              child: SuperText(
-                richText: TextSpan(
-                  style: GoogleFonts.robotoMono(
-                    textStyle: TextStyle(
-                      fontSize: 0.02567568 * size.height - 1.864865,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                  children: [
-                    switch (widget.fileType) {
-                      'dart' =>
-                        widget.highlighters.dart.highlight(widget.content),
-                      'yaml' =>
-                        widget.highlighters.yaml.highlight(widget.content),
-                      'xml' =>
-                        widget.highlighters.xml.highlight(widget.content),
-                      _ => TextSpan(
-                          text: widget.content,
-                          style: const TextStyle(color: Colors.black),
-                        ),
-                    },
-                  ],
-                ),
-                layerAboveBuilder: (context, textLayout) {
-                  return Stack(
-                    children: [
-                      TextLayoutCaret(
-                        textLayout: textLayout,
-                        style: const CaretStyle(
-                          color: Colors.black,
-                          width: 2,
-                        ),
-                        position:
-                            TextPosition(offset: textSelection.extentOffset),
-                      ),
-                    ],
-                  );
-                },
-                layerBeneathBuilder: (context, textLayout) {
-                  return Stack(
-                    children: [
-                      TextLayoutSelectionHighlight(
-                        textLayout: textLayout,
-                        style: SelectionHighlightStyle(
-                          color: Colors.blue.withOpacity(0.3),
-                        ),
-                        selection: textSelection,
-                      ),
-                    ],
-                  );
-                },
-              ),
+        if (widget.fileType != 'png') ...[
+          SizedBox(width: 12),
+          Expanded(
+            child: DisplayCodeText(
+              assetPath: widget.assetPath,
+              fileType: widget.fileType,
+              baseOffset: widget.baseOffset,
+              extentOffset: widget.extentOffset,
+              scrollPercentage: widget.scrollPercentage,
+              scrollSeconds: widget.scrollSeconds,
             ),
           ),
-        ),
+        ],
+        if (widget.fileType == 'png')
+          Expanded(
+            child: Center(
+              child: Image.asset(widget.assetPath),
+            ),
+          )
       ],
+    );
+  }
+}
+
+class DisplayCodeText extends ConsumerStatefulWidget {
+  const DisplayCodeText({
+    super.key,
+    required this.assetPath,
+    required this.fileType,
+    required this.baseOffset,
+    required this.extentOffset,
+    required this.scrollPercentage,
+    required this.scrollSeconds,
+  });
+
+  final String assetPath;
+  final String fileType;
+  final int baseOffset;
+  final int extentOffset;
+  final double scrollPercentage;
+  final int scrollSeconds;
+
+  @override
+  ConsumerState<DisplayCodeText> createState() => _DisplayCodeTextState();
+}
+
+class _DisplayCodeTextState extends ConsumerState<DisplayCodeText> {
+  @override
+  void initState() {
+    super.initState();
+    content = rootBundle.loadString(widget.assetPath);
+  }
+
+  @override
+  void didUpdateWidget(covariant DisplayCodeText oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    content = rootBundle.loadString(widget.assetPath);
+  }
+
+  late Future<String> content;
+
+  @override
+  Widget build(BuildContext context) {
+    final highlightersAsync = ref.watch(highlightersProvider);
+    return highlightersAsync.when(
+      data: (highlighters) => FutureBuilder<String>(
+        future: content,
+        builder: (context, snapshot) =>
+            switch ((snapshot.hasData, snapshot.hasError)) {
+          (true, _) => _DisplayCodeTextHelper(
+              assetPath: widget.assetPath,
+              content: snapshot.data ?? '',
+              fileType: widget.fileType,
+              highlighters: highlighters,
+              baseOffset: widget.baseOffset,
+              extentOffset: widget.extentOffset,
+              scrollPercentage: widget.scrollPercentage,
+              scrollSeconds: widget.scrollSeconds,
+            ),
+          (_, true) => Center(
+              child: Text('Error: ${snapshot.error}'),
+            ),
+          _ => Center(
+              child: CircularProgressIndicator(),
+            ),
+        },
+      ),
+      loading: () => Center(
+        child: CircularProgressIndicator(),
+      ),
+      error: (error, stack) => Center(
+        child: Text('Error: $error\n$stack'),
+      ),
+    );
+  }
+}
+
+class _DisplayCodeTextHelper extends StatefulWidget {
+  const _DisplayCodeTextHelper({
+    required this.assetPath,
+    required this.content,
+    required this.fileType,
+    required this.highlighters,
+    required this.baseOffset,
+    required this.extentOffset,
+    required this.scrollPercentage,
+    required this.scrollSeconds,
+  });
+
+  final String assetPath;
+  final String content;
+  final String fileType;
+  final Highlighters highlighters;
+  final int baseOffset;
+  final int extentOffset;
+  final double scrollPercentage;
+  final int scrollSeconds;
+
+  @override
+  State<_DisplayCodeTextHelper> createState() => _DisplayCodeTextHelperState();
+}
+
+class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
+  late final ScrollController scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    scrollController = ScrollController()
+      ..addListener(() {
+        debugPrint('scrollController.offset: ${scrollController.offset}');
+      });
+  }
+
+  @override
+  void didUpdateWidget(covariant _DisplayCodeTextHelper oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.scrollSeconds > 0) {
+      scrollController.animateTo(
+        scrollController.position.maxScrollExtent *
+            widget.scrollPercentage /
+            100,
+        duration: Duration(seconds: widget.scrollSeconds),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      scrollController.jumpTo(scrollController.position.maxScrollExtent *
+          widget.scrollPercentage /
+          100);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+
+    final textSelection = TextSelection(
+      baseOffset: widget.baseOffset,
+      extentOffset: widget.extentOffset,
+      affinity: TextAffinity.upstream,
+    );
+
+    return NotificationListener<ScrollMetricsNotification>(
+      onNotification: (notification) {
+        debugPrint('ScrollMetricsNotification.metrics.minScrollExtent: '
+            '${notification.metrics.minScrollExtent}');
+        debugPrint('ScrollMetricsNotification.metrics.maxScrollExtent: '
+            '${notification.metrics.maxScrollExtent}');
+        return false;
+      },
+      child: ListView(
+        controller: scrollController,
+        children: [
+          SizedBox(height: 8),
+          SuperText(
+            richText: TextSpan(
+              style: GoogleFonts.robotoMono(
+                textStyle: TextStyle(
+                  fontSize: 0.02567568 * size.height - 1.864865,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              children: [
+                switch (widget.fileType) {
+                  'dart' => widget.highlighters.dart.highlight(widget.content),
+                  'yaml' => widget.highlighters.yaml.highlight(widget.content),
+                  'xml' => widget.highlighters.xml.highlight(widget.content),
+                  _ => TextSpan(
+                      text: widget.content,
+                      style: const TextStyle(color: Colors.black),
+                    ),
+                },
+              ],
+            ),
+            layerAboveBuilder: (context, textLayout) {
+              return Stack(
+                children: [
+                  TextLayoutCaret(
+                    textLayout: textLayout,
+                    style: const CaretStyle(
+                      color: Colors.black,
+                      width: 2,
+                    ),
+                    position: TextPosition(offset: textSelection.extentOffset),
+                  ),
+                ],
+              );
+            },
+            layerBeneathBuilder: (context, textLayout) {
+              return Stack(
+                children: [
+                  TextLayoutSelectionHighlight(
+                    textLayout: textLayout,
+                    style: SelectionHighlightStyle(
+                      color: Colors.blue.withOpacity(0.3),
+                    ),
+                    selection: textSelection,
+                  ),
+                ],
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

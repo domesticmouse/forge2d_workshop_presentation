@@ -112,7 +112,7 @@ class Step {
       throw ArgumentError.value(
           fileType, 'file-type', 'Cannot be null if display-code is not null.');
     }
-    if (displayCode != null && subSteps == null) {
+    if (displayCode != null && subSteps == null && fileType != 'png') {
       throw ArgumentError.value(
           subSteps, 'sub-steps', 'Cannot be null if display-code is not null.');
     }

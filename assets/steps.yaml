@@ -257,12 +257,9 @@ sections:
     steps:
       - name: Download Physics Assets from Kenney.nl
         display-markdown: assets/markdown/03_kenney_nl_download_physics_assets.md
-      - name: pubspec.yaml
-        display-code: assets/step_03/pubspec.yaml
-        file-type: yaml
-        sub-steps:
-          - name: top
-            base-offset: 0
+      - name: colored_desert.png
+        display-code: assets/step_03/assets/images/colored_desert.png
+        file-type: png
         tree:
           - directory: .vscode
           - directory: android
@@ -279,8 +276,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_03/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_03/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_03/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_03/assets/images/spritesheet_aliens.png
@@ -301,42 +298,461 @@ sections:
                 contents: assets/step_03/assets/spritesheet_tiles.xml
                 file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_03/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_03/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: colored_grass.png
+        display-code: assets/step_03/assets/images/colored_grass.png
+        file-type: png
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
             children:
-              - directory: components
+              - directory: images
                 children:
-                  - file: background.dart
-                    contents: assets/step_03/lib/components/background.dart
-                    file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_03/lib/components/body_component_with_user_data.dart
-                    file-type: dart
-                  - file: brick.dart
-                    contents: assets/step_03/lib/components/brick.dart
-                    file-type: dart
-                  - file: enemy.dart
-                    contents: assets/step_03/lib/components/enemy.dart
-                    file-type: dart
-                  - file: game.dart
-                    contents: assets/step_03/lib/components/game.dart
-                    file-type: dart
-                  - file: ground.dart
-                    contents: assets/step_03/lib/components/ground.dart
-                    file-type: dart
-                  - file: player.dart
-                    contents: assets/step_03/lib/components/player.dart
-                    file-type: dart
-              - file: main.dart
-                contents: assets/step_03/lib/main.dart
-                file-type: dart
+                  - file: colored_desert.png
+                    contents: assets/step_03/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_03/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_03/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shroom.png
+                    contents: assets/step_03/assets/images/colored_shroom.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_03/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_03/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_03/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_03/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_03/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_03/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: colored_land.png
+        display-code: assets/step_03/assets/images/colored_land.png
+        file-type: png
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_03/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_03/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_03/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shroom.png
+                    contents: assets/step_03/assets/images/colored_shroom.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_03/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_03/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_03/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_03/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_03/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_03/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: colored_shroom.png
+        display-code: assets/step_03/assets/images/colored_shroom.png
+        file-type: png
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_03/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_03/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_03/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shroom.png
+                    contents: assets/step_03/assets/images/colored_shroom.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_03/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_03/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_03/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_03/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_03/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_03/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: spritesheet_aliens.png
+        display-code: assets/step_03/assets/images/spritesheet_aliens.png
+        file-type: png
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_03/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_03/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_03/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shroom.png
+                    contents: assets/step_03/assets/images/colored_shroom.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_03/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_03/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_03/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_03/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_03/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_03/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: spritesheet_elements.png
+        display-code: assets/step_03/assets/images/spritesheet_elements.png
+        file-type: png
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_03/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_03/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_03/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shroom.png
+                    contents: assets/step_03/assets/images/colored_shroom.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_03/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_03/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_03/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_03/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_03/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_03/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: spritesheet_tiles.png
+        display-code: assets/step_03/assets/images/spritesheet_tiles.png
+        file-type: png
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+                children:
+                  - file: colored_desert.png
+                    contents: assets/step_03/assets/images/colored_desert.png
+                    file-type: png
+                  - file: colored_grass.png
+                    contents: assets/step_03/assets/images/colored_grass.png
+                    file-type: png
+                  - file: colored_land.png
+                    contents: assets/step_03/assets/images/colored_land.png
+                    file-type: png
+                  - file: colored_shroom.png
+                    contents: assets/step_03/assets/images/colored_shroom.png
+                    file-type: png
+                  - file: spritesheet_aliens.png
+                    contents: assets/step_03/assets/images/spritesheet_aliens.png
+                    file-type: png
+                  - file: spritesheet_elements.png
+                    contents: assets/step_03/assets/images/spritesheet_elements.png
+                    file-type: png
+                  - file: spritesheet_tiles.png
+                    contents: assets/step_03/assets/images/spritesheet_tiles.png
+                    file-type: png
+              - file: spritesheet_aliens.xml
+                contents: assets/step_03/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_03/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_03/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: spritesheet_aliens.xml
+        display-code: assets/step_03/assets/spritesheet_aliens.xml
+        file-type: xml
+        sub-steps:
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+              - file: spritesheet_aliens.xml
+                contents: assets/step_03/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_03/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_03/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: spritesheet_elements.xml
+        display-code: assets/step_03/assets/spritesheet_elements.xml
+        file-type: xml
+        sub-steps:
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+              - file: spritesheet_aliens.xml
+                contents: assets/step_03/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_03/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_03/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: spritesheet_tiles.xml
+        display-code: assets/step_03/assets/spritesheet_tiles.xml
+        file-type: xml
+        sub-steps:
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+            children:
+              - directory: images
+              - file: spritesheet_aliens.xml
+                contents: assets/step_03/assets/spritesheet_aliens.xml
+                file-type: xml
+              - file: spritesheet_elements.xml
+                contents: assets/step_03/assets/spritesheet_elements.xml
+                file-type: xml
+              - file: spritesheet_tiles.xml
+                contents: assets/step_03/assets/spritesheet_tiles.xml
+                file-type: xml
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_03/pubspec.yaml
+            file-type: yaml
+      - name: pubspec.yaml
+        display-code: assets/step_03/pubspec.yaml
+        file-type: yaml
+        sub-steps:
+          - name: top
+            base-offset: 0
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: assets
+          - directory: bin
+          - directory: ios
+          - directory: lib
           - directory: linux
           - directory: macos
           - directory: web
@@ -358,47 +774,7 @@ sections:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_03/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_03/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_03/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_03/assets/images/colored_shrooms.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_03/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_03/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_03/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_03/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_03/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_03/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_03/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_03/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -406,24 +782,6 @@ sections:
                 children:
                   - file: background.dart
                     contents: assets/step_03/lib/components/background.dart
-                    file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_03/lib/components/body_component_with_user_data.dart
-                    file-type: dart
-                  - file: brick.dart
-                    contents: assets/step_03/lib/components/brick.dart
-                    file-type: dart
-                  - file: enemy.dart
-                    contents: assets/step_03/lib/components/enemy.dart
-                    file-type: dart
-                  - file: game.dart
-                    contents: assets/step_03/lib/components/game.dart
-                    file-type: dart
-                  - file: ground.dart
-                    contents: assets/step_03/lib/components/ground.dart
-                    file-type: dart
-                  - file: player.dart
-                    contents: assets/step_03/lib/components/player.dart
                     file-type: dart
               - file: main.dart
                 contents: assets/step_03/lib/main.dart
@@ -449,47 +807,7 @@ sections:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_03/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_03/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_03/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_03/assets/images/colored_shrooms.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_03/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_03/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_03/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_03/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_03/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_03/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_03/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_03/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -498,23 +816,8 @@ sections:
                   - file: background.dart
                     contents: assets/step_03/lib/components/background.dart
                     file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_03/lib/components/body_component_with_user_data.dart
-                    file-type: dart
-                  - file: brick.dart
-                    contents: assets/step_03/lib/components/brick.dart
-                    file-type: dart
-                  - file: enemy.dart
-                    contents: assets/step_03/lib/components/enemy.dart
-                    file-type: dart
                   - file: game.dart
                     contents: assets/step_03/lib/components/game.dart
-                    file-type: dart
-                  - file: ground.dart
-                    contents: assets/step_03/lib/components/ground.dart
-                    file-type: dart
-                  - file: player.dart
-                    contents: assets/step_03/lib/components/player.dart
                     file-type: dart
               - file: main.dart
                 contents: assets/step_03/lib/main.dart
@@ -540,73 +843,11 @@ sections:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_03/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_03/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_03/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_03/assets/images/colored_shrooms.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_03/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_03/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_03/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_03/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_03/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_03/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_03/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_03/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
               - directory: components
-                children:
-                  - file: background.dart
-                    contents: assets/step_03/lib/components/background.dart
-                    file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_03/lib/components/body_component_with_user_data.dart
-                    file-type: dart
-                  - file: brick.dart
-                    contents: assets/step_03/lib/components/brick.dart
-                    file-type: dart
-                  - file: enemy.dart
-                    contents: assets/step_03/lib/components/enemy.dart
-                    file-type: dart
-                  - file: game.dart
-                    contents: assets/step_03/lib/components/game.dart
-                    file-type: dart
-                  - file: ground.dart
-                    contents: assets/step_03/lib/components/ground.dart
-                    file-type: dart
-                  - file: player.dart
-                    contents: assets/step_03/lib/components/player.dart
-                    file-type: dart
               - file: main.dart
                 contents: assets/step_03/lib/main.dart
                 file-type: dart
@@ -649,8 +890,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_04/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_04/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_04/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_04/assets/images/spritesheet_aliens.png
@@ -740,8 +981,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_04/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_04/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_04/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_04/assets/images/spritesheet_aliens.png
@@ -837,8 +1078,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_05/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_05/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_05/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_05/assets/images/spritesheet_aliens.png
@@ -930,8 +1171,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_05/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_05/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_05/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_05/assets/images/spritesheet_aliens.png
@@ -1021,8 +1262,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_05/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_05/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_05/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_05/assets/images/spritesheet_aliens.png
@@ -1118,8 +1359,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_06/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_06/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_06/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_06/assets/images/spritesheet_aliens.png
@@ -1209,8 +1450,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_06/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_06/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_06/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_06/assets/images/spritesheet_aliens.png
@@ -1306,8 +1547,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_07/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_07/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_07/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_07/assets/images/spritesheet_aliens.png
@@ -1397,8 +1638,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_07/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_07/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_07/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_07/assets/images/spritesheet_aliens.png
@@ -1488,8 +1729,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_07/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_07/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_07/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_07/assets/images/spritesheet_aliens.png
@@ -1579,8 +1820,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_07/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_07/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_07/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_07/assets/images/spritesheet_aliens.png
@@ -1670,8 +1911,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_07/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_07/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_07/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_07/assets/images/spritesheet_aliens.png
@@ -1761,8 +2002,8 @@ sections:
                   - file: colored_land.png
                     contents: assets/step_07/assets/images/colored_land.png
                     file-type: png
-                  - file: colored_shrooms.png
-                    contents: assets/step_07/assets/images/colored_shrooms.png
+                  - file: colored_shroom.png
+                    contents: assets/step_07/assets/images/colored_shroom.png
                     file-type: png
                   - file: spritesheet_aliens.png
                     contents: assets/step_07/assets/images/spritesheet_aliens.png
