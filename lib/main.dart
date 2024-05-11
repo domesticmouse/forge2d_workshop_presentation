@@ -127,7 +127,6 @@ class NavigationDrawer extends ConsumerWidget {
                     onTap: () {
                       ref.read(cursorProvider.notifier).setCursorPosition(
                           sectionNumber: sectionNumber, stepNumber: 0);
-                      Scaffold.of(context).openEndDrawer();
                     },
                   ),
                   if (section == currentSection)

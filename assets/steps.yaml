@@ -750,6 +750,9 @@ sections:
         sub-steps:
           - name: top
             base-offset: 0
+          - name: flutter/assets
+            base-offset: 366
+            extent-offset: 408
         tree:
           - directory: .vscode
           - directory: android
