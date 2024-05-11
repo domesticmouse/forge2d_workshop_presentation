@@ -25,6 +25,84 @@ class Highlighters {
 }
 
 @riverpod
+class CurrentSection extends _$CurrentSection {
+  var _stepNumber = 0;
+  set stepNumber(int value) {
+    _stepNumber = value;
+    ref.invalidateSelf();
+  }
+
+  bool get _hasNext {
+    return ref.read(currentStepProvider.notifier)._hasNext ||
+        (ref.read(configurationProvider).asData?.value.steps.length ?? 0) >
+            _stepNumber + 1;
+  }
+
+  void next() {
+    var currentStep = ref.read(currentStepProvider.notifier);
+    if (currentStep._hasNext) {
+      currentStep.next();
+      return;
+    }
+
+    if (_hasNext) {
+      _stepNumber++;
+      ref.invalidateSelf();
+      currentStep.reset();
+    }
+  }
+
+  bool get _hasPrevious => _stepNumber > 0;
+
+  void previous() {
+    var currentStep = ref.read(currentStepProvider.notifier);
+    if (currentStep._hasPrevious) {
+      currentStep.previous();
+      return;
+    }
+
+    if (_hasPrevious) {
+      _stepNumber--;
+      ref.invalidateSelf();
+      var subSteps = ref
+          .read(configurationProvider)
+          .asData!
+          .value
+          .steps[_stepNumber]
+          .steps;
+      currentStep.stepNumber = subSteps.length - 1;
+    }
+  }
+
+  @override
+  Section build() => ref.watch(configurationProvider).when(
+        data: (config) {
+          if (_stepNumber < 0 || _stepNumber >= config.steps.length) {
+            return Section(
+              name: 'Error: Invalid step number',
+              steps: [],
+              tree: [],
+              displayStepNumber: -1,
+            );
+          }
+          return config.steps[_stepNumber];
+        },
+        error: (error, _) => Section(
+          name: 'Error: $error',
+          steps: [],
+          tree: [],
+          displayStepNumber: -1,
+        ),
+        loading: () => Section(
+          name: 'Loading',
+          steps: [],
+          tree: [],
+          displayStepNumber: 0,
+        ),
+      );
+}
+
+@riverpod
 class CurrentStep extends _$CurrentStep {
   var _stepNumber = 0;
   set stepNumber(int value) {
@@ -33,9 +111,8 @@ class CurrentStep extends _$CurrentStep {
   }
 
   bool get _hasNext {
-    return ref.watch(currentSubStepProvider.notifier)._hasNext ||
-        (ref.watch(configurationProvider).asData?.value.steps.length ?? 0) >
-            _stepNumber + 1;
+    return ref.read(currentSubStepProvider.notifier)._hasNext ||
+        ref.read(currentSectionProvider).steps.length > _stepNumber + 1;
   }
 
   void next() {
@@ -46,9 +123,9 @@ class CurrentStep extends _$CurrentStep {
     }
 
     if (_hasNext) {
+      currentSubStep.reset();
       _stepNumber++;
       ref.invalidateSelf();
-      currentSubStep.reset();
     }
   }
 
@@ -64,42 +141,28 @@ class CurrentStep extends _$CurrentStep {
     if (_hasPrevious) {
       _stepNumber--;
       ref.invalidateSelf();
-      var subSteps = ref
-          .read(configurationProvider)
-          .asData!
-          .value
-          .steps[_stepNumber]
-          .steps;
-      currentSubStep.subStepNumber = subSteps.length - 1;
+      currentSubStep.reset();
     }
   }
 
+  void reset() {
+    _stepNumber = 0;
+    ref.invalidateSelf();
+  }
+
   @override
-  Step build() => ref.watch(configurationProvider).when(
-        data: (config) {
-          if (_stepNumber < 0 || _stepNumber >= config.steps.length) {
-            return Step(
-              name: 'Error: Invalid step number',
-              steps: [],
-              tree: [],
-              displayStepNumber: -1,
-            );
-          }
-          return config.steps[_stepNumber];
-        },
-        error: (error, _) => Step(
-          name: 'Error: $error',
-          steps: [],
-          tree: [],
-          displayStepNumber: -1,
-        ),
-        loading: () => Step(
-          name: 'Loading',
-          steps: [],
-          tree: [],
-          displayStepNumber: 0,
-        ),
+  Step build() {
+    final section = ref.watch(currentSectionProvider);
+    if (section.steps.length <= _stepNumber) {
+      return Step(
+        name: 'Empty  step',
+        displayCode: 'assets/screen-test.txt',
+        fileType: 'dart',
+        subSteps: [],
       );
+    }
+    return section.steps[_stepNumber];
+  }
 }
 
 @riverpod
@@ -111,7 +174,8 @@ class CurrentSubStep extends _$CurrentSubStep {
   }
 
   bool get _hasNext =>
-      ref.watch(currentStepProvider).steps.length > _subStepNumber + 1;
+      (ref.watch(currentStepProvider).subSteps?.length ?? 0) >
+      _subStepNumber + 1;
 
   void next() {
     if (_hasNext) {
@@ -137,14 +201,14 @@ class CurrentSubStep extends _$CurrentSubStep {
   @override
   SubStep build() {
     final step = ref.watch(currentStepProvider);
-    if (step.steps.length <= _subStepNumber) {
+    if (step.subSteps == null || step.subSteps!.length <= _subStepNumber) {
       return SubStep(
-        name: 'Empty sub step',
-        displayCode: 'assets/screen-test.txt',
-        fileType: 'dart',
+        baseOffset: 0,
+        extentOffset: 0,
+        scrollPercentage: 0,
       );
     }
-    return step.steps[_subStepNumber];
+    return step.subSteps![_subStepNumber];
   }
 }
 

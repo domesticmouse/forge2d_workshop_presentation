@@ -35,7 +35,23 @@ final highlightersProvider = AutoDisposeFutureProvider<Highlighters>.internal(
 );
 
 typedef HighlightersRef = AutoDisposeFutureProviderRef<Highlighters>;
-String _$currentStepHash() => r'e5c68dd8b00eb769a166e058329b3650fb1871db';
+String _$currentSectionHash() => r'f57761b6f22f57f07335eeccd8ce4b7b55ec4341';
+
+/// See also [CurrentSection].
+@ProviderFor(CurrentSection)
+final currentSectionProvider =
+    AutoDisposeNotifierProvider<CurrentSection, Section>.internal(
+  CurrentSection.new,
+  name: r'currentSectionProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$currentSectionHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$CurrentSection = AutoDisposeNotifier<Section>;
+String _$currentStepHash() => r'9b3961245acd8a686d41c93ce973a89a1bec7016';
 
 /// See also [CurrentStep].
 @ProviderFor(CurrentStep)
@@ -50,7 +66,7 @@ final currentStepProvider =
 );
 
 typedef _$CurrentStep = AutoDisposeNotifier<Step>;
-String _$currentSubStepHash() => r'd67d6bd201d08c6a8fb0f18d4f886a2c19a0abb3';
+String _$currentSubStepHash() => r'da837113bccc91e7bfe414d78867d44a7799761e';
 
 /// See also [CurrentSubStep].
 @ProviderFor(CurrentSubStep)

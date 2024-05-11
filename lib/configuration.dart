@@ -9,7 +9,7 @@ part 'configuration.g.dart';
 )
 class Configuration {
   @JsonKey(required: true)
-  final List<Step> steps;
+  final List<Section> steps;
 
   Configuration({required this.steps}) {
     if (steps.isEmpty) {
@@ -30,7 +30,7 @@ class Configuration {
   checked: true,
   disallowUnrecognizedKeys: true,
 )
-class Step {
+class Section {
   @JsonKey(required: true)
   final String name;
 
@@ -38,12 +38,12 @@ class Step {
   final int displayStepNumber;
 
   @JsonKey(required: true)
-  final List<SubStep> steps;
+  final List<Step> steps;
 
   @JsonKey(required: true)
   final List<Node> tree;
 
-  Step({
+  Section({
     required this.name,
     required this.steps,
     required this.tree,
@@ -54,9 +54,9 @@ class Step {
     }
   }
 
-  factory Step.fromJson(Map json) => _$StepFromJson(json);
+  factory Section.fromJson(Map json) => _$SectionFromJson(json);
 
-  Map<String, dynamic> toJson() => _$StepToJson(this);
+  Map<String, dynamic> toJson() => _$SectionToJson(this);
 
   @override
   String toString() => 'Step: ${toJson()}';
@@ -67,7 +67,7 @@ class Step {
   checked: true,
   disallowUnrecognizedKeys: true,
 )
-class SubStep {
+class Step {
   @JsonKey(required: true)
   final String name;
 
@@ -83,12 +83,16 @@ class SubStep {
   @JsonKey(name: 'file-type')
   final String? fileType;
 
-  SubStep({
+  @JsonKey(name: 'sub-steps')
+  final List<SubStep>? subSteps;
+
+  Step({
     required this.name,
     this.displayCode,
     this.displayMarkdown,
     this.showGame,
     this.fileType,
+    this.subSteps,
   }) {
     if (name.isEmpty) {
       throw ArgumentError.value(name, 'name', 'Cannot be empty.');
@@ -109,13 +113,58 @@ class SubStep {
       throw ArgumentError.value(
           fileType, 'file-type', 'Cannot be null if display-code is not null.');
     }
+    if (displayCode != null && subSteps == null) {
+      throw ArgumentError.value(
+          subSteps, 'sub-steps', 'Cannot be null if display-code is not null.');
+    }
     if (fileType != null && displayCode == null) {
       throw ArgumentError.value(
           fileType, 'file-type', 'Cannot be not null if display-code is null.');
     }
+    if (subSteps != null && displayCode == null) {
+      throw ArgumentError.value(
+          subSteps, 'sub-steps', 'Cannot be not null if display-code is null.');
+    }
     if (showGame == null && displayCode == null && displayMarkdown == null) {
       throw ArgumentError.value(showGame, 'show-game',
           'Cannot be null if display-code and display-markdown are null.');
+    }
+  }
+
+  factory Step.fromJson(Map json) => _$StepFromJson(json);
+
+  Map<String, dynamic> toJson() => _$StepToJson(this);
+
+  @override
+  String toString() => 'Step: ${toJson()}';
+}
+
+@JsonSerializable(
+  anyMap: true,
+  checked: true,
+  disallowUnrecognizedKeys: true,
+)
+class SubStep {
+  final int baseOffset;
+  final int extentOffset;
+  final double scrollPercentage;
+
+  SubStep({
+    required this.baseOffset,
+    required this.extentOffset,
+    required this.scrollPercentage,
+  }) {
+    if (baseOffset < 0) {
+      throw ArgumentError.value(
+          baseOffset, 'baseOffset', 'Cannot be negative.');
+    }
+    if (extentOffset < 0) {
+      throw ArgumentError.value(
+          extentOffset, 'extentOffset', 'Cannot be negative.');
+    }
+    if (scrollPercentage < 0 || scrollPercentage > 1) {
+      throw ArgumentError.value(
+          scrollPercentage, 'scrollPercentage', 'Must be between 0 and 1.');
     }
   }
 

@@ -7,12 +7,30 @@ steps:
       - name: pubspec.yaml
         display-code: assets/step_02/pubspec.yaml
         file-type: yaml
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
+          - baseOffset: 10
+            extentOffset: 20
+            scrollPercentage: 0
+          - baseOffset: 25
+            extentOffset: 30
+            scrollPercentage: 0
       - name: lib/main.dart
         display-code: assets/step_02/lib/main.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: bin/modify_macos_config.dart
         display-code: assets/step_02/bin/modify_macos_config.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: Modify macOS config
         display-markdown: assets/markdown/02_modify_macos_config.md
       - name: Show game step 2
@@ -50,15 +68,37 @@ steps:
       - name: pubspec.yaml
         display-code: assets/step_03/pubspec.yaml
         file-type: yaml
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/background.dart
         display-code: assets/step_03/lib/components/background.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/game.dart
         display-code: assets/step_03/lib/components/game.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
+          - baseOffset: 10
+            extentOffset: 10
+            scrollPercentage: 0.1
+          - baseOffset: 200
+            extentOffset: 250
+            scrollPercentage: 0.2
       - name: lib/main.dart
         display-code: assets/step_03/lib/main.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: Show game step 3
         show-game: step_03
     tree:
@@ -134,9 +174,17 @@ steps:
       - name: lib/components/ground.dart
         display-code: assets/step_04/lib/components/ground.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/game.dart
         display-code: assets/step_04/lib/components/game.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: Show game step 4
         show-game: step_04
     tree:
@@ -215,14 +263,26 @@ steps:
       - name: bin/generate_brick_file_names.dart
         display-code: assets/step_05/bin/generate_brick_file_names.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: Generate brick file names
         display-markdown: assets/markdown/04_generate_brick_file_names.md
       - name: lib/components/brick.dart
         display-code: assets/step_05/lib/components/brick.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/game.dart
         display-code: assets/step_05/lib/components/game.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: Show game step 5
         show-game: step_05
     tree:
@@ -307,9 +367,17 @@ steps:
       - name: lib/components/player.dart
         display-code: assets/step_06/lib/components/player.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/game.dart
         display-code: assets/step_06/lib/components/game.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: Show game step 6
         show-game: step_06
     tree:
@@ -397,21 +465,45 @@ steps:
       - name: lib/components/enemy.dart
         display-code: assets/step_07/lib/components/enemy.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/body_component_with_user_data.dart
         display-code: assets/step_07/lib/components/body_component_with_user_data.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/ground.dart
         display-code: assets/step_07/lib/components/ground.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/player.dart
         display-code: assets/step_07/lib/components/player.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/brick.dart
         display-code: assets/step_07/lib/components/brick.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: lib/components/game.dart
         display-code: assets/step_06/lib/components/game.dart
         file-type: dart
+        sub-steps:
+          - baseOffset: 0
+            extentOffset: 0
+            scrollPercentage: 0
       - name: Show game step 7
         show-game: step_07
     tree:

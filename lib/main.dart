@@ -27,6 +27,7 @@ class MainApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.sizeOf(context);
     final configuration = ref.watch(configurationProvider).asData;
+    final currentSection = ref.watch(currentSectionProvider);
     final currentStep = ref.watch(currentStepProvider);
     final currentSubStep = ref.watch(currentSubStepProvider);
 
@@ -40,9 +41,9 @@ class MainApp extends ConsumerWidget {
         home: CallbackShortcuts(
           bindings: <ShortcutActivator, VoidCallback>{
             SingleActivator(LogicalKeyboardKey.arrowRight): () =>
-                ref.read(currentStepProvider.notifier).next(),
+                ref.read(currentSectionProvider.notifier).next(),
             SingleActivator(LogicalKeyboardKey.arrowLeft): () =>
-                ref.read(currentStepProvider.notifier).previous(),
+                ref.read(currentSectionProvider.notifier).previous(),
           },
           child: Focus(
             autofocus: true,
@@ -51,7 +52,7 @@ class MainApp extends ConsumerWidget {
               appBar: AppBar(
                 title: Text(
                   'goo.gle/forge2d-workshop - '
-                  'Step ${currentStep.displayStepNumber}: ${currentStep.name}',
+                  'Step ${currentSection.displayStepNumber}: ${currentSection.name}',
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
                         fontSize: 0.02297297 * size.height + 7.594595,
@@ -66,21 +67,19 @@ class MainApp extends ConsumerWidget {
                               for (final (stepNumber, step)
                                   in configuration.value.steps.indexed) ...[
                                 ListTile(
-                                  title: Flexible(
-                                    child: Text(
-                                      step.name,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: step == currentStep
-                                          ? Theme.of(context)
-                                              .textTheme
-                                              .titleLarge
-                                              ?.copyWith(
-                                                  fontWeight: FontWeight.bold)
-                                          : Theme.of(context)
-                                              .textTheme
-                                              .titleLarge,
-                                    ),
+                                  title: Text(
+                                    step.name,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: step == currentSection
+                                        ? Theme.of(context)
+                                            .textTheme
+                                            .titleLarge
+                                            ?.copyWith(
+                                                fontWeight: FontWeight.bold)
+                                        : Theme.of(context)
+                                            .textTheme
+                                            .titleLarge,
                                   ),
                                 ),
                                 for (var (subStepNumber, subStep)
@@ -90,12 +89,12 @@ class MainApp extends ConsumerWidget {
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         SizedBox(width: 16),
-                                        Flexible(
+                                        Expanded(
                                           child: Text(
                                             subStep.name,
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
-                                            style: subStep == currentSubStep
+                                            style: subStep == currentStep
                                                 ? Theme.of(context)
                                                     .textTheme
                                                     .titleMedium
@@ -111,25 +110,29 @@ class MainApp extends ConsumerWidget {
                                     ),
                                     onTap: () {
                                       ref
-                                          .read(currentStepProvider.notifier)
+                                          .read(currentSectionProvider.notifier)
                                           .stepNumber = stepNumber;
                                       ref
-                                          .read(currentSubStepProvider.notifier)
-                                          .subStepNumber = subStepNumber;
+                                          .read(currentStepProvider.notifier)
+                                          .stepNumber = subStepNumber;
                                     },
                                   ),
                               ],
                             ]
                           : [])),
               body: switch ((
-                currentSubStep.displayCode,
-                currentSubStep.displayMarkdown,
-                currentSubStep.showGame,
+                currentStep.displayCode,
+                currentStep.displayMarkdown,
+                currentStep.showGame,
               )) {
                 (String code, _, _) => DisplayCode(
                     assetPath: code,
-                    fileType: currentSubStep.fileType ?? 'txt',
-                    tree: currentStep.tree),
+                    fileType: currentStep.fileType ?? 'txt',
+                    tree: currentSection.tree,
+                    baseOffset: currentSubStep.baseOffset,
+                    extentOffset: currentSubStep.extentOffset,
+                    scrollPercentage: currentSubStep.scrollPercentage,
+                  ),
                 (_, String markdown, _) => DisplayMarkdown(assetPath: markdown),
                 (_, _, 'step_02') => ShowGame(gameFactory: FlameGame.new),
                 (_, _, 'step_03') =>

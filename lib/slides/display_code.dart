@@ -15,11 +15,17 @@ class DisplayCode extends ConsumerStatefulWidget {
     required this.assetPath,
     required this.fileType,
     required this.tree,
+    required this.baseOffset,
+    required this.extentOffset,
+    required this.scrollPercentage,
   });
 
   final String assetPath;
   final String fileType;
   final List<Node> tree;
+  final int baseOffset;
+  final int extentOffset;
+  final double scrollPercentage;
 
   @override
   ConsumerState<DisplayCode> createState() => _DisplayCodeState();
@@ -54,6 +60,9 @@ class _DisplayCodeState extends ConsumerState<DisplayCode> {
               fileType: widget.fileType,
               tree: widget.tree,
               highlighters: highlighters,
+              baseOffset: widget.baseOffset,
+              extentOffset: widget.extentOffset,
+              scrollPercentage: widget.scrollPercentage,
             ),
           (_, true) => Center(
               child: Text('Error: ${snapshot.error}'),
@@ -80,6 +89,9 @@ class _DisplayCodeHelper extends StatefulWidget {
     required this.fileType,
     required this.tree,
     required this.highlighters,
+    required this.baseOffset,
+    required this.extentOffset,
+    required this.scrollPercentage,
   });
 
   final String assetPath;
@@ -87,6 +99,9 @@ class _DisplayCodeHelper extends StatefulWidget {
   final String fileType;
   final List<Node> tree;
   final Highlighters highlighters;
+  final int baseOffset;
+  final int extentOffset;
+  final double scrollPercentage;
 
   @override
   State<_DisplayCodeHelper> createState() => _DisplayCodeHelperState();
@@ -115,15 +130,20 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
   void didUpdateWidget(covariant _DisplayCodeHelper oldWidget) {
     super.didUpdateWidget(oldWidget);
     treeController.roots = widget.tree;
+    scrollController.animateTo(
+      scrollController.position.maxScrollExtent * widget.scrollPercentage,
+      duration: Durations.long4,
+      curve: Curves.easeInOut,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
 
-    const textSelection = TextSelection(
-      baseOffset: 0,
-      extentOffset: 0,
+    final textSelection = TextSelection(
+      baseOffset: widget.baseOffset,
+      extentOffset: widget.extentOffset,
       affinity: TextAffinity.downstream,
     );
 
