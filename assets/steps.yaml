@@ -1,5 +1,5 @@
 sections:
-  - name: Create a project
+  - name: Create project
     step-number: 2
     steps:
       - name: Create your Flutter project
@@ -193,7 +193,7 @@ sections:
           - name: bottom
             base-offset: 0
             scroll-percentage: 100
-            scroll-seconds: 1
+            scroll-seconds: 3
           - name: titlebarAppearsTransparent
             base-offset: 23180
             extent-offset: 23212
@@ -676,6 +676,10 @@ sections:
         sub-steps:
           - name: top
             base-offset: 0
+          - name: bottom
+            base-offset: 0
+            scroll-percentage: 100
+            scroll-seconds: 2
         tree:
           - directory: .vscode
           - directory: android

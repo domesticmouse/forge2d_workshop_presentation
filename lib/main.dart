@@ -124,35 +124,41 @@ class NavigationDrawer extends ConsumerWidget {
                               ?.copyWith(fontWeight: FontWeight.bold)
                           : Theme.of(context).textTheme.titleLarge,
                     ),
+                    onTap: () {
+                      ref.read(cursorProvider.notifier).setCursorPosition(
+                          sectionNumber: sectionNumber, stepNumber: 0);
+                      Scaffold.of(context).openEndDrawer();
+                    },
                   ),
-                  for (var (stepNumber, step) in section.steps.indexed)
-                    ListTile(
-                      title: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(width: 16),
-                          Expanded(
-                            child: Text(
-                              step.name,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: step == currentStep
-                                  ? Theme.of(context)
-                                      .textTheme
-                                      .titleMedium
-                                      ?.copyWith(fontWeight: FontWeight.bold)
-                                  : Theme.of(context).textTheme.titleMedium,
+                  if (section == currentSection)
+                    for (var (stepNumber, step) in section.steps.indexed)
+                      ListTile(
+                        title: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SizedBox(width: 16),
+                            Expanded(
+                              child: Text(
+                                step.name,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: step == currentStep
+                                    ? Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(fontWeight: FontWeight.bold)
+                                    : Theme.of(context).textTheme.titleMedium,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                        onTap: () {
+                          ref.read(cursorProvider.notifier).setCursorPosition(
+                              sectionNumber: sectionNumber,
+                              stepNumber: stepNumber);
+                          Scaffold.of(context).openEndDrawer();
+                        },
                       ),
-                      onTap: () {
-                        ref.read(cursorProvider.notifier).setCursorPosition(
-                            sectionNumber: sectionNumber,
-                            stepNumber: stepNumber);
-                        Scaffold.of(context).openEndDrawer();
-                      },
-                    ),
                 ],
               ]
             : [],
