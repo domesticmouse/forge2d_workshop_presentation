@@ -25,189 +25,103 @@ class Highlighters {
 }
 
 @riverpod
-class CurrentSection extends _$CurrentSection {
+class Cursor extends _$Cursor {
+  var _sectionNumber = 0;
   var _stepNumber = 0;
-  set stepNumber(int value) {
-    _stepNumber = value;
-    ref.invalidateSelf();
-  }
-
-  bool get _hasNext {
-    return ref.read(currentStepProvider.notifier)._hasNext ||
-        (ref.read(configurationProvider).asData?.value.sections.length ?? 0) >
-            _stepNumber + 1;
-  }
-
-  void next() {
-    var currentStep = ref.read(currentStepProvider.notifier);
-    if (currentStep._hasNext) {
-      currentStep.next();
-      return;
-    }
-
-    if (_hasNext) {
-      _stepNumber++;
-      ref.invalidateSelf();
-      currentStep.reset();
-    }
-  }
-
-  bool get _hasPrevious => _stepNumber > 0;
-
-  void previous() {
-    var currentStep = ref.read(currentStepProvider.notifier);
-    if (currentStep._hasPrevious) {
-      currentStep.previous();
-      return;
-    }
-
-    if (_hasPrevious) {
-      _stepNumber--;
-      ref.invalidateSelf();
-      var subSteps = ref
-          .read(configurationProvider)
-          .asData!
-          .value
-          .sections[_stepNumber]
-          .steps;
-      currentStep.stepNumber = subSteps.length - 1;
-    }
-  }
-
-  @override
-  Section build() => ref.watch(configurationProvider).when(
-        data: (config) {
-          if (_stepNumber < 0 || _stepNumber >= config.sections.length) {
-            return Section(
-              name: 'Error: Invalid step number',
-              steps: [],
-              displayStepNumber: -1,
-            );
-          }
-          return config.sections[_stepNumber];
-        },
-        error: (error, _) => Section(
-          name: 'Error: $error',
-          steps: [],
-          displayStepNumber: -1,
-        ),
-        loading: () => Section(
-          name: 'Loading',
-          steps: [],
-          displayStepNumber: 0,
-        ),
-      );
-}
-
-@riverpod
-class CurrentStep extends _$CurrentStep {
-  var _stepNumber = 0;
-  set stepNumber(int value) {
-    _stepNumber = value;
-    ref.invalidateSelf();
-  }
-
-  bool get _hasNext {
-    return ref.read(currentSubStepProvider.notifier)._hasNext ||
-        ref.read(currentSectionProvider).steps.length > _stepNumber + 1;
-  }
-
-  void next() {
-    var currentSubStep = ref.read(currentSubStepProvider.notifier);
-    if (currentSubStep._hasNext) {
-      currentSubStep.next();
-      return;
-    }
-
-    if (_hasNext) {
-      currentSubStep.reset();
-      _stepNumber++;
-      ref.invalidateSelf();
-    }
-  }
-
-  bool get _hasPrevious => _stepNumber > 0;
-
-  void previous() {
-    var currentSubStep = ref.read(currentSubStepProvider.notifier);
-    if (currentSubStep._hasPrevious) {
-      currentSubStep.previous();
-      return;
-    }
-
-    if (_hasPrevious) {
-      _stepNumber--;
-      ref.invalidateSelf();
-      currentSubStep.reset();
-    }
-  }
-
-  void reset() {
-    _stepNumber = 0;
-    ref.invalidateSelf();
-  }
-
-  @override
-  Step build() {
-    final section = ref.watch(currentSectionProvider);
-    if (section.steps.length <= _stepNumber) {
-      return Step(
-        name: 'Empty  step',
-        displayCode: 'assets/empty.txt',
-        fileType: 'dart',
-        subSteps: [],
-        tree: [],
-      );
-    }
-    return section.steps[_stepNumber];
-  }
-}
-
-@riverpod
-class CurrentSubStep extends _$CurrentSubStep {
   var _subStepNumber = 0;
-  set subStepNumber(int value) {
-    _subStepNumber = value;
-    ref.invalidateSelf();
-  }
-
-  bool get _hasNext =>
-      (ref.watch(currentStepProvider).subSteps?.length ?? 0) >
-      _subStepNumber + 1;
-
-  void next() {
-    if (_hasNext) {
-      _subStepNumber++;
-      ref.invalidateSelf();
-    }
-  }
-
-  bool get _hasPrevious => _subStepNumber > 0;
-
-  void previous() {
-    if (_hasPrevious) {
-      _subStepNumber--;
-      ref.invalidateSelf();
-    }
-  }
-
-  void reset() {
-    _subStepNumber = 0;
-    ref.invalidateSelf();
-  }
 
   @override
-  SubStep build() {
-    final step = ref.watch(currentStepProvider);
-    if (step.subSteps == null || step.subSteps!.length <= _subStepNumber) {
-      return SubStep(
-        name: '',
-        baseOffset: 0,
-        extentOffset: 0,
-        scrollPercentage: 0,
+  (Section, Step, SubStep) build() => ref.watch(configurationProvider).when(
+        data: (configuration) {
+          final section = configuration.sections.length > _sectionNumber
+              ? configuration.sections[_sectionNumber]
+              : Section(name: 'Empty', steps: [], displayStepNumber: 0);
+          final step = section.steps.length > _stepNumber
+              ? section.steps[_stepNumber]
+              : Step(name: 'Empty');
+          var subStep =
+              step.subSteps != null && step.subSteps!.length > _subStepNumber
+                  ? step.subSteps![_subStepNumber]
+                  : SubStep(name: 'Empty', baseOffset: 0);
+          return (section, step, subStep);
+        },
+        error: (error, stackTrace) => throw error,
+        loading: () => (
+          Section(name: 'Empty', steps: [], displayStepNumber: 0),
+          Step(name: 'Empty', displayMarkdown: 'assets/empty.txt'),
+          SubStep(name: 'Empty', baseOffset: 0)
+        ),
       );
+
+  void next() {
+    final configuration = ref.read(configurationProvider).asData?.value;
+    if (configuration == null) return;
+
+    var sections = configuration.sections;
+    final section = sections[_sectionNumber];
+    var steps = section.steps;
+    final step = steps[_stepNumber];
+    final subSteps = step.subSteps;
+
+    if (subSteps != null && subSteps.length > _subStepNumber + 1) {
+      _subStepNumber++;
+    } else if (steps.length > _stepNumber + 1) {
+      _stepNumber++;
+      _subStepNumber = 0;
+    } else if (sections.length > _sectionNumber + 1) {
+      _sectionNumber++;
+      _stepNumber = 0;
+      _subStepNumber = 0;
     }
-    return step.subSteps![_subStepNumber];
+
+    ref.invalidateSelf();
+    return;
+  }
+
+  void previous() {
+    final configuration = ref.read(configurationProvider).asData?.value;
+    if (configuration == null) return;
+
+    var sections = configuration.sections;
+    final section = sections[_sectionNumber];
+    var steps = section.steps;
+    final step = steps[_stepNumber];
+    final subSteps = step.subSteps;
+
+    if (subSteps != null && _subStepNumber > 0) {
+      _subStepNumber--;
+    } else if (_stepNumber > 0) {
+      _stepNumber--;
+      var subSteps = section.steps[_stepNumber].subSteps;
+      if (subSteps != null) {
+        _subStepNumber = subSteps.length - 1;
+      } else {
+        _subStepNumber = 0;
+      }
+    } else if (sections.length > _sectionNumber + 1) {
+      _sectionNumber--;
+      _stepNumber = sections[_sectionNumber].steps.length - 1;
+      var subSteps = sections[_sectionNumber].steps[_stepNumber].subSteps;
+      if (subSteps != null) {
+        _subStepNumber = subSteps.length - 1;
+      } else {
+        _subStepNumber = 0;
+      }
+    }
+
+    ref.invalidateSelf();
+    return;
+  }
+
+  void setCursorPosition({
+    required int sectionNumber,
+    int stepNumber = 0,
+    int subStepNumber = 0,
+  }) {
+    _sectionNumber = sectionNumber;
+    _stepNumber = stepNumber;
+    _subStepNumber = subStepNumber;
+    ref.invalidateSelf();
   }
 }
 

@@ -27,9 +27,8 @@ class MainApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.sizeOf(context);
     final configuration = ref.watch(configurationProvider).asData;
-    final currentSection = ref.watch(currentSectionProvider);
-    final currentStep = ref.watch(currentStepProvider);
-    final currentSubStep = ref.watch(currentSubStepProvider);
+    final (currentSection, currentStep, currentSubStep) =
+        ref.watch(cursorProvider);
 
     return _EagerInitialization(
       child: MaterialApp(
@@ -41,9 +40,9 @@ class MainApp extends ConsumerWidget {
         home: CallbackShortcuts(
           bindings: <ShortcutActivator, VoidCallback>{
             SingleActivator(LogicalKeyboardKey.arrowRight): () =>
-                ref.read(currentSectionProvider.notifier).next(),
+                ref.read(cursorProvider.notifier).next(),
             SingleActivator(LogicalKeyboardKey.arrowLeft): () =>
-                ref.read(currentSectionProvider.notifier).previous(),
+                ref.read(cursorProvider.notifier).previous(),
           },
           child: Focus(
             autofocus: true,
@@ -64,14 +63,14 @@ class MainApp extends ConsumerWidget {
                   child: ListView(
                       children: configuration != null
                           ? [
-                              for (final (stepNumber, step)
+                              for (final (sectionNumber, section)
                                   in configuration.value.sections.indexed) ...[
                                 ListTile(
                                   title: Text(
-                                    step.name,
+                                    section.name,
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    style: step == currentSection
+                                    style: section == currentSection
                                         ? Theme.of(context)
                                             .textTheme
                                             .titleLarge
@@ -82,8 +81,8 @@ class MainApp extends ConsumerWidget {
                                             .titleLarge,
                                   ),
                                 ),
-                                for (var (subStepNumber, subStep)
-                                    in step.steps.indexed)
+                                for (var (stepNumber, step)
+                                    in section.steps.indexed)
                                   ListTile(
                                     title: Row(
                                       mainAxisSize: MainAxisSize.min,
@@ -91,10 +90,10 @@ class MainApp extends ConsumerWidget {
                                         SizedBox(width: 16),
                                         Expanded(
                                           child: Text(
-                                            subStep.name,
+                                            step.name,
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
-                                            style: subStep == currentStep
+                                            style: step == currentStep
                                                 ? Theme.of(context)
                                                     .textTheme
                                                     .titleMedium
@@ -110,11 +109,10 @@ class MainApp extends ConsumerWidget {
                                     ),
                                     onTap: () {
                                       ref
-                                          .read(currentSectionProvider.notifier)
-                                          .stepNumber = stepNumber;
-                                      ref
-                                          .read(currentStepProvider.notifier)
-                                          .stepNumber = subStepNumber;
+                                          .read(cursorProvider.notifier)
+                                          .setCursorPosition(
+                                              sectionNumber: sectionNumber,
+                                              stepNumber: stepNumber);
                                     },
                                   ),
                               ],

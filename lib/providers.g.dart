@@ -35,52 +35,20 @@ final highlightersProvider = AutoDisposeFutureProvider<Highlighters>.internal(
 );
 
 typedef HighlightersRef = AutoDisposeFutureProviderRef<Highlighters>;
-String _$currentSectionHash() => r'59de2f1b45012f3eddce41a3f50cc955b2aaae9b';
+String _$cursorHash() => r'dc3b971e67ea35927d8fbaed42ad30046c19cfb9';
 
-/// See also [CurrentSection].
-@ProviderFor(CurrentSection)
-final currentSectionProvider =
-    AutoDisposeNotifierProvider<CurrentSection, Section>.internal(
-  CurrentSection.new,
-  name: r'currentSectionProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$currentSectionHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$CurrentSection = AutoDisposeNotifier<Section>;
-String _$currentStepHash() => r'ee10b3c0279069a03a91548b1eb5f3a45c32c352';
-
-/// See also [CurrentStep].
-@ProviderFor(CurrentStep)
-final currentStepProvider =
-    AutoDisposeNotifierProvider<CurrentStep, Step>.internal(
-  CurrentStep.new,
-  name: r'currentStepProvider',
+/// See also [Cursor].
+@ProviderFor(Cursor)
+final cursorProvider =
+    AutoDisposeNotifierProvider<Cursor, (Section, Step, SubStep)>.internal(
+  Cursor.new,
+  name: r'cursorProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$currentStepHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$cursorHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$CurrentStep = AutoDisposeNotifier<Step>;
-String _$currentSubStepHash() => r'372872fa170ce16c8277427c13cc0e8487e1a364';
-
-/// See also [CurrentSubStep].
-@ProviderFor(CurrentSubStep)
-final currentSubStepProvider =
-    AutoDisposeNotifierProvider<CurrentSubStep, SubStep>.internal(
-  CurrentSubStep.new,
-  name: r'currentSubStepProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$currentSubStepHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$CurrentSubStep = AutoDisposeNotifier<SubStep>;
+typedef _$Cursor = AutoDisposeNotifier<(Section, Step, SubStep)>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
