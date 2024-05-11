@@ -2,7 +2,6 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:forge2d_workshop_presentation/configuration.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'game/step_03/components/game.dart' as step_03;
