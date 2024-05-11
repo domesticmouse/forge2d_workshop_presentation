@@ -2,6 +2,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forge2d_workshop_presentation/configuration.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'game/step_03/components/game.dart' as step_03;
@@ -26,7 +27,6 @@ class MainApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.sizeOf(context);
-    final configuration = ref.watch(configurationProvider).asData;
     final (currentSection, currentStep, currentSubStep) =
         ref.watch(cursorProvider);
 
@@ -59,65 +59,7 @@ class MainApp extends ConsumerWidget {
                   ),
                 ),
               ),
-              drawer: Drawer(
-                  child: ListView(
-                      children: configuration != null
-                          ? [
-                              for (final (sectionNumber, section)
-                                  in configuration.value.sections.indexed) ...[
-                                ListTile(
-                                  title: Text(
-                                    section.name,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: section == currentSection
-                                        ? Theme.of(context)
-                                            .textTheme
-                                            .titleLarge
-                                            ?.copyWith(
-                                                fontWeight: FontWeight.bold)
-                                        : Theme.of(context)
-                                            .textTheme
-                                            .titleLarge,
-                                  ),
-                                ),
-                                for (var (stepNumber, step)
-                                    in section.steps.indexed)
-                                  ListTile(
-                                    title: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        SizedBox(width: 16),
-                                        Expanded(
-                                          child: Text(
-                                            step.name,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: step == currentStep
-                                                ? Theme.of(context)
-                                                    .textTheme
-                                                    .titleMedium
-                                                    ?.copyWith(
-                                                        fontWeight:
-                                                            FontWeight.bold)
-                                                : Theme.of(context)
-                                                    .textTheme
-                                                    .titleMedium,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    onTap: () {
-                                      ref
-                                          .read(cursorProvider.notifier)
-                                          .setCursorPosition(
-                                              sectionNumber: sectionNumber,
-                                              stepNumber: stepNumber);
-                                    },
-                                  ),
-                              ],
-                            ]
-                          : [])),
+              drawer: NavigationDrawer(),
               body: switch ((
                 currentStep.displayCode,
                 currentStep.displayMarkdown,
@@ -152,6 +94,69 @@ class MainApp extends ConsumerWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class NavigationDrawer extends ConsumerWidget {
+  const NavigationDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final configuration = ref.watch(configurationProvider).asData;
+    final (currentSection, currentStep, _) = ref.watch(cursorProvider);
+
+    return Drawer(
+      child: ListView(
+        children: configuration != null
+            ? [
+                for (final (sectionNumber, section)
+                    in configuration.value.sections.indexed) ...[
+                  ListTile(
+                    title: Text(
+                      section.name,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: section == currentSection
+                          ? Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(fontWeight: FontWeight.bold)
+                          : Theme.of(context).textTheme.titleLarge,
+                    ),
+                  ),
+                  for (var (stepNumber, step) in section.steps.indexed)
+                    ListTile(
+                      title: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(width: 16),
+                          Expanded(
+                            child: Text(
+                              step.name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: step == currentStep
+                                  ? Theme.of(context)
+                                      .textTheme
+                                      .titleMedium
+                                      ?.copyWith(fontWeight: FontWeight.bold)
+                                  : Theme.of(context).textTheme.titleMedium,
+                            ),
+                          ),
+                        ],
+                      ),
+                      onTap: () {
+                        ref.read(cursorProvider.notifier).setCursorPosition(
+                            sectionNumber: sectionNumber,
+                            stepNumber: stepNumber);
+                        Scaffold.of(context).openEndDrawer();
+                      },
+                    ),
+                ],
+              ]
+            : [],
       ),
     );
   }
