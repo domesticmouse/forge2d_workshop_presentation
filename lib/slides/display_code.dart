@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path/path.dart' as path;
 import 'package:super_text_layout/super_text_layout.dart';
 
 import '../configuration.dart';
@@ -185,10 +184,9 @@ class _DisplayCodeHelperState extends State<_DisplayCodeHelper> {
                   textStyle: TextStyle(
                     fontSize: 0.01972973 * size.height + 4.945946,
                     color: Colors.black.withOpacity(0.8),
-                    fontWeight:
-                        entry.node.title == path.split(widget.assetPath).last
-                            ? FontWeight.w500
-                            : FontWeight.w300,
+                    fontWeight: entry.node.contents == widget.assetPath
+                        ? FontWeight.w500
+                        : FontWeight.w300,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

@@ -71,7 +71,7 @@ sections:
             contents: assets/step_02/pubspec.yaml
             file-type: yaml
       - name: macos/Runner/Base.lproj/MainMenu.xib
-        display-code: assets/step_02/macos/Runner/Base.lproj/MainMenu.xib
+        display-code: assets/step_02/macos/Runner/Base.lproj/MainMenu.orig.xib
         file-type: xml
         sub-steps:
           - name: top
@@ -80,18 +80,6 @@ sections:
             base-offset: 0
             scroll-percentage: 100
             scroll-seconds: 5
-          - name: titlebarAppearsTransparent
-            base-offset: 23180
-            extent-offset: 23212
-            scroll-percentage: 100
-          - name: titleVisibility
-            base-offset: 23213
-            extent-offset: 23237
-            scroll-percentage: 100
-          - name: fullSizeContentView
-            base-offset: 23349
-            extent-offset: 23374
-            scroll-percentage: 100
         tree:
           - directory: .vscode
           - directory: android
@@ -108,6 +96,7 @@ sections:
                   - directory: Base.lproj
                     children:
                       - file: MainMenu.xib
+                        contents: assets/step_02/macos/Runner/Base.lproj/MainMenu.orig.xib
                         file-type: xml
                   - directory: Configs
                   - file: AppDelegate.swift
@@ -186,6 +175,69 @@ sections:
           - directory: lib
           - directory: linux
           - directory: macos
+          - directory: web
+          - directory: windows
+          - file: .gitignore
+            file-type: gitignore
+          - file: analysis_options.yaml
+            file-type: yaml
+          - file: pubspec.yaml
+            contents: assets/step_02/pubspec.yaml
+            file-type: yaml
+      - name: macos/Runner/Base.lproj/MainMenu.xib
+        display-code: assets/step_02/macos/Runner/Base.lproj/MainMenu.xib
+        file-type: xml
+        sub-steps:
+          - name: top
+            base-offset: 0
+          - name: bottom
+            base-offset: 0
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: titlebarAppearsTransparent
+            base-offset: 23180
+            extent-offset: 23212
+            scroll-percentage: 100
+          - name: titleVisibility
+            base-offset: 23213
+            extent-offset: 23237
+            scroll-percentage: 100
+          - name: fullSizeContentView
+            base-offset: 23349
+            extent-offset: 23374
+            scroll-percentage: 100
+        tree:
+          - directory: .vscode
+          - directory: android
+          - directory: bin
+          - directory: ios
+          - directory: lib
+          - directory: linux
+          - directory: macos
+            children:
+              - directory: Flutter
+              - directory: Runner
+                children:
+                  - directory: Assets.xcassets
+                  - directory: Base.lproj
+                    children:
+                      - file: MainMenu.xib
+                        contents: assets/step_02/macos/Runner/Base.lproj/MainMenu.xib
+                        file-type: xml
+                  - directory: Configs
+                  - file: AppDelegate.swift
+                    file-type: swift
+                  - file: DebugProfile.entitlements
+                    file-type: xml
+                  - file: Info.plist
+                    file-type: plist
+                  - file: MainFlutterWindow.swift
+                    file-type: swift
+                  - file: Release.entitlements
+                    file-type: xml
+              - directory: Runner.xcodeproj
+              - directory: Runner.xcworkspace
+              - directory: RunnerTests
           - directory: web
           - directory: windows
           - file: .gitignore
