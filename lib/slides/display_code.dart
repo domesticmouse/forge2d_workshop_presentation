@@ -257,68 +257,59 @@ class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
       affinity: TextAffinity.upstream,
     );
 
-    return NotificationListener<ScrollMetricsNotification>(
-      onNotification: (notification) {
-        debugPrint('ScrollMetricsNotification.metrics.minScrollExtent: '
-            '${notification.metrics.minScrollExtent}');
-        debugPrint('ScrollMetricsNotification.metrics.maxScrollExtent: '
-            '${notification.metrics.maxScrollExtent}');
-        return false;
-      },
-      child: ListView(
-        controller: scrollController,
-        children: [
-          SizedBox(height: 8),
-          SuperText(
-            richText: TextSpan(
-              style: GoogleFonts.robotoMono(
-                textStyle: TextStyle(
-                  fontSize: 0.02567568 * size.height - 1.864865,
-                  fontWeight: FontWeight.w300,
-                ),
+    return ListView(
+      controller: scrollController,
+      children: [
+        SizedBox(height: 8),
+        SuperText(
+          richText: TextSpan(
+            style: GoogleFonts.robotoMono(
+              textStyle: TextStyle(
+                fontSize: 0.02567568 * size.height - 1.864865,
+                fontWeight: FontWeight.w300,
               ),
-              children: [
-                switch (widget.fileType) {
-                  'dart' => widget.highlighters.dart.highlight(widget.content),
-                  'yaml' => widget.highlighters.yaml.highlight(widget.content),
-                  'xml' => widget.highlighters.xml.highlight(widget.content),
-                  _ => TextSpan(
-                      text: widget.content,
-                      style: const TextStyle(color: Colors.black),
-                    ),
-                },
-              ],
             ),
-            layerAboveBuilder: (context, textLayout) {
-              return Stack(
-                children: [
-                  TextLayoutCaret(
-                    textLayout: textLayout,
-                    style: const CaretStyle(
-                      color: Colors.black,
-                      width: 2,
-                    ),
-                    position: TextPosition(offset: textSelection.extentOffset),
+            children: [
+              switch (widget.fileType) {
+                'dart' => widget.highlighters.dart.highlight(widget.content),
+                'yaml' => widget.highlighters.yaml.highlight(widget.content),
+                'xml' => widget.highlighters.xml.highlight(widget.content),
+                _ => TextSpan(
+                    text: widget.content,
+                    style: const TextStyle(color: Colors.black),
                   ),
-                ],
-              );
-            },
-            layerBeneathBuilder: (context, textLayout) {
-              return Stack(
-                children: [
-                  TextLayoutSelectionHighlight(
-                    textLayout: textLayout,
-                    style: SelectionHighlightStyle(
-                      color: Colors.blue.withOpacity(0.3),
-                    ),
-                    selection: textSelection,
-                  ),
-                ],
-              );
-            },
+              },
+            ],
           ),
-        ],
-      ),
+          layerAboveBuilder: (context, textLayout) {
+            return Stack(
+              children: [
+                TextLayoutCaret(
+                  textLayout: textLayout,
+                  style: const CaretStyle(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                  position: TextPosition(offset: textSelection.extentOffset),
+                ),
+              ],
+            );
+          },
+          layerBeneathBuilder: (context, textLayout) {
+            return Stack(
+              children: [
+                TextLayoutSelectionHighlight(
+                  textLayout: textLayout,
+                  style: SelectionHighlightStyle(
+                    color: Colors.blue.withOpacity(0.3),
+                  ),
+                  selection: textSelection,
+                ),
+              ],
+            );
+          },
+        ),
+      ],
     );
   }
 }
