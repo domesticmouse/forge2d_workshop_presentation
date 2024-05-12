@@ -24,7 +24,6 @@ class TextOffsetFinderApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.robotoTextTheme(),
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue),
       ),
       home: Scaffold(
         appBar: AppBar(
@@ -221,6 +220,13 @@ class _OffsetFinderTextViewHelperState
 
   @override
   Widget build(BuildContext context) {
+    var scrollPercentage = _cursor.scrollPercentage * 100;
+    if (scrollPercentage.isNaN) {
+      scrollPercentage = 0;
+    } else {
+      scrollPercentage = scrollPercentage.roundToDouble();
+    }
+
     return CallbackShortcuts(
       bindings: {
         SingleActivator(LogicalKeyboardKey.arrowLeft): () => setState(() {
@@ -251,14 +257,6 @@ class _OffsetFinderTextViewHelperState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-            child: Text(
-              'Cursor: ${_cursor.position.line}:${_cursor.position.column} '
-              'offset: ${_cursor.position.offset} scroll: ${_cursor.scrollPercentage * 100}%',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-          ),
           Expanded(
             child: Focus(
               child: SingleChildScrollView(
@@ -312,6 +310,14 @@ class _OffsetFinderTextViewHelperState
                   ),
                 ),
               ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+            child: SelectableText(
+              'Cursor: ${_cursor.position.line}:${_cursor.position.column} '
+              'offset: ${_cursor.position.offset} scroll: $scrollPercentage%',
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
         ],
