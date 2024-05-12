@@ -21,7 +21,7 @@ final configurationProvider = AutoDisposeFutureProvider<Configuration>.internal(
 );
 
 typedef ConfigurationRef = AutoDisposeFutureProviderRef<Configuration>;
-String _$highlightersHash() => r'01f202edc49d254b69d7a8176dfd193879465525';
+String _$highlightersHash() => r'611ab766e1fed8f233f0c7edfcb7b3b4a679826b';
 
 /// See also [highlighters].
 @ProviderFor(highlighters)

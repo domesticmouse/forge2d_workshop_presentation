@@ -130,7 +130,7 @@ Future<Highlighters> highlighters(HighlightersRef ref) async {
   await Highlighter.initialize(['dart', 'yaml']);
   Highlighter.addLanguage('xml', xmlSyntax);
 
-  var theme = await HighlighterTheme.loadLightTheme();
+  var theme = await HighlighterTheme.loadDarkTheme();
   return Highlighters(
     dart: Highlighter(
       language: 'dart',

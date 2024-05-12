@@ -70,7 +70,7 @@ sections:
           - file: pubspec.yaml
             contents: assets/step_02/pubspec.yaml
             file-type: yaml
-      - name: macos/Runner/Base.lproj/MainMenu.xib
+      - name: macos/Runner/Base.lproj/MainMenu.xib Original
         display-code: assets/step_02/macos/Runner/Base.lproj/MainMenu.orig.xib
         file-type: xml
         sub-steps:
@@ -80,6 +80,14 @@ sections:
             base-offset: 0
             scroll-percentage: 100
             scroll-seconds: 5
+          - name: //document/objects/window
+            base-offset: 22925
+            extent-offset: 22932
+            scroll-percentage: 100
+          - name: //document/objects/window/windowStyleMaske
+            base-offset: 23193
+            extent-offset: 23209
+            scroll-percentage: 100
         tree:
           - directory: .vscode
           - directory: android

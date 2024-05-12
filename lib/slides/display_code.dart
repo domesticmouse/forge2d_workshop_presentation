@@ -79,7 +79,7 @@ class _DisplayCodeState extends State<DisplayCode> {
                 style: GoogleFonts.robotoMono(
                   textStyle: TextStyle(
                     fontSize: 0.01972973 * size.height + 4.945946,
-                    color: Colors.black.withOpacity(0.8),
+                    color: Colors.white.withOpacity(0.8),
                     fontWeight: entry.node.contents == widget.assetPath
                         ? FontWeight.w500
                         : FontWeight.w300,
@@ -92,7 +92,7 @@ class _DisplayCodeState extends State<DisplayCode> {
         ),
         VerticalDivider(
           thickness: 1,
-          color: Colors.black.withOpacity(0.3),
+          color: Colors.white.withOpacity(0.3),
         ),
         if (widget.fileType != 'png') ...[
           SizedBox(width: 12),
@@ -276,7 +276,7 @@ class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
                 'xml' => widget.highlighters.xml.highlight(widget.content),
                 _ => TextSpan(
                     text: widget.content,
-                    style: const TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Colors.white),
                   ),
               },
             ],
@@ -287,7 +287,7 @@ class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
                 TextLayoutCaret(
                   textLayout: textLayout,
                   style: const CaretStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     width: 2,
                   ),
                   position: TextPosition(offset: textSelection.extentOffset),
@@ -301,7 +301,7 @@ class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
                 TextLayoutSelectionHighlight(
                   textLayout: textLayout,
                   style: SelectionHighlightStyle(
-                    color: Colors.blue.withOpacity(0.3),
+                    color: Colors.blueAccent.withOpacity(0.4),
                   ),
                   selection: textSelection,
                 ),

@@ -23,6 +23,20 @@ void main() {
 class MainApp extends ConsumerWidget {
   const MainApp({super.key});
 
+  ThemeData _buildTheme(brightness) {
+    var baseTheme = ThemeData(
+      brightness: brightness,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.blue,
+        brightness: brightness,
+      ),
+    );
+
+    return baseTheme.copyWith(
+      textTheme: GoogleFonts.robotoTextTheme(baseTheme.textTheme),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.sizeOf(context);
@@ -32,10 +46,9 @@ class MainApp extends ConsumerWidget {
     return _EagerInitialization(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          textTheme: GoogleFonts.robotoTextTheme(),
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        ),
+        theme: _buildTheme(Brightness.light),
+        darkTheme: _buildTheme(Brightness.dark),
+        themeMode: ThemeMode.dark,
         home: CallbackShortcuts(
           bindings: <ShortcutActivator, VoidCallback>{
             SingleActivator(LogicalKeyboardKey.arrowRight): () =>
