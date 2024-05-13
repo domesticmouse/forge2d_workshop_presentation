@@ -887,16 +887,76 @@ sections:
           - name: Scroll for onLoad
             base-offset: 429
             extent-offset: 497
-            scroll-percentage: 30.0
+            scroll-percentage: 35.0
             scroll-seconds: 1
           - name: onLoad
             base-offset: 650
             extent-offset: 658
-            scroll-percentage: 30.0
+            scroll-percentage: 35.0
           - name: async
             base-offset: 659
             extent-offset: 664
-            scroll-percentage: 30.0
+            scroll-percentage: 35.0
+          - name: await rootBundle.loadString('assets/spritesheet_aliens.xml')
+            base-offset: 982
+            extent-offset: 1042
+            scroll-percentage: 45.0
+            scroll-seconds: 1
+          - name: await rootBundle.loadString('assets/spritesheet_elements.xml')
+            base-offset: 1098
+            extent-offset: 1160
+            scroll-percentage: 48.0
+            scroll-seconds: 1
+          - name: await rootBundle.loadString('assets/spritesheet_tiles.xml')
+            base-offset: 1210
+            extent-offset: 1269
+            scroll-percentage: 51.0
+            scroll-seconds: 1
+          - name: images.load('colored_grass.png')
+            base-offset: 751
+            extent-offset: 783
+            scroll-percentage: 37.0
+            scroll-seconds: 1
+          - name: images.load('spritesheet_aliens.png')
+            base-offset: 791
+            extent-offset: 828
+            scroll-percentage: 38.0
+            scroll-seconds: 1
+          - name: images.load('spritesheet_elements.png')
+            base-offset: 836
+            extent-offset: 875
+            scroll-percentage: 39.0
+            scroll-seconds: 1
+          - name: images.load('spritesheet_tiles.png')
+            base-offset: 883
+            extent-offset: 919
+            scroll-percentage: 41.0
+            scroll-seconds: 1
+          - name: .wait
+            base-offset: 926
+            extent-offset: 931
+            scroll-percentage: 42.0
+            scroll-seconds: 1
+          - name: await
+            base-offset: 737
+            extent-offset: 742
+            scroll-percentage: 35.0
+            scroll-seconds: 1
+          - name: desctructuring assignmet
+            base-offset: 671
+            extent-offset: 736
+            scroll-percentage: 35.0
+            scroll-seconds: 1
+          - name: "Background(sprite: Sprite(backgroundImage))"
+            base-offset: 1335
+            extent-offset: 1293
+            scroll-percentage: 54.0
+            scroll-seconds: 1
+          - name: await world.add(background)
+            base-offset: 1277
+            extent-offset: 1293
+            scroll-percentage: 54.0
+            scroll-seconds: 1
 
         tree:
           - directory: .vscode
