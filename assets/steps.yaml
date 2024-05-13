@@ -649,6 +649,15 @@ sections:
         sub-steps:
           - name: top
             base-offset: 0
+          - name: alienBlue_round.png
+            base-offset: 301
+            extent-offset: 320
+          - name: alientBlue X and Y
+            base-offset: 322
+            extent-offset: 336
+          - name: alienBlue width and height
+            base-offset: 337
+            extent-offset: 359
         tree:
           - directory: .vscode
           - directory: android
@@ -758,8 +767,14 @@ sections:
         sub-steps:
           - name: top
             base-offset: 0
-          - name: flutter/assets
+          - name: "assets:"
             base-offset: 366
+            extent-offset: 373
+          - name: flutter/assets
+            base-offset: 378
+            extent-offset: 387
+          - name: flutter/assets/images
+            base-offset: 392
             extent-offset: 408
         tree:
           - directory: .vscode
@@ -785,6 +800,45 @@ sections:
         sub-steps:
           - name: top
             base-offset: 0
+          - name: class Background
+            base-offset: 87
+            extent-offset: 97
+          - name: Background extends SpriteComponent
+            base-offset: 106
+            extent-offset: 121
+          - name: Component
+            base-offset: 112
+            extent-offset: 121
+          - name: "@override onMount"
+            base-offset: 308
+            extent-offset: 324 
+          - name: Sprite
+            base-offset: 106
+            extent-offset: 112
+          - name: required super.sprite
+            base-offset: 175
+            extent-offset: 196
+          - name: super.anchor
+            base-offset: 224
+            extent-offset: 245
+          - name: super.position
+            base-offset: 257
+            extent-offset: 280
+          - name: Background HasGameReference
+            base-offset: 127
+            extent-offset: 158
+          - name: game
+            base-offset: 381
+            extent-offset: 385
+          - name: game.camera.visibleWorldRect.width
+            base-offset: 381
+            extent-offset: 415
+          - name: game.camera.visibleWorldRect.height
+            base-offset: 423
+            extent-offset: 458
+          - name: super.size
+            base-offset: 351
+            extent-offset: 374          
         tree:
           - directory: .vscode
           - directory: android
@@ -818,6 +872,32 @@ sections:
         sub-steps:
           - name: top
             base-offset: 0
+          - name: class MyPhysicsGame
+            base-offset: 315
+            extent-offset: 328
+          - name: extends Forge2DGame
+            base-offset: 337
+            extent-offset: 348
+          - name: "gravity is in MKS units"
+            base-offset: 394
+            extent-offset: 417
+          - name: "camera is in Fixed Resolution"
+            base-offset: 429
+            extent-offset: 497
+          - name: Scroll for onLoad
+            base-offset: 429
+            extent-offset: 497
+            scroll-percentage: 30.0
+            scroll-seconds: 1
+          - name: onLoad
+            base-offset: 650
+            extent-offset: 658
+            scroll-percentage: 30.0
+          - name: async
+            base-offset: 659
+            extent-offset: 664
+            scroll-percentage: 30.0
+
         tree:
           - directory: .vscode
           - directory: android
@@ -854,6 +934,12 @@ sections:
         sub-steps:
           - name: top
             base-offset: 0
+          - name: import components/game.dart
+            base-offset: 75
+            extent-offset: 105
+          - name: MyPhysicsGame.new
+            base-offset: 177
+            extent-offset: 194
         tree:
           - directory: .vscode
           - directory: android

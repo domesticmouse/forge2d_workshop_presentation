@@ -134,7 +134,7 @@ class NavigationDrawer extends ConsumerWidget {
                           ? Theme.of(context)
                               .textTheme
                               .titleLarge
-                              ?.copyWith(fontWeight: FontWeight.bold)
+                              ?.copyWith(fontWeight: FontWeight.w800)
                           : Theme.of(context).textTheme.titleLarge,
                     ),
                     onTap: () {
@@ -158,7 +158,7 @@ class NavigationDrawer extends ConsumerWidget {
                                     ? Theme.of(context)
                                         .textTheme
                                         .titleMedium
-                                        ?.copyWith(fontWeight: FontWeight.bold)
+                                        ?.copyWith(fontWeight: FontWeight.w800)
                                     : Theme.of(context).textTheme.titleMedium,
                               ),
                             ),

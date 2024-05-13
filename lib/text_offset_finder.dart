@@ -55,6 +55,7 @@ class TextOffsetFinderAppMenu extends ConsumerWidget {
         ),
       );
     }
+
     return MenuAnchor(
       menuChildren: [
         for (final section in configuration.sections) ...[
@@ -68,7 +69,7 @@ class TextOffsetFinderAppMenu extends ConsumerWidget {
                   ? Theme.of(context)
                       .textTheme
                       .titleLarge
-                      ?.copyWith(fontWeight: FontWeight.bold)
+                      ?.copyWith(fontWeight: FontWeight.w800)
                   : Theme.of(context).textTheme.titleLarge,
             ),
           ),
@@ -87,7 +88,7 @@ class TextOffsetFinderAppMenu extends ConsumerWidget {
                       ? Theme.of(context)
                           .textTheme
                           .titleMedium
-                          ?.copyWith(fontWeight: FontWeight.bold)
+                          ?.copyWith(fontWeight: FontWeight.w800)
                       : Theme.of(context).textTheme.titleMedium),
             ),
           ]
@@ -185,15 +186,23 @@ class _OffsetFinderTextViewState extends State<OffsetFinderTextView> {
           );
         }
 
-        return OffsetFinderTextViewHelper(content: snapshot.data ?? '');
+        return OffsetFinderTextViewHelper(
+          content: snapshot.data ?? '',
+          assetPath: widget.step.displayCode ?? '',
+        );
       },
     );
   }
 }
 
 class OffsetFinderTextViewHelper extends StatefulWidget {
-  const OffsetFinderTextViewHelper({super.key, required this.content});
+  const OffsetFinderTextViewHelper({
+    super.key,
+    required this.content,
+    required this.assetPath,
+  });
 
+  final String assetPath;
   final String content;
 
   @override
@@ -315,8 +324,10 @@ class _OffsetFinderTextViewHelperState
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
             child: SelectableText(
+              'Asset Path: ${widget.assetPath} '
               'Cursor: ${_cursor.position.line}:${_cursor.position.column} '
-              'offset: ${_cursor.position.offset} scroll: $scrollPercentage%',
+              'base-offset: ${_cursor.position.offset} '
+              'scroll-percentage: $scrollPercentage',
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
