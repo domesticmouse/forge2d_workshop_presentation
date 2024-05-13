@@ -222,11 +222,13 @@ class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
   @override
   void initState() {
     super.initState();
+    scrollController = ScrollController();
+  }
 
-    scrollController = ScrollController()
-      ..addListener(() {
-        debugPrint('scrollController.offset: ${scrollController.offset}');
-      });
+  @override
+  void dispose() {
+    super.dispose();
+    scrollController.dispose();
   }
 
   @override
