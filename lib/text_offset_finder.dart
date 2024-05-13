@@ -262,6 +262,34 @@ class _OffsetFinderTextViewHelperState
                   _scrollController.position.maxScrollExtent *
                       _cursor.scrollPercentage);
             }),
+        SingleActivator(LogicalKeyboardKey.arrowLeft, shift: true): () =>
+            setState(() {
+              _cursor.shiftLeft();
+              _scrollController.jumpTo(
+                  _scrollController.position.maxScrollExtent *
+                      _cursor.scrollPercentage);
+            }),
+        SingleActivator(LogicalKeyboardKey.arrowRight, shift: true): () =>
+            setState(() {
+              _cursor.shiftRight();
+              _scrollController.jumpTo(
+                  _scrollController.position.maxScrollExtent *
+                      _cursor.scrollPercentage);
+            }),
+        SingleActivator(LogicalKeyboardKey.arrowUp, shift: true): () =>
+            setState(() {
+              _cursor.shiftUp();
+              _scrollController.jumpTo(
+                  _scrollController.position.maxScrollExtent *
+                      _cursor.scrollPercentage);
+            }),
+        SingleActivator(LogicalKeyboardKey.arrowDown, shift: true): () =>
+            setState(() {
+              _cursor.shiftDown();
+              _scrollController.jumpTo(
+                  _scrollController.position.maxScrollExtent *
+                      _cursor.scrollPercentage);
+            }),
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -297,8 +325,7 @@ class _OffsetFinderTextViewHelperState
                               width: 2,
                             ),
                             position: TextPosition(
-                                offset: _cursor
-                                    .position.textSelection.extentOffset),
+                                offset: _cursor.textSelection.extentOffset),
                           ),
                         ],
                       );
@@ -311,7 +338,7 @@ class _OffsetFinderTextViewHelperState
                             style: SelectionHighlightStyle(
                               color: Colors.blue.withOpacity(0.3),
                             ),
-                            selection: _cursor.position.textSelection,
+                            selection: _cursor.textSelection,
                           ),
                         ],
                       );
@@ -325,8 +352,9 @@ class _OffsetFinderTextViewHelperState
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
             child: SelectableText(
               'Asset Path: ${widget.assetPath} '
-              'Cursor: ${_cursor.position.line}:${_cursor.position.column} '
-              'base-offset: ${_cursor.position.offset} '
+              'Cursor: ${_cursor.extentLine}:${_cursor.extentColumn} '
+              'base-offset: ${_cursor.basePosition.offset} '
+              'extent-offset: ${_cursor.extentPosition.offset} '
               'scroll-percentage: $scrollPercentage',
               style: Theme.of(context).textTheme.titleMedium,
             ),
@@ -349,14 +377,20 @@ class CursorPosition {
     required this.line,
     required this.column,
   });
-
-  TextSelection get textSelection =>
-      TextSelection.collapsed(offset: offset, affinity: TextAffinity.upstream);
 }
 
 class Cursor {
-  int _line = 0;
-  int _column = 0;
+  int baseLine = 0;
+  int baseColumn = 0;
+  int extentLine = 0;
+  int extentColumn = 0;
+
+  TextSelection get textSelection => TextSelection(
+        baseOffset: basePosition.offset,
+        extentOffset: extentPosition.offset,
+        affinity: TextAffinity.upstream,
+      );
+
   late final List<CursorPosition> _positions;
 
   Cursor({required String content}) {
@@ -384,16 +418,31 @@ class Cursor {
     _positions = positions;
   }
 
-  double get scrollPercentage => position.line / _positions.last.line;
+  double get scrollPercentage => extentLine / _positions.last.line;
 
-  CursorPosition get position {
-    final position = _positions.where(
-        (position) => position.line == _line && position.column == _column);
+  CursorPosition get basePosition {
+    final position = _positions.where((position) =>
+        position.line == baseLine && position.column == baseColumn);
     if (position.isNotEmpty) {
       return position.first;
     }
 
-    final row = _positions.where((position) => position.line == _line);
+    final row = _positions.where((position) => position.line == baseLine);
+    if (row.isNotEmpty) {
+      return row.last;
+    }
+
+    return _positions.last;
+  }
+
+  CursorPosition get extentPosition {
+    final position = _positions.where((position) =>
+        position.line == extentLine && position.column == extentColumn);
+    if (position.isNotEmpty) {
+      return position.first;
+    }
+
+    final row = _positions.where((position) => position.line == extentLine);
     if (row.isNotEmpty) {
       return row.last;
     }
@@ -402,44 +451,98 @@ class Cursor {
   }
 
   void left() {
-    final currentPosition = position;
+    final currentPosition = extentPosition;
     if (currentPosition == _positions.first) {
       return;
     }
 
     final previousPosition = _positions[currentPosition.offset - 1];
-    _line = previousPosition.line;
-    _column = previousPosition.column;
+    extentLine = previousPosition.line;
+    extentColumn = previousPosition.column;
+    baseLine = extentLine;
+    baseColumn = extentColumn;
   }
 
   void right() {
-    final currentPosition = position;
+    final currentPosition = extentPosition;
     if (currentPosition == _positions.last) {
       return;
     }
 
     final nextPosition = _positions[currentPosition.offset + 1];
-    _line = nextPosition.line;
-    _column = nextPosition.column;
+    extentLine = nextPosition.line;
+    extentColumn = nextPosition.column;
+    baseLine = extentLine;
+    baseColumn = extentColumn;
   }
 
   void up() {
-    final currentPosition = position;
+    final currentPosition = extentPosition;
     if (currentPosition.line == 0) {
-      _column = 0;
+      extentColumn = 0;
+      baseLine = extentLine;
+      baseColumn = extentColumn;
       return;
     }
 
-    _line = currentPosition.line - 1;
+    extentLine = currentPosition.line - 1;
+    baseLine = extentLine;
+    baseColumn = extentColumn;
   }
 
   void down() {
-    final currentPosition = position;
+    final currentPosition = extentPosition;
     if (currentPosition.line == _positions.last.line) {
-      _column = _positions.last.column;
+      extentColumn = _positions.last.column;
+      baseLine = extentLine;
+      baseColumn = extentColumn;
       return;
     }
 
-    _line = currentPosition.line + 1;
+    extentLine = currentPosition.line + 1;
+    baseLine = extentLine;
+    baseColumn = extentColumn;
+  }
+
+  void shiftLeft() {
+    final currentPosition = extentPosition;
+    if (currentPosition == _positions.first) {
+      return;
+    }
+
+    final previousPosition = _positions[currentPosition.offset - 1];
+    extentLine = previousPosition.line;
+    extentColumn = previousPosition.column;
+  }
+
+  void shiftRight() {
+    final currentPosition = extentPosition;
+    if (currentPosition == _positions.last) {
+      return;
+    }
+
+    final nextPosition = _positions[currentPosition.offset + 1];
+    extentLine = nextPosition.line;
+    extentColumn = nextPosition.column;
+  }
+
+  void shiftUp() {
+    final currentPosition = extentPosition;
+    if (currentPosition.line == 0) {
+      extentColumn = 0;
+      return;
+    }
+
+    extentLine = currentPosition.line - 1;
+  }
+
+  void shiftDown() {
+    final currentPosition = extentPosition;
+    if (currentPosition.line == _positions.last.line) {
+      extentColumn = _positions.last.column;
+      return;
+    }
+
+    extentLine = currentPosition.line + 1;
   }
 }
