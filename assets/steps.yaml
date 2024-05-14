@@ -1116,6 +1116,95 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: class Ground
+            base-offset: 123 
+            extent-offset: 129 
+            scroll-percentage: 19.0 
+            scroll-seconds: 1
+          - name: groundSize configurable
+            base-offset: 92 
+            extent-offset: 114 
+            scroll-percentage: 11.0 
+            scroll-seconds: 1
+          - name: BodyComponent
+            base-offset: 138 
+            extent-offset: 151 
+            scroll-percentage: 19.0 
+            scroll-seconds: 1
+          - name: "package:flame_forge2d"
+            base-offset: 48 
+            extent-offset: 69 
+            scroll-percentage: 4.0 
+            scroll-seconds: 1
+          - name: sprite arg
+            base-offset: 181 
+            extent-offset: 194 
+            scroll-percentage: 22.0 
+            scroll-seconds: 1
+          - name: SpriteComponent
+            base-offset: 554 
+            extent-offset: 735 
+            scroll-percentage: 89.0 
+            scroll-seconds: 1
+          - name: SpriteComponent child of BodyComponent
+            base-offset: 530 
+            extent-offset: 541 
+            scroll-percentage: 67.0 
+            scroll-seconds: 1
+          - name: Render body false
+            base-offset: 221 
+            extent-offset: 238 
+            scroll-percentage: 30.0 
+            scroll-seconds: 1
+          - name: Position arg
+            base-offset: 163 
+            extent-offset: 179 
+            scroll-percentage: 22.0 
+            scroll-seconds: 1
+          - name: BodyDef
+            base-offset: 259 
+            extent-offset: 339 
+            scroll-percentage: 41.0 
+            scroll-seconds: 1
+          - name: BodyType static
+            base-offset: 324 
+            extent-offset: 339 
+            scroll-percentage: 41.0 
+            scroll-seconds: 1
+          - name: Shape definition
+            base-offset: 404 
+            extent-offset: 418 
+            scroll-percentage: 52.0 
+            scroll-seconds: 1
+          - name: XY axis aligned box
+            base-offset: 420 
+            extent-offset: 430 
+            scroll-percentage: 52.0
+            scroll-seconds: 1
+          - name: halfWidth and halfHeight
+            base-offset: 431 
+            extent-offset: 461 
+            scroll-percentage: 52.0
+            scroll-seconds: 1
+          - name: FixtureDefs list
+            base-offset: 351 
+            extent-offset: 365 
+            scroll-percentage: 44.0 
+            scroll-seconds: 1
+          - name: FixtureDef
+            base-offset: 378 
+            extent-offset: 389 
+            scroll-percentage: 48.0 
+            scroll-seconds: 1
+          - name: Friction 
+            base-offset: 478 
+            extent-offset: 491 
+            scroll-percentage: 56.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 491 
+            scroll-percentage: 56.0 
+          
         tree:
           - directory: .vscode
           - directory: android
@@ -1164,6 +1253,11 @@ sections:
             extent-offset: 1383 
             scroll-percentage: 47.0
             scroll-seconds: 1
+          - name: addGround() defn
+            base-offset: 1488 
+            extent-offset: 1512 
+            scroll-percentage: 42.0
+            scroll-seconds: 1
           - name: world.addAll
             base-offset: 1457 
             extent-offset: 1469 
@@ -1202,8 +1296,6 @@ sections:
           - name: done
             extent-offset: 1744
             scroll-percentage: 62.0 
-
-
         tree:
           - directory: .vscode
           - directory: android
