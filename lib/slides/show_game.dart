@@ -41,9 +41,11 @@ class ShowGame<T extends Game> extends StatelessWidget {
                     height: gameHeight,
                     child: Stack(
                       children: [
-                        Center(
-                          child: GameWidget.controlled(
-                            gameFactory: gameFactory,
+                        ExcludeFocus(
+                          child: Center(
+                            child: GameWidget.controlled(
+                              gameFactory: gameFactory,
+                            ),
                           ),
                         ),
                         CustomPaint(
