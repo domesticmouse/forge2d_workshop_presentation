@@ -1345,43 +1345,87 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: XML processing
+            base-offset: 175 
+            extent-offset: 671 
+            scroll-percentage: 0 
+            scroll-seconds: 1
+          - name: generateBrickFileNames
+            base-offset: 680 
+            extent-offset: 709 
+            scroll-percentage: 20.0
+            scroll-seconds: 1
+          - name: class Rect
+            base-offset: 721 
+            extent-offset: 725 
+            scroll-percentage: 23.0 
+            scroll-seconds: 1
+          - name: extends Equatable
+            base-offset: 734 
+            extent-offset: 743 
+            scroll-percentage: 23.0
+            scroll-seconds: 1
+          - name: Rect attributes
+            base-offset: 748 
+            extent-offset: 814 
+            scroll-percentage: 28.0 
+            scroll-seconds: 1
+          - name: Rect constructor
+            base-offset: 823 
+            extent-offset: 931 
+            scroll-percentage: 33.0 
+            scroll-seconds: 1
+          - name: Size getter
+            base-offset: 941 
+            extent-offset: 949 
+            scroll-percentage: 35.0 
+            scroll-seconds: 1
+          - name: equatable configuration
+            base-offset: 977 
+            extent-offset: 1081 
+            scroll-percentage: 41.0 
+            scroll-seconds: 1
+          - name: class Size
+            base-offset: 1091 
+            extent-offset: 1095 
+            scroll-percentage: 44.0 
+            scroll-seconds: 1
+          - name: generateBrickFileNames definition
+            base-offset: 1299 
+            extent-offset: 1353 
+            scroll-percentage: 56.0 
+            scroll-seconds: 1
+          - name: code generation #1
+            base-offset: 1553 
+            extent-offset: 1666 
+            scroll-percentage: 64.0 
+            scroll-seconds: 1
+          - name: code generation #2
+            base-offset: 1993 
+            extent-offset: 2257 
+            scroll-percentage: 78.0 
+            scroll-seconds: 1
+          - name: code generation #3
+            base-offset: 2323 
+            extent-offset: 2587 
+            scroll-percentage: 85.0 
+            scroll-seconds: 1
+          - name: pre-position for convert to string
+            base-offset: 2323 
+            extent-offset: 2587 
+            scroll-percentage: 100.0 
+            scroll-seconds: 1
+          - name: convert to string
+            base-offset: 2979 
+            extent-offset: 2994 
+            scroll-percentage: 100.0 
+          - name: done
+            extent-offset: 2994 
+            scroll-percentage: 100.0 
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_05/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_05/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_05/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_05/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_05/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_05/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_05/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_05/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_05/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_05/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
             children:
               - file: generate_brick_file_names.dart
@@ -1392,33 +1436,6 @@ sections:
                 file-type: dart
           - directory: ios
           - directory: lib
-            children:
-              - directory: components
-                children:
-                  - file: background.dart
-                    contents: assets/step_05/lib/components/background.dart
-                    file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_05/lib/components/body_component_with_user_data.dart
-                    file-type: dart
-                  - file: brick.dart
-                    contents: assets/step_05/lib/components/brick.dart
-                    file-type: dart
-                  - file: enemy.dart
-                    contents: assets/step_05/lib/components/enemy.dart
-                    file-type: dart
-                  - file: game.dart
-                    contents: assets/step_05/lib/components/game.dart
-                    file-type: dart
-                  - file: ground.dart
-                    contents: assets/step_05/lib/components/ground.dart
-                    file-type: dart
-                  - file: player.dart
-                    contents: assets/step_05/lib/components/player.dart
-                    file-type: dart
-              - file: main.dart
-                contents: assets/step_05/lib/main.dart
-                file-type: dart
           - directory: linux
           - directory: macos
           - directory: web
@@ -1438,51 +1455,112 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: brickScale
+            base-offset: 177 
+            extent-offset: 199 
+            scroll-percentage: 0 
+          - name: enum BrickType
+            base-offset: 202 
+            extent-offset: 216 
+            scroll-percentage: 0 
+          - name: BrickType values
+            base-offset: 221 
+            extent-offset: 404 
+            scroll-percentage: 0 
+          - name: BrickType attributes
+            base-offset: 408 
+            extent-offset: 454  
+            scroll-percentage: 0
+          - name: BrickType constructor
+            base-offset: 458 
+            extent-offset: 522 
+            scroll-percentage: 0
+          - name: BrickType random generator
+            base-offset: 526 
+            extent-offset: 600 
+            scroll-percentage: 0
+          - name: enum BrickSize
+            base-offset: 605 
+            extent-offset: 619 
+            scroll-percentage: 8.0 
+            scroll-seconds: 1
+          - name: enum BrickDamange
+            base-offset: 1017 
+            extent-offset: 1033 
+            scroll-percentage: 13.0 
+            scroll-seconds: 1
+          - name: brickFileNames definition
+            base-offset: 1056 
+            extent-offset: 1127 
+            scroll-percentage: 14.0 
+            scroll-seconds: 1
+          - name: end of brickFileNames definition
+            base-offset: 1056 
+            extent-offset: 1127 
+            scroll-percentage: 83.0 
+            scroll-seconds: 3
+          - name: class Brick
+            base-offset: 9483 
+            extent-offset: 9488 
+            scroll-percentage: 83.0 
+            scroll-seconds: 1
+          - name: extends BodyComponent
+            base-offset: 9497 
+            extent-offset: 9510 
+            scroll-percentage: 83.0 
+            scroll-seconds: 1
+          - name: Prepositon for Brick attributes
+            base-offset: 9497 
+            extent-offset: 9510
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: Brick attributes
+            base-offset: 10341 
+            extent-offset: 10429 
+            scroll-percentage: 100
+            scroll-seconds: 1          
+          - name: Brick damage
+            base-offset: 10433 
+            extent-offset: 10596 
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: spriteComponent attribute
+            base-offset: 10293 
+            extent-offset: 10336 
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: Adding spriteComponent to Brick
+            base-offset: 10640 
+            extent-offset: 10884 
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: Pre-position for body defintion
+            base-offset: 10640 
+            extent-offset: 10884 
+            scroll-percentage: 92.0 
+            scroll-seconds: 1
+          - name: body definition
+            base-offset: 9803 
+            extent-offset: 9888 
+            scroll-percentage: 92.0 
+          - name: BodyType.dynamic
+            base-offset: 9872 
+            extent-offset: 9888 
+            scroll-percentage: 92.0 
+            scroll-seconds: 1
+          - name: Varying density and friction
+            base-offset: 10206 
+            extent-offset: 10273 
+            scroll-percentage: 92.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 10273 
+            scroll-percentage: 92.0 
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_05/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_05/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_05/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_05/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_05/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_05/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_05/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_05/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_05/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_05/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_05/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_05/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -1491,23 +1569,14 @@ sections:
                   - file: background.dart
                     contents: assets/step_05/lib/components/background.dart
                     file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_05/lib/components/body_component_with_user_data.dart
-                    file-type: dart
                   - file: brick.dart
                     contents: assets/step_05/lib/components/brick.dart
-                    file-type: dart
-                  - file: enemy.dart
-                    contents: assets/step_05/lib/components/enemy.dart
                     file-type: dart
                   - file: game.dart
                     contents: assets/step_05/lib/components/game.dart
                     file-type: dart
                   - file: ground.dart
                     contents: assets/step_05/lib/components/ground.dart
-                    file-type: dart
-                  - file: player.dart
-                    contents: assets/step_05/lib/components/player.dart
                     file-type: dart
               - file: main.dart
                 contents: assets/step_05/lib/main.dart
@@ -1529,51 +1598,71 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: import brick.dart
+            base-offset: 328 
+            extent-offset: 348 
+          - name: pre-position for unawaited addBricks()
+            base-offset: 328 
+            extent-offset: 348 
+            scroll-percentage: 37.0
+            scroll-seconds: 1
+          - name: unawaited addBricks()
+            base-offset: 1429 
+            extent-offset: 1451 
+            scroll-percentage: 37.0 
+          - name: preposition for addBricks() defn
+            base-offset: 1429 
+            extent-offset: 1451 
+            scroll-percentage: 54.0
+            scroll-seconds: 1
+          - name: addBricks() defn
+            base-offset: 1859 
+            extent-offset: 1889 
+            scroll-percentage: 54.0
+            scroll-seconds: 1
+          - name: for loop
+            base-offset: 1896 
+            extent-offset: 1923 
+            scroll-percentage: 55.0 
+            scroll-seconds: 1
+          - name: random factories
+            base-offset: 1932 
+            extent-offset: 2007 
+            scroll-percentage: 57.0 
+            scroll-seconds: 1
+          - name: Preposition for Brick to add
+            base-offset: 1932 
+            extent-offset: 2007 
+            scroll-percentage: 72.0 
+            scroll-seconds: 1
+          - name: Brick to add
+            base-offset: 2039 
+            extent-offset: 2467 
+            scroll-percentage: 72.0 
+            scroll-seconds: 1
+          - name: random position
+            base-offset: 2136 
+            extent-offset: 2273 
+            scroll-percentage: 72.0 
+            scroll-seconds: 1
+          - name: add brick to world
+            base-offset: 2014 
+            extent-offset: 2029 
+            scroll-percentage: 72.0 
+            scroll-seconds: 1
+          - name: then sleep for 500ms
+            base-offset: 2484 
+            extent-offset: 2545 
+            scroll-percentage: 72.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 2545 
+            scroll-percentage: 72.0
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_05/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_05/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_05/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_05/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_05/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_05/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_05/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_05/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_05/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_05/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_05/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_05/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -1582,23 +1671,14 @@ sections:
                   - file: background.dart
                     contents: assets/step_05/lib/components/background.dart
                     file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_05/lib/components/body_component_with_user_data.dart
-                    file-type: dart
                   - file: brick.dart
                     contents: assets/step_05/lib/components/brick.dart
-                    file-type: dart
-                  - file: enemy.dart
-                    contents: assets/step_05/lib/components/enemy.dart
                     file-type: dart
                   - file: game.dart
                     contents: assets/step_05/lib/components/game.dart
                     file-type: dart
                   - file: ground.dart
                     contents: assets/step_05/lib/components/ground.dart
-                    file-type: dart
-                  - file: player.dart
-                    contents: assets/step_05/lib/components/player.dart
                     file-type: dart
               - file: main.dart
                 contents: assets/step_05/lib/main.dart
