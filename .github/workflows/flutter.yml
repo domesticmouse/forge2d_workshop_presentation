@@ -15,7 +15,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: beta      
+          channel: stable      
       - run: flutter pub get
       - name: Lint analysis
         run: dart analyze
