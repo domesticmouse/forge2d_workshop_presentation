@@ -78,7 +78,7 @@ class _DisplayCodeState extends State<DisplayCode> {
                 maxLines: 1,
                 style: GoogleFonts.robotoMono(
                   textStyle: TextStyle(
-                    fontSize: 0.01972973 * size.height + 4.945946,
+                    fontSize: 0.01972973 * size.height + 2,
                     color: Colors.white.withOpacity(0.8),
                     fontWeight: entry.node.contents == widget.assetPath
                         ? FontWeight.w500

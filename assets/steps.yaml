@@ -201,6 +201,8 @@ sections:
           - file: pubspec.yaml
             contents: assets/step_02/pubspec.yaml
             file-type: yaml
+      - name: Modify macOS config
+        display-markdown: assets/markdown/02_modify_macos_config.md
       - name: macos/Runner/Base.lproj/MainMenu.xib
         display-code: assets/step_02/macos/Runner/Base.lproj/MainMenu.xib
         file-type: xml
@@ -267,8 +269,6 @@ sections:
           - file: pubspec.yaml
             contents: assets/step_02/pubspec.yaml
             file-type: yaml
-      - name: Modify macOS config
-        display-markdown: assets/markdown/02_modify_macos_config.md
       - name: Show game step 2
         show-game: step_02
 
@@ -1248,15 +1248,19 @@ sections:
             base-offset: 308 
             extent-offset: 329 
             scroll-percentage: 0
+          - name: pre-position for await addGround()
+            base-offset: 308 
+            extent-offset: 329 
+            scroll-percentage: 47.0
+            scroll-seconds: 1
           - name: await addGround()
             base-offset: 1365 
             extent-offset: 1383 
             scroll-percentage: 47.0
-            scroll-seconds: 1
           - name: addGround() defn
-            base-offset: 1488 
-            extent-offset: 1512 
-            scroll-percentage: 42.0
+            base-offset: 1419 
+            extent-offset: 1443 
+            scroll-percentage: 53.0
             scroll-seconds: 1
           - name: world.addAll
             base-offset: 1457 
@@ -1270,7 +1274,7 @@ sections:
             scroll-seconds: 1
           - name: for loop
             base-offset: 1478 
-            extent-offset: 1483 
+            extent-offset: 1481
             scroll-percentage: 55.0 
             scroll-seconds: 1
           - name: start at left of screen
