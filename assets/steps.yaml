@@ -2022,51 +2022,87 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: import body_component_with_user_data.dart
+            base-offset: 153 
+            extent-offset: 197 
+            scroll-percentage: 0
+          - name: enum EnemyColor
+            base-offset: 223 
+            extent-offset: 238
+            scroll-percentage: 0
+          - name: boss enemy enum
+            base-offset: 556 
+            extent-offset: 572 
+            scroll-percentage: 10
+            scroll-seconds: 1
+          - name: boss enemy file name
+            base-offset: 828 
+            extent-offset: 852 
+            scroll-percentage: 20
+            scroll-seconds: 1
+          - name: class Enemy
+            base-offset: 869 
+            extent-offset: 874 
+            scroll-percentage: 39.0
+            scroll-seconds: 1
+          - name: extends BodyComponentWithUserData
+            base-offset: 883 
+            extent-offset: 908 
+            scroll-percentage: 39.0 
+            scroll-seconds: 1
+          - name: with ContactCallbacks
+            base-offset: 914 
+            extent-offset: 930 
+            scroll-percentage: 39.0 
+            scroll-seconds: 1
+          - name: super constructor
+            base-offset: 982 
+            extent-offset: 1535 
+            scroll-percentage: 50.0 
+            scroll-seconds: 1
+          - name: contact callback
+            base-offset: 1557 
+            extent-offset: 1600 
+            scroll-percentage: 68.0 
+            scroll-seconds: 1
+          - name: velocity delta
+            base-offset: 1639 
+            extent-offset: 1700 
+            scroll-percentage: 71.0 
+            scroll-seconds: 1
+          - name: collapse Vector2 to scalar
+            base-offset: 1713 
+            extent-offset: 1720 
+            scroll-percentage: 72.0 
+            scroll-seconds: 1
+          - name: absolute value
+            base-offset: 1733 
+            extent-offset: 1739 
+            scroll-percentage: 73.0 
+            scroll-seconds: 1
+          - name: Remove if hard enough hit
+            base-offset: 1745 
+            extent-offset: 1806 
+            scroll-percentage: 77.0 
+            scroll-seconds: 1
+          - name: update(dt)
+            base-offset: 1867 
+            extent-offset: 1884 
+            scroll-percentage: 86.0
+            scroll-seconds: 1
+          - name: remove from parent if outside of screen
+            base-offset: 1914 
+            extent-offset: 2058 
+            scroll-percentage: 95.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 2058 
+            scroll-percentage: 95.0
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_07/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_07/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_07/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_07/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_07/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_07/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_07/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_07/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_07/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_07/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_07/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_07/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -2074,9 +2110,6 @@ sections:
                 children:
                   - file: background.dart
                     contents: assets/step_07/lib/components/background.dart
-                    file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_07/lib/components/body_component_with_user_data.dart
                     file-type: dart
                   - file: brick.dart
                     contents: assets/step_07/lib/components/brick.dart
@@ -2113,51 +2146,34 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: class BodyComponentWithUserData
+            base-offset: 58 
+            extent-offset: 83 
+            scroll-percentage: 0
+          - name: extends BodyComponent
+            base-offset: 92 
+            extent-offset: 105
+            scroll-percentage: 0
+          - name: pass through constructor args
+            base-offset: 142 
+            extent-offset: 273 
+            scroll-percentage: 0
+          - name: override createBody
+            base-offset: 283 
+            extent-offset: 312 
+            scroll-percentage: 0
+          - name: add user data
+            base-offset: 364 
+            extent-offset: 381 
+            scroll-percentage: 0
+          - name: done
+            extent-offset: 381 
+            scroll-percentage: 0              
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_07/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_07/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_07/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_07/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_07/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_07/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_07/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_07/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_07/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_07/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_07/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_07/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -2204,51 +2220,22 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: import body_component_with_user_data.dart
+            base-offset: 92 
+            extent-offset: 136
+            scroll-percentage: 0
+          - name: Update base class
+            base-offset: 184 
+            extent-offset: 209 
+            scroll-percentage: 0
+          - name: done
+            extent-offset: 209 
+            scroll-percentage: 0
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_07/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_07/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_07/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_07/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_07/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_07/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_07/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_07/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_07/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_07/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_07/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_07/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -2295,51 +2282,22 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: import body_component_with_user_data.dart
+            base-offset: 226 
+            extent-offset: 270 
+          - name: update base class
+            base-offset: 578 
+            extent-offset: 603 
+            scroll-percentage: 8.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 603 
+            scroll-percentage: 8.0
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_07/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_07/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_07/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_07/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_07/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_07/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_07/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_07/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_07/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_07/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_07/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_07/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -2386,51 +2344,27 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: import body_component_with_user_data.dart
+            base-offset: 177 
+            extent-offset: 221 
+          - name: Preposition for update base class
+            base-offset: 177 
+            extent-offset: 221
+            scroll-percentage: 83.0 
+            scroll-seconds: 3
+          - name: update base class
+            base-offset: 9543 
+            extent-offset: 9568 
+            scroll-percentage: 83.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 9568 
+            scroll-percentage: 83.0
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_07/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_07/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_07/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_07/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_07/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_07/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_07/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_07/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_07/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_07/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_07/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_07/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -2472,56 +2406,57 @@ sections:
             contents: assets/step_07/pubspec.yaml
             file-type: yaml
       - name: lib/components/game.dart
-        display-code: assets/step_06/lib/components/game.dart
+        display-code: assets/step_07/lib/components/game.dart
         file-type: dart
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: import flutter/material.dart
+            base-offset: 197 
+            extent-offset: 235 
+            scroll-percentage: 0
+          - name: import enemy.dart
+            base-offset: 389 
+            extent-offset: 409 
+            scroll-percentage: 0
+          - name: preposition
+            base-offset: 389 
+            extent-offset: 409 
+            scroll-percentage: 20
+            scroll-seconds: 1
+          - name: Add enemies
+            base-offset: 1533 
+            extent-offset: 1559 
+            scroll-percentage: 20.0
+            scroll-seconds: 1
+          - name: Preposition for update(dt)
+            base-offset: 1533 
+            extent-offset: 1559 
+            scroll-percentage: 60.0 
+            scroll-seconds: 1
+          - name: update(dt) update adding player
+            base-offset: 2949 
+            extent-offset: 3100 
+            scroll-percentage: 60.0 
+            scroll-seconds: 1
+          - name: show win
+            base-offset: 3105 
+            extent-offset: 3715 
+            scroll-percentage: 71.0 
+            scroll-seconds: 1
+          - name: add enemies
+            base-offset: 3729 
+            extent-offset: 4275 
+            scroll-percentage: 83.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 4275 
+            scroll-percentage: 83.0
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_07/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_07/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_07/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_07/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_07/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_07/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_07/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_07/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_07/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_07/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_07/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_07/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
