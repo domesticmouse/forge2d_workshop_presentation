@@ -42,14 +42,14 @@ class Cursor extends _$Cursor {
           var subStep =
               step.subSteps != null && step.subSteps!.length > _subStepNumber
                   ? step.subSteps![_subStepNumber]
-                  : SubStep(name: 'Empty', baseOffset: 0);
+                  : SubStep(name: 'Empty', extentOffset: 0);
           return (section, step, subStep);
         },
         error: (error, stackTrace) => throw error,
         loading: () => (
           Section(name: 'Empty', steps: [], displayStepNumber: 0),
           Step(name: 'Empty', displayMarkdown: 'assets/empty.txt'),
-          SubStep(name: 'Empty', baseOffset: 0)
+          SubStep(name: 'Empty', extentOffset: 0)
         ),
       );
 

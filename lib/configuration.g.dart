@@ -133,9 +133,10 @@ SubStep _$SubStepFromJson(Map json) => $checkedCreate(
         );
         final val = SubStep(
           name: $checkedConvert('name', (v) => v as String),
-          baseOffset: $checkedConvert('base-offset', (v) => (v as num).toInt()),
+          baseOffset:
+              $checkedConvert('base-offset', (v) => (v as num?)?.toInt()),
           extentOffset:
-              $checkedConvert('extent-offset', (v) => (v as num?)?.toInt()),
+              $checkedConvert('extent-offset', (v) => (v as num).toInt()),
           scrollPercentage: $checkedConvert(
               'scroll-percentage', (v) => (v as num?)?.toDouble()),
           scrollSeconds:

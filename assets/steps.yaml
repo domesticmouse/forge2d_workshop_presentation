@@ -9,7 +9,7 @@ sections:
         file-type: yaml
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: Characters for UTF8 correctness
             base-offset: 146
             extent-offset: 164
@@ -21,6 +21,8 @@ sections:
             extent-offset: 206
           - name: XML is a library for easily parsing and modifying XML
             base-offset: 237
+            extent-offset: 248
+          - name: done
             extent-offset: 248
         tree:
           - directory: .vscode
@@ -43,12 +45,14 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: GameWidget.controlled is Flutter widget that manages a Flame game instance
             base-offset: 103
             extent-offset: 124
           - name: FlameGame.new is a tear off constructor for the world's most boring game
             base-offset: 145
+            extent-offset: 158
+          - name: done
             extent-offset: 158
         tree:
           - directory: .vscode
@@ -75,9 +79,9 @@ sections:
         file-type: xml
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: bottom
-            base-offset: 0
+            extent-offset: 0
             scroll-percentage: 100
             scroll-seconds: 5
           - name: //document/objects/window
@@ -86,6 +90,9 @@ sections:
             scroll-percentage: 100
           - name: //document/objects/window/windowStyleMaske
             base-offset: 23193
+            extent-offset: 23209
+            scroll-percentage: 100
+          - name: done
             extent-offset: 23209
             scroll-percentage: 100
         tree:
@@ -134,7 +141,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: dart:io gives us an easy way to access files on disk
             base-offset: 0
             extent-offset: 17
@@ -171,6 +178,8 @@ sections:
           - name: writeAsStringSync
             base-offset: 511
             extent-offset: 555
+          - name: done
+            extent-offset: 555
         tree:
           - directory: .vscode
           - directory: android
@@ -197,9 +206,9 @@ sections:
         file-type: xml
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: bottom
-            base-offset: 0
+            extent-offset: 0
             scroll-percentage: 100
             scroll-seconds: 3
           - name: titlebarAppearsTransparent
@@ -212,6 +221,9 @@ sections:
             scroll-percentage: 100
           - name: fullSizeContentView
             base-offset: 23349
+            extent-offset: 23374
+            scroll-percentage: 100
+          - name: done
             extent-offset: 23374
             scroll-percentage: 100
         tree:
@@ -648,7 +660,7 @@ sections:
         file-type: xml
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: alienBlue_round.png
             base-offset: 301
             extent-offset: 320
@@ -657,6 +669,8 @@ sections:
             extent-offset: 336
           - name: alienBlue width and height
             base-offset: 337
+            extent-offset: 359
+          - name: done
             extent-offset: 359
         tree:
           - directory: .vscode
@@ -692,9 +706,9 @@ sections:
         file-type: xml
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: bottom
-            base-offset: 0
+            extent-offset: 0
             scroll-percentage: 100
             scroll-seconds: 2
         tree:
@@ -731,7 +745,15 @@ sections:
         file-type: xml
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
+          - name: ground
+            base-offset: 930 
+            extent-offset: 1212 
+            scroll-percentage: 76.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 1212 
+            scroll-percentage: 76.0 
         tree:
           - directory: .vscode
           - directory: android
@@ -766,7 +788,7 @@ sections:
         file-type: yaml
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: "assets:"
             base-offset: 366
             extent-offset: 373
@@ -775,6 +797,8 @@ sections:
             extent-offset: 387
           - name: flutter/assets/images
             base-offset: 392
+            extent-offset: 408
+          - name: done
             extent-offset: 408
         tree:
           - directory: .vscode
@@ -799,7 +823,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: class Background
             base-offset: 87
             extent-offset: 97
@@ -839,6 +863,8 @@ sections:
           - name: super.size
             base-offset: 351
             extent-offset: 374          
+          - name: done
+            extent-offset: 374          
         tree:
           - directory: .vscode
           - directory: android
@@ -871,7 +897,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: class MyPhysicsGame
             base-offset: 315
             extent-offset: 328
@@ -1007,6 +1033,9 @@ sections:
             extent-offset: 2236 
             scroll-percentage: 97.0 
             scroll-seconds: 1
+          - name: done
+            extent-offset: 2236 
+            scroll-percentage: 97.0 
 
         tree:
           - directory: .vscode
@@ -1043,12 +1072,14 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
           - name: import components/game.dart
             base-offset: 75
             extent-offset: 105
           - name: MyPhysicsGame.new
             base-offset: 177
+            extent-offset: 194
+          - name: done
             extent-offset: 194
         tree:
           - directory: .vscode
@@ -1084,7 +1115,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -1123,7 +1154,56 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
+          - name: import ground.dart
+            base-offset: 308 
+            extent-offset: 329 
+            scroll-percentage: 0
+          - name: await addGround()
+            base-offset: 1365 
+            extent-offset: 1383 
+            scroll-percentage: 47.0
+            scroll-seconds: 1
+          - name: world.addAll
+            base-offset: 1457 
+            extent-offset: 1469 
+            scroll-percentage: 54.0 
+            scroll-seconds: 1
+          - name: Start of list
+            base-offset: 1470 
+            extent-offset: 1471 
+            scroll-percentage: 54.0 
+            scroll-seconds: 1
+          - name: for loop
+            base-offset: 1478 
+            extent-offset: 1483 
+            scroll-percentage: 55.0 
+            scroll-seconds: 1
+          - name: start at left of screen
+            base-offset: 1483
+            extent-offset: 1519 
+            scroll-percentage: 55.0 
+            scroll-seconds: 1
+          - name: while ever we have screen real estate
+            base-offset: 1531 
+            extent-offset: 1577 
+            scroll-percentage: 56.0 
+            scroll-seconds: 1
+          - name: walk to the right
+            base-offset: 1589 
+            extent-offset: 1604 
+            scroll-percentage: 58.0 
+            scroll-seconds: 1
+          - name: add a ground component
+            base-offset: 1614 
+            extent-offset: 1744 
+            scroll-percentage: 62.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 1744
+            scroll-percentage: 62.0 
+
+
         tree:
           - directory: .vscode
           - directory: android
@@ -1168,7 +1248,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -1261,7 +1341,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -1352,7 +1432,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -1449,7 +1529,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -1540,7 +1620,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -1637,7 +1717,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -1728,7 +1808,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -1819,7 +1899,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -1910,7 +1990,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -2001,7 +2081,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -2092,7 +2172,7 @@ sections:
         file-type: dart
         sub-steps:
           - name: top
-            base-offset: 0
+            extent-offset: 0
         tree:
           - directory: .vscode
           - directory: android

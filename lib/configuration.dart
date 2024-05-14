@@ -155,10 +155,10 @@ class SubStep {
   final String name;
 
   @JsonKey(name: 'base-offset')
-  final int baseOffset;
+  final int? baseOffset;
 
   @JsonKey(name: 'extent-offset')
-  int? extentOffset;
+  final int extentOffset;
 
   @JsonKey(name: 'scroll-percentage')
   final double? scrollPercentage;
@@ -168,23 +168,23 @@ class SubStep {
 
   SubStep({
     required this.name,
-    required this.baseOffset,
-    this.extentOffset,
+    this.baseOffset,
+    required this.extentOffset,
     this.scrollPercentage,
     this.scrollSeconds,
   }) {
-    if (baseOffset < 0) {
+    if (extentOffset < 0) {
       throw ArgumentError.value(
-          baseOffset, 'baseOffset', 'Cannot be negative.');
+          extentOffset, 'extent-offset', 'Cannot be negative.');
     }
-    if (extentOffset != null && extentOffset! < 0) {
+    if (baseOffset != null && baseOffset! < 0) {
       throw ArgumentError.value(
-          extentOffset, 'extentOffset', 'Cannot be negative.');
+          baseOffset, 'base-offset', 'Cannot be negative.');
     }
     if (scrollPercentage != null &&
         (scrollPercentage! < 0 || scrollPercentage! > 100)) {
       throw ArgumentError.value(
-          scrollPercentage, 'scrollPercentage', 'Must be between 0 and 100.');
+          scrollPercentage, 'scroll-percentage', 'Must be between 0 and 100.');
     }
   }
 

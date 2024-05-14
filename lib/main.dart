@@ -81,9 +81,9 @@ class MainApp extends ConsumerWidget {
                     assetPath: code,
                     fileType: currentStep.fileType ?? 'txt',
                     tree: currentStep.tree ?? [],
-                    baseOffset: currentSubStep.baseOffset,
-                    extentOffset: currentSubStep.extentOffset ??
-                        currentSubStep.baseOffset,
+                    baseOffset: currentSubStep.baseOffset ??
+                        currentSubStep.extentOffset,
+                    extentOffset: currentSubStep.extentOffset,
                     scrollPercentage: currentSubStep.scrollPercentage ?? 0,
                     scrollSeconds: currentSubStep.scrollSeconds ?? 0,
                   ),

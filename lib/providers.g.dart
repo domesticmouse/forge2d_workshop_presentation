@@ -35,7 +35,7 @@ final highlightersProvider = AutoDisposeFutureProvider<Highlighters>.internal(
 );
 
 typedef HighlightersRef = AutoDisposeFutureProviderRef<Highlighters>;
-String _$cursorHash() => r'dc3b971e67ea35927d8fbaed42ad30046c19cfb9';
+String _$cursorHash() => r'dfcbada22456ed0f691b21e19b1ec166d10c64cf';
 
 /// See also [Cursor].
 @ProviderFor(Cursor)
