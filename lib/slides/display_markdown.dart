@@ -36,11 +36,17 @@ class _DisplayMarkdownState extends State<DisplayMarkdown> {
       future: content,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Markdown(
-            data: snapshot.data ?? '',
-            controller: controller,
-            styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context))
-                .copyWith(textScaler: TextScaler.linear(2.0)),
+          return Center(
+            child: SizedBox(
+              width: 1000,
+              height: 800,
+              child: Markdown(
+                data: snapshot.data ?? '',
+                controller: controller,
+                styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context))
+                    .copyWith(textScaler: TextScaler.linear(1.75)),
+              ),
+            ),
           );
         }
         if (snapshot.hasError) {
