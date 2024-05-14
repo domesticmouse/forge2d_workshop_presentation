@@ -1706,51 +1706,184 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: Player configurable
+            base-offset: 226 
+            extent-offset: 248 
+            scroll-percentage: 0
+          - name: enum PlayerColor
+            base-offset: 251 
+            extent-offset: 267  
+            scroll-percentage: 0
+          - name: PlayerColor values
+            base-offset: 272 
+            extent-offset: 304 
+            scroll-percentage: 0
+          - name: Preposition for Player class
+            base-offset: 272
+            extent-offset: 304
+            scroll-percentage: 17.0 
+            scroll-seconds: 1
+          - name: class Player
+            base-offset: 517 
+            extent-offset: 523 
+            scroll-percentage: 17.0
+            scroll-seconds: 1
+          - name: extends BodyComponent
+            base-offset: 532 
+            extent-offset: 545 
+            scroll-percentage: 17.0
+          - name: with DragCallbacks
+            base-offset: 551 
+            extent-offset: 564 
+            scroll-percentage: 17.0
+          - name: super constructor
+            base-offset: 643 
+            extent-offset: 1055 
+            scroll-percentage: 17.0 
+            scroll-seconds: 1
+          - name: BodyType.static
+            base-offset: 763 
+            extent-offset: 778 
+            scroll-percentage: 17.0 
+            scroll-seconds: 1
+          - name: Preposition for _sprite
+            base-offset: 763 
+            extent-offset: 778
+            scroll-percentage: 30.0 
+            scroll-seconds: 1
+          - name: _sprite
+            base-offset: 1060 
+            extent-offset: 1081 
+            scroll-percentage: 30.0 
+            scroll-seconds: 1
+          - name: SpriteComponent
+            base-offset: 1327 
+            extent-offset: 1487 
+            scroll-percentage: 30.0 
+            scroll-seconds: 1
+          - name: CustomPainterComponent
+            base-offset: 1140 
+            extent-offset: 1319 
+            scroll-percentage: 30.0
+            scroll-seconds: 1
+          - name: Preposition for update(dt)
+            base-offset: 1140 
+            extent-offset: 1319 
+            scroll-percentage: 46.0 
+            scroll-seconds: 1
+          - name: update(dt)
+            base-offset: 1542 
+            extent-offset: 1559 
+            scroll-percentage: 46.0 
+            scroll-seconds: 1
+          - name: if not awake
+            base-offset: 1589 
+            extent-offset: 1641 
+            scroll-percentage: 49.0 
+            scroll-seconds: 1
+          - name: if out of frame
+            base-offset: 1647 
+            extent-offset: 1791 
+            scroll-percentage: 53.0 
+            scroll-seconds: 1
+          - name: drag attributes
+            base-offset: 1799 
+            extent-offset: 1913 
+            scroll-percentage: 57.0 
+            scroll-seconds: 1
+          - name: drag start callback
+            base-offset: 1934 
+            extent-offset: 1967 
+            scroll-percentage: 59.0 
+            scroll-seconds: 1
+          - name: if static
+            base-offset: 2004 
+            extent-offset: 2041 
+            scroll-percentage: 60.0 
+            scroll-seconds: 1
+          - name: record drag start
+            base-offset: 2050 
+            extent-offset: 2082 
+            scroll-percentage: 61.0 
+            scroll-seconds: 1
+          - name: drag update callback
+            base-offset: 2114 
+            extent-offset: 2149 
+            scroll-percentage: 64.0
+            scroll-seconds: 1
+          - name: if static
+            base-offset: 2156 
+            extent-offset: 2193 
+            scroll-percentage: 65.0 
+            scroll-seconds: 1
+          - name: record drag update
+            base-offset: 2202 
+            extent-offset: 2250 
+            scroll-percentage: 66.0 
+            scroll-seconds: 1
+          - name: drag end callback
+            base-offset: 2282
+            extent-offset: 2311
+            scroll-percentage: 70.0
+            scroll-seconds: 1
+          - name: if static
+            base-offset: 2346 
+            extent-offset: 2383 
+            scroll-percentage: 71.0 
+            scroll-seconds: 1
+          - name: rip out custom painter component
+            base-offset: 2392 
+            extent-offset: 2501 
+            scroll-percentage: 74.0 
+            scroll-seconds: 1
+          - name: set dynamic
+            base-offset: 2509
+            extent-offset: 2539
+            scroll-percentage: 75.0
+            scroll-seconds: 1
+          - name: Get the player moving
+            base-offset: 2547 
+            extent-offset: 2588 
+            scroll-percentage: 75.0 
+            scroll-seconds: 1
+          - name: give the player component a limited time alive
+            base-offset: 2596
+            extent-offset: 2642
+            scroll-percentage: 78.0
+            scroll-seconds: 1
+          - name: Preposition for class _DragPainter
+            base-offset: 2596
+            extent-offset: 2642
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: class _DragPainter
+            base-offset: 2795 
+            extent-offset: 2807 
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: extends CustomPainter
+            base-offset: 2816 
+            extent-offset: 2829 
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: canvas.drawLine
+            base-offset: 3036 
+            extent-offset: 3271 
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: should repaint?
+            base-offset: 3303 
+            extent-offset: 3361 
+            scroll-percentage: 100
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 3361 
+            scroll-percentage: 100
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_06/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_06/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_06/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_06/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_06/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_06/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_06/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_06/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_06/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_06/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_06/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_06/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -1759,14 +1892,8 @@ sections:
                   - file: background.dart
                     contents: assets/step_06/lib/components/background.dart
                     file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_06/lib/components/body_component_with_user_data.dart
-                    file-type: dart
                   - file: brick.dart
                     contents: assets/step_06/lib/components/brick.dart
-                    file-type: dart
-                  - file: enemy.dart
-                    contents: assets/step_06/lib/components/enemy.dart
                     file-type: dart
                   - file: game.dart
                     contents: assets/step_06/lib/components/game.dart
@@ -1797,51 +1924,58 @@ sections:
         sub-steps:
           - name: top
             extent-offset: 0
+          - name: import player.dart
+            base-offset: 371 
+            extent-offset: 391
+            scroll-percentage: 0
+          - name: pre-position for addPlayer()
+            base-offset: 371 
+            extent-offset: 391
+            scroll-percentage: 34.0
+            scroll-seconds: 1
+          - name: addPlayer()
+            base-offset: 1479 
+            extent-offset: 1496 
+            scroll-percentage: 34.0 
+            scroll-seconds: 1
+          - name: Preposition for addPlayer() defn
+            base-offset: 1479 
+            extent-offset: 1496 
+            scroll-percentage: 67.0 
+            scroll-seconds: 1
+          - name: addPlayer() defn
+            base-offset: 2618 
+            extent-offset: 2629 
+            scroll-percentage: 67.0 
+            scroll-seconds: 1
+          - name: addPlayer() body
+            base-offset: 2639 
+            extent-offset: 2806 
+            scroll-percentage: 71.0
+            scroll-seconds: 1
+          - name: update(dt) for adding player
+            base-offset: 2823 
+            extent-offset: 2833 
+            scroll-percentage: 73.0
+            scroll-seconds: 1
+          - name: if there isn;t a player
+            base-offset: 2862 
+            extent-offset: 2922 
+            scroll-percentage: 75.0
+            scroll-seconds: 1
+          - name: Add a player
+            base-offset: 2931 
+            extent-offset: 2942 
+            scroll-percentage: 76.0 
+            scroll-seconds: 1
+          - name: done
+            extent-offset: 2942 
+            scroll-percentage: 76.0 
         tree:
           - directory: .vscode
           - directory: android
           - directory: assets
-            children:
-              - directory: images
-                children:
-                  - file: colored_desert.png
-                    contents: assets/step_06/assets/images/colored_desert.png
-                    file-type: png
-                  - file: colored_grass.png
-                    contents: assets/step_06/assets/images/colored_grass.png
-                    file-type: png
-                  - file: colored_land.png
-                    contents: assets/step_06/assets/images/colored_land.png
-                    file-type: png
-                  - file: colored_shroom.png
-                    contents: assets/step_06/assets/images/colored_shroom.png
-                    file-type: png
-                  - file: spritesheet_aliens.png
-                    contents: assets/step_06/assets/images/spritesheet_aliens.png
-                    file-type: png
-                  - file: spritesheet_elements.png
-                    contents: assets/step_06/assets/images/spritesheet_elements.png
-                    file-type: png
-                  - file: spritesheet_tiles.png
-                    contents: assets/step_06/assets/images/spritesheet_tiles.png
-                    file-type: png
-              - file: spritesheet_aliens.xml
-                contents: assets/step_06/assets/spritesheet_aliens.xml
-                file-type: xml
-              - file: spritesheet_elements.xml
-                contents: assets/step_06/assets/spritesheet_elements.xml
-                file-type: xml
-              - file: spritesheet_tiles.xml
-                contents: assets/step_06/assets/spritesheet_tiles.xml
-                file-type: xml
           - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_06/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_06/bin/modify_macos_config.dart
-                file-type: dart
           - directory: ios
           - directory: lib
             children:
@@ -1850,14 +1984,8 @@ sections:
                   - file: background.dart
                     contents: assets/step_06/lib/components/background.dart
                     file-type: dart
-                  - file: body_component_with_user_data.dart
-                    contents: assets/step_06/lib/components/body_component_with_user_data.dart
-                    file-type: dart
                   - file: brick.dart
                     contents: assets/step_06/lib/components/brick.dart
-                    file-type: dart
-                  - file: enemy.dart
-                    contents: assets/step_06/lib/components/enemy.dart
                     file-type: dart
                   - file: game.dart
                     contents: assets/step_06/lib/components/game.dart
