@@ -1,3 +1,7 @@
+// Copyright 2024 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -62,7 +66,7 @@ class MainApp extends ConsumerWidget {
             child: Scaffold(
               appBar: AppBar(
                 title: Text(
-                  'goo.gle/forge2d-workshop - '
+                  'docs.flutter.dev/go/forge2d-workshop - '
                   'Step ${currentSection.displayStepNumber}: ${currentSection.name}',
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
