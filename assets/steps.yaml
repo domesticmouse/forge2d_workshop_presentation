@@ -39,7 +39,7 @@ sections:
             file-type: yaml
           - file: pubspec.yaml
             contents: assets/step_02/pubspec.yaml
-            file-type: yaml      
+            file-type: yaml
       - name: lib/main.dart
         display-code: assets/step_02/lib/main.dart
         file-type: dart
@@ -65,201 +65,6 @@ sections:
                 file-type: dart
           - directory: linux
           - directory: macos
-          - directory: web
-          - directory: windows
-          - file: .gitignore
-            file-type: gitignore
-          - file: analysis_options.yaml
-            file-type: yaml
-          - file: pubspec.yaml
-            contents: assets/step_02/pubspec.yaml
-            file-type: yaml
-      - name: macos/Runner/Base.lproj/MainMenu.xib Original
-        display-code: assets/step_02/macos/Runner/Base.lproj/MainMenu.orig.xib
-        file-type: xml
-        sub-steps:
-          - name: top
-            extent-offset: 0
-          - name: bottom
-            extent-offset: 0
-            scroll-percentage: 100
-            scroll-seconds: 5
-          - name: //document/objects/window
-            base-offset: 22925
-            extent-offset: 22932
-            scroll-percentage: 100
-          - name: //document/objects/window/windowStyleMaske
-            base-offset: 23193
-            extent-offset: 23209
-            scroll-percentage: 100
-          - name: done
-            extent-offset: 23209
-            scroll-percentage: 100
-        tree:
-          - directory: .vscode
-          - directory: android
-          - directory: bin
-          - directory: ios
-          - directory: lib
-          - directory: linux
-          - directory: macos
-            children:
-              - directory: Flutter
-              - directory: Runner
-                children:
-                  - directory: Assets.xcassets
-                  - directory: Base.lproj
-                    children:
-                      - file: MainMenu.xib
-                        contents: assets/step_02/macos/Runner/Base.lproj/MainMenu.orig.xib
-                        file-type: xml
-                  - directory: Configs
-                  - file: AppDelegate.swift
-                    file-type: swift
-                  - file: DebugProfile.entitlements
-                    file-type: xml
-                  - file: Info.plist
-                    file-type: plist
-                  - file: MainFlutterWindow.swift
-                    file-type: swift
-                  - file: Release.entitlements
-                    file-type: xml
-              - directory: Runner.xcodeproj
-              - directory: Runner.xcworkspace
-              - directory: RunnerTests
-          - directory: web
-          - directory: windows
-          - file: .gitignore
-            file-type: gitignore
-          - file: analysis_options.yaml
-            file-type: yaml
-          - file: pubspec.yaml
-            contents: assets/step_02/pubspec.yaml
-            file-type: yaml
-      - name: bin/modify_macos_config.dart
-        display-code: assets/step_02/bin/modify_macos_config.dart
-        file-type: dart
-        sub-steps:
-          - name: top
-            extent-offset: 0
-          - name: dart:io gives us an easy way to access files on disk
-            base-offset: 0
-            extent-offset: 17
-          - name: package:xml/xml.dart makes it easy to parse XML files
-            base-offset: 18
-            extent-offset: 48
-          - name: package:xml/xquery.dart makes it easy to navigate XML files using Xquery
-            base-offset: 49
-            extent-offset: 81
-          - name: File allows us to name a file
-            base-offset: 112
-            extent-offset: 156
-          - name: file.readAsStringSync() slurps the whole file in one go.
-            base-offset: 193
-            extent-offset: 216
-          - name: XmlDocument.parse parses it into a tree structure
-            base-offset: 175
-            extent-offset: 192
-          - name: //document/objects/window
-            base-offset: 237
-            extent-offset: 262
-          - name: first
-            base-offset: 265
-            extent-offset: 270
-          - name: setAttribute('titlebarAppearsTransparent', 'YES')
-            base-offset: 277
-            extent-offset: 326
-          - name: setAttribute('titleVisibility', 'hidden')
-            base-offset: 333
-            extent-offset: 374
-          - name: fullSizeContentView
-            base-offset: 378
-            extent-offset: 508
-          - name: writeAsStringSync
-            base-offset: 511
-            extent-offset: 555
-          - name: done
-            extent-offset: 555
-        tree:
-          - directory: .vscode
-          - directory: android
-          - directory: bin
-            children:
-              - file: modify_macos_config.dart
-                contents: assets/step_02/bin/modify_macos_config.dart
-                file-type: dart
-          - directory: ios
-          - directory: lib
-          - directory: linux
-          - directory: macos
-          - directory: web
-          - directory: windows
-          - file: .gitignore
-            file-type: gitignore
-          - file: analysis_options.yaml
-            file-type: yaml
-          - file: pubspec.yaml
-            contents: assets/step_02/pubspec.yaml
-            file-type: yaml
-      - name: Modify macOS config
-        display-markdown: assets/markdown/02_modify_macos_config.md
-      - name: macos/Runner/Base.lproj/MainMenu.xib
-        display-code: assets/step_02/macos/Runner/Base.lproj/MainMenu.xib
-        file-type: xml
-        sub-steps:
-          - name: top
-            extent-offset: 0
-          - name: bottom
-            extent-offset: 0
-            scroll-percentage: 100
-            scroll-seconds: 3
-          - name: titlebarAppearsTransparent
-            base-offset: 23180
-            extent-offset: 23212
-            scroll-percentage: 100
-          - name: titleVisibility
-            base-offset: 23213
-            extent-offset: 23237
-            scroll-percentage: 100
-          - name: fullSizeContentView
-            base-offset: 23349
-            extent-offset: 23374
-            scroll-percentage: 100
-          - name: done
-            extent-offset: 23374
-            scroll-percentage: 100
-        tree:
-          - directory: .vscode
-          - directory: android
-          - directory: bin
-          - directory: ios
-          - directory: lib
-          - directory: linux
-          - directory: macos
-            children:
-              - directory: Flutter
-              - directory: Runner
-                children:
-                  - directory: Assets.xcassets
-                  - directory: Base.lproj
-                    children:
-                      - file: MainMenu.xib
-                        contents: assets/step_02/macos/Runner/Base.lproj/MainMenu.xib
-                        file-type: xml
-                  - directory: Configs
-                  - file: AppDelegate.swift
-                    file-type: swift
-                  - file: DebugProfile.entitlements
-                    file-type: xml
-                  - file: Info.plist
-                    file-type: plist
-                  - file: MainFlutterWindow.swift
-                    file-type: swift
-                  - file: Release.entitlements
-                    file-type: xml
-              - directory: Runner.xcodeproj
-              - directory: Runner.xcworkspace
-              - directory: RunnerTests
           - directory: web
           - directory: windows
           - file: .gitignore
@@ -747,13 +552,13 @@ sections:
           - name: top
             extent-offset: 0
           - name: ground
-            base-offset: 930 
-            extent-offset: 1212 
-            scroll-percentage: 76.0 
+            base-offset: 930
+            extent-offset: 1212
+            scroll-percentage: 76.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 1212 
-            scroll-percentage: 76.0 
+            extent-offset: 1212
+            scroll-percentage: 76.0
         tree:
           - directory: .vscode
           - directory: android
@@ -835,7 +640,7 @@ sections:
             extent-offset: 121
           - name: "@override onMount"
             base-offset: 308
-            extent-offset: 324 
+            extent-offset: 324
           - name: Sprite
             base-offset: 106
             extent-offset: 112
@@ -862,9 +667,9 @@ sections:
             extent-offset: 458
           - name: super.size
             base-offset: 351
-            extent-offset: 374          
+            extent-offset: 374
           - name: done
-            extent-offset: 374          
+            extent-offset: 374
         tree:
           - directory: .vscode
           - directory: android
@@ -938,6 +743,11 @@ sections:
             extent-offset: 1269
             scroll-percentage: 51.0
             scroll-seconds: 1
+          - name: Preposition for images.load
+            base-offset: 1210
+            extent-offset: 1269
+            scroll-percentage: 37.0
+            scroll-seconds: 1
           - name: images.load('colored_grass.png')
             base-offset: 751
             extent-offset: 783
@@ -984,34 +794,34 @@ sections:
             scroll-percentage: 54.0
             scroll-seconds: 1
           - name: XmlSpriteSheet(...)
-            base-offset: 946 
-            extent-offset: 960 
-            scroll-percentage: 44.0 
+            base-offset: 946
+            extent-offset: 960
+            scroll-percentage: 44.0
             scroll-seconds: 1
           - name: class XmlSpriteSheet
-            base-offset: 1374 
-            extent-offset: 1394 
-            scroll-percentage: 62.0 
+            base-offset: 1374
+            extent-offset: 1394
+            scroll-percentage: 62.0
             scroll-seconds: 1
           - name: final ui.Image image
-            base-offset: 1910 
-            extent-offset: 1930 
+            base-offset: 1910
+            extent-offset: 1930
             scroll-percentage: 80.0
             scroll-seconds: 1
           - name: final _rects
-            base-offset: 1934 
-            extent-offset: 1965 
-            scroll-percentage: 82.0 
+            base-offset: 1934
+            extent-offset: 1965
+            scroll-percentage: 82.0
             scroll-seconds: 1
           - name: XmlDocument.parse
-            base-offset: 1444 
-            extent-offset: 1484 
+            base-offset: 1444
+            extent-offset: 1484
             scroll-percentage: 65.0
             scroll-seconds: 1
           - name: for (final node in document.xpath('//TextureAtlas/SubTexture'))
-            base-offset: 1489 
-            extent-offset: 1554 
-            scroll-percentage: 66.0 
+            base-offset: 1489
+            extent-offset: 1554
+            scroll-percentage: 66.0
             scroll-seconds: 1
           - name: Grabbing XML attributes
             base-offset: 1561
@@ -1019,23 +829,23 @@ sections:
             scroll-percentage: 73.0
             scroll-seconds: 1
           - name: _rects[name] = Rect.fromLTWH(x, y, width, height)
-            base-offset: 1846 
-            extent-offset: 1895 
+            base-offset: 1846
+            extent-offset: 1895
             scroll-percentage: 75.0
             scroll-seconds: 1
           - name: Sprite getSprite(String name)
-            base-offset: 1970 
-            extent-offset: 1999 
-            scroll-percentage: 85.0 
+            base-offset: 1970
+            extent-offset: 1999
+            scroll-percentage: 85.0
             scroll-seconds: 1
           - name: Sprite(...)
-            base-offset: 2120 
-            extent-offset: 2236 
-            scroll-percentage: 97.0 
+            base-offset: 2120
+            extent-offset: 2236
+            scroll-percentage: 97.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 2236 
-            scroll-percentage: 97.0 
+            extent-offset: 2236
+            scroll-percentage: 97.0
 
         tree:
           - directory: .vscode
@@ -1117,94 +927,94 @@ sections:
           - name: top
             extent-offset: 0
           - name: class Ground
-            base-offset: 123 
-            extent-offset: 129 
-            scroll-percentage: 19.0 
+            base-offset: 123
+            extent-offset: 129
+            scroll-percentage: 19.0
             scroll-seconds: 1
           - name: groundSize configurable
-            base-offset: 92 
-            extent-offset: 114 
-            scroll-percentage: 11.0 
+            base-offset: 92
+            extent-offset: 114
+            scroll-percentage: 11.0
             scroll-seconds: 1
           - name: BodyComponent
-            base-offset: 138 
-            extent-offset: 151 
-            scroll-percentage: 19.0 
+            base-offset: 138
+            extent-offset: 151
+            scroll-percentage: 19.0
             scroll-seconds: 1
           - name: "package:flame_forge2d"
-            base-offset: 48 
-            extent-offset: 69 
-            scroll-percentage: 4.0 
+            base-offset: 48
+            extent-offset: 69
+            scroll-percentage: 4.0
             scroll-seconds: 1
           - name: sprite arg
-            base-offset: 181 
-            extent-offset: 194 
-            scroll-percentage: 22.0 
+            base-offset: 181
+            extent-offset: 194
+            scroll-percentage: 22.0
             scroll-seconds: 1
           - name: SpriteComponent
-            base-offset: 554 
-            extent-offset: 735 
-            scroll-percentage: 89.0 
+            base-offset: 554
+            extent-offset: 735
+            scroll-percentage: 89.0
             scroll-seconds: 1
           - name: SpriteComponent child of BodyComponent
-            base-offset: 530 
-            extent-offset: 541 
-            scroll-percentage: 67.0 
+            base-offset: 530
+            extent-offset: 541
+            scroll-percentage: 67.0
             scroll-seconds: 1
           - name: Render body false
-            base-offset: 221 
-            extent-offset: 238 
-            scroll-percentage: 30.0 
+            base-offset: 221
+            extent-offset: 238
+            scroll-percentage: 30.0
             scroll-seconds: 1
           - name: Position arg
-            base-offset: 163 
-            extent-offset: 179 
-            scroll-percentage: 22.0 
+            base-offset: 163
+            extent-offset: 179
+            scroll-percentage: 22.0
             scroll-seconds: 1
           - name: BodyDef
-            base-offset: 259 
-            extent-offset: 339 
-            scroll-percentage: 41.0 
+            base-offset: 259
+            extent-offset: 339
+            scroll-percentage: 41.0
             scroll-seconds: 1
           - name: BodyType static
-            base-offset: 324 
-            extent-offset: 339 
-            scroll-percentage: 41.0 
+            base-offset: 324
+            extent-offset: 339
+            scroll-percentage: 41.0
             scroll-seconds: 1
           - name: Shape definition
-            base-offset: 404 
-            extent-offset: 418 
-            scroll-percentage: 52.0 
+            base-offset: 404
+            extent-offset: 418
+            scroll-percentage: 52.0
             scroll-seconds: 1
           - name: XY axis aligned box
-            base-offset: 420 
-            extent-offset: 430 
+            base-offset: 420
+            extent-offset: 430
             scroll-percentage: 52.0
             scroll-seconds: 1
           - name: halfWidth and halfHeight
-            base-offset: 431 
-            extent-offset: 461 
+            base-offset: 431
+            extent-offset: 461
             scroll-percentage: 52.0
             scroll-seconds: 1
           - name: FixtureDefs list
-            base-offset: 351 
-            extent-offset: 365 
-            scroll-percentage: 44.0 
+            base-offset: 351
+            extent-offset: 365
+            scroll-percentage: 44.0
             scroll-seconds: 1
           - name: FixtureDef
-            base-offset: 378 
-            extent-offset: 389 
-            scroll-percentage: 48.0 
+            base-offset: 378
+            extent-offset: 389
+            scroll-percentage: 48.0
             scroll-seconds: 1
-          - name: Friction 
-            base-offset: 478 
-            extent-offset: 491 
-            scroll-percentage: 56.0 
+          - name: Friction
+            base-offset: 478
+            extent-offset: 491
+            scroll-percentage: 56.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 491 
-            scroll-percentage: 56.0 
-          
+            extent-offset: 491
+            scroll-percentage: 56.0
+
         tree:
           - directory: .vscode
           - directory: android
@@ -1245,61 +1055,61 @@ sections:
           - name: top
             extent-offset: 0
           - name: import ground.dart
-            base-offset: 308 
-            extent-offset: 329 
+            base-offset: 308
+            extent-offset: 329
             scroll-percentage: 0
           - name: pre-position for await addGround()
-            base-offset: 308 
-            extent-offset: 329 
+            base-offset: 308
+            extent-offset: 329
             scroll-percentage: 47.0
             scroll-seconds: 1
           - name: await addGround()
-            base-offset: 1365 
-            extent-offset: 1383 
+            base-offset: 1365
+            extent-offset: 1383
             scroll-percentage: 47.0
           - name: addGround() defn
-            base-offset: 1419 
-            extent-offset: 1443 
+            base-offset: 1419
+            extent-offset: 1443
             scroll-percentage: 53.0
             scroll-seconds: 1
           - name: world.addAll
-            base-offset: 1457 
-            extent-offset: 1469 
-            scroll-percentage: 54.0 
+            base-offset: 1457
+            extent-offset: 1469
+            scroll-percentage: 54.0
             scroll-seconds: 1
           - name: Start of list
-            base-offset: 1470 
-            extent-offset: 1471 
-            scroll-percentage: 54.0 
+            base-offset: 1470
+            extent-offset: 1471
+            scroll-percentage: 54.0
             scroll-seconds: 1
           - name: for loop
-            base-offset: 1478 
+            base-offset: 1478
             extent-offset: 1481
-            scroll-percentage: 55.0 
+            scroll-percentage: 55.0
             scroll-seconds: 1
           - name: start at left of screen
             base-offset: 1483
-            extent-offset: 1519 
-            scroll-percentage: 55.0 
+            extent-offset: 1519
+            scroll-percentage: 55.0
             scroll-seconds: 1
           - name: while ever we have screen real estate
-            base-offset: 1531 
-            extent-offset: 1577 
-            scroll-percentage: 56.0 
+            base-offset: 1531
+            extent-offset: 1577
+            scroll-percentage: 56.0
             scroll-seconds: 1
           - name: walk to the right
-            base-offset: 1589 
-            extent-offset: 1604 
-            scroll-percentage: 58.0 
+            base-offset: 1589
+            extent-offset: 1604
+            scroll-percentage: 58.0
             scroll-seconds: 1
           - name: add a ground component
-            base-offset: 1614 
-            extent-offset: 1744 
-            scroll-percentage: 62.0 
+            base-offset: 1614
+            extent-offset: 1744
+            scroll-percentage: 62.0
             scroll-seconds: 1
           - name: done
             extent-offset: 1744
-            scroll-percentage: 62.0 
+            scroll-percentage: 62.0
         tree:
           - directory: .vscode
           - directory: android
@@ -1335,120 +1145,9 @@ sections:
             file-type: yaml
       - name: Show game step 4
         show-game: step_04
-
   - name: Add the bricks
     step-number: 5
     steps:
-      - name: bin/generate_brick_file_names.dart
-        display-code: assets/step_05/bin/generate_brick_file_names.dart
-        file-type: dart
-        sub-steps:
-          - name: top
-            extent-offset: 0
-          - name: XML processing
-            base-offset: 175 
-            extent-offset: 671 
-            scroll-percentage: 0 
-            scroll-seconds: 1
-          - name: generateBrickFileNames
-            base-offset: 680 
-            extent-offset: 709 
-            scroll-percentage: 20.0
-            scroll-seconds: 1
-          - name: class Rect
-            base-offset: 721 
-            extent-offset: 725 
-            scroll-percentage: 23.0 
-            scroll-seconds: 1
-          - name: extends Equatable
-            base-offset: 734 
-            extent-offset: 743 
-            scroll-percentage: 23.0
-            scroll-seconds: 1
-          - name: Rect attributes
-            base-offset: 748 
-            extent-offset: 814 
-            scroll-percentage: 28.0 
-            scroll-seconds: 1
-          - name: Rect constructor
-            base-offset: 823 
-            extent-offset: 931 
-            scroll-percentage: 33.0 
-            scroll-seconds: 1
-          - name: Size getter
-            base-offset: 941 
-            extent-offset: 949 
-            scroll-percentage: 35.0 
-            scroll-seconds: 1
-          - name: equatable configuration
-            base-offset: 977 
-            extent-offset: 1081 
-            scroll-percentage: 41.0 
-            scroll-seconds: 1
-          - name: class Size
-            base-offset: 1091 
-            extent-offset: 1095 
-            scroll-percentage: 44.0 
-            scroll-seconds: 1
-          - name: generateBrickFileNames definition
-            base-offset: 1299 
-            extent-offset: 1353 
-            scroll-percentage: 56.0 
-            scroll-seconds: 1
-          - name: code generation #1
-            base-offset: 1553 
-            extent-offset: 1666 
-            scroll-percentage: 64.0 
-            scroll-seconds: 1
-          - name: code generation #2
-            base-offset: 1993 
-            extent-offset: 2257 
-            scroll-percentage: 78.0 
-            scroll-seconds: 1
-          - name: code generation #3
-            base-offset: 2323 
-            extent-offset: 2587 
-            scroll-percentage: 85.0 
-            scroll-seconds: 1
-          - name: pre-position for convert to string
-            base-offset: 2323 
-            extent-offset: 2587 
-            scroll-percentage: 100.0 
-            scroll-seconds: 1
-          - name: convert to string
-            base-offset: 2979 
-            extent-offset: 2994 
-            scroll-percentage: 100.0 
-          - name: done
-            extent-offset: 2994 
-            scroll-percentage: 100.0 
-        tree:
-          - directory: .vscode
-          - directory: android
-          - directory: assets
-          - directory: bin
-            children:
-              - file: generate_brick_file_names.dart
-                contents: assets/step_05/bin/generate_brick_file_names.dart
-                file-type: dart
-              - file: modify_macos_config.dart
-                contents: assets/step_05/bin/modify_macos_config.dart
-                file-type: dart
-          - directory: ios
-          - directory: lib
-          - directory: linux
-          - directory: macos
-          - directory: web
-          - directory: windows
-          - file: .gitignore
-            file-type: gitignore
-          - file: analysis_options.yaml
-            file-type: yaml
-          - file: pubspec.yaml
-            contents: assets/step_05/pubspec.yaml
-            file-type: yaml
-      - name: Generate brick file names
-        display-markdown: assets/markdown/04_generate_brick_file_names.md
       - name: lib/components/brick.dart
         display-code: assets/step_05/lib/components/brick.dart
         file-type: dart
@@ -1456,106 +1155,106 @@ sections:
           - name: top
             extent-offset: 0
           - name: brickScale
-            base-offset: 177 
-            extent-offset: 199 
-            scroll-percentage: 0 
+            base-offset: 177
+            extent-offset: 199
+            scroll-percentage: 0
           - name: enum BrickType
-            base-offset: 202 
-            extent-offset: 216 
-            scroll-percentage: 0 
+            base-offset: 202
+            extent-offset: 216
+            scroll-percentage: 0
           - name: BrickType values
-            base-offset: 221 
-            extent-offset: 404 
-            scroll-percentage: 0 
+            base-offset: 221
+            extent-offset: 404
+            scroll-percentage: 0
           - name: BrickType attributes
-            base-offset: 408 
-            extent-offset: 454  
+            base-offset: 408
+            extent-offset: 454
             scroll-percentage: 0
           - name: BrickType constructor
-            base-offset: 458 
-            extent-offset: 522 
+            base-offset: 458
+            extent-offset: 522
             scroll-percentage: 0
           - name: BrickType random generator
-            base-offset: 526 
-            extent-offset: 600 
+            base-offset: 526
+            extent-offset: 600
             scroll-percentage: 0
           - name: enum BrickSize
-            base-offset: 605 
-            extent-offset: 619 
-            scroll-percentage: 8.0 
+            base-offset: 605
+            extent-offset: 619
+            scroll-percentage: 8.0
             scroll-seconds: 1
           - name: enum BrickDamange
-            base-offset: 1017 
-            extent-offset: 1033 
-            scroll-percentage: 13.0 
+            base-offset: 1017
+            extent-offset: 1033
+            scroll-percentage: 13.0
             scroll-seconds: 1
           - name: brickFileNames definition
-            base-offset: 1056 
-            extent-offset: 1127 
-            scroll-percentage: 14.0 
+            base-offset: 1056
+            extent-offset: 1127
+            scroll-percentage: 14.0
             scroll-seconds: 1
           - name: end of brickFileNames definition
-            base-offset: 1056 
-            extent-offset: 1127 
-            scroll-percentage: 83.0 
+            base-offset: 1056
+            extent-offset: 1127
+            scroll-percentage: 83.0
             scroll-seconds: 3
           - name: class Brick
-            base-offset: 9483 
-            extent-offset: 9488 
-            scroll-percentage: 83.0 
+            base-offset: 9483
+            extent-offset: 9488
+            scroll-percentage: 83.0
             scroll-seconds: 1
           - name: extends BodyComponent
-            base-offset: 9497 
-            extent-offset: 9510 
-            scroll-percentage: 83.0 
+            base-offset: 9497
+            extent-offset: 9510
+            scroll-percentage: 83.0
             scroll-seconds: 1
           - name: Prepositon for Brick attributes
-            base-offset: 9497 
+            base-offset: 9497
             extent-offset: 9510
             scroll-percentage: 100
             scroll-seconds: 1
           - name: Brick attributes
-            base-offset: 10341 
-            extent-offset: 10429 
+            base-offset: 10341
+            extent-offset: 10429
             scroll-percentage: 100
-            scroll-seconds: 1          
+            scroll-seconds: 1
           - name: Brick damage
-            base-offset: 10433 
-            extent-offset: 10596 
+            base-offset: 10433
+            extent-offset: 10596
             scroll-percentage: 100
             scroll-seconds: 1
           - name: spriteComponent attribute
-            base-offset: 10293 
-            extent-offset: 10336 
+            base-offset: 10293
+            extent-offset: 10336
             scroll-percentage: 100
             scroll-seconds: 1
           - name: Adding spriteComponent to Brick
-            base-offset: 10640 
-            extent-offset: 10884 
+            base-offset: 10640
+            extent-offset: 10884
             scroll-percentage: 100
             scroll-seconds: 1
           - name: Pre-position for body defintion
-            base-offset: 10640 
-            extent-offset: 10884 
-            scroll-percentage: 92.0 
+            base-offset: 10640
+            extent-offset: 10884
+            scroll-percentage: 92.0
             scroll-seconds: 1
           - name: body definition
-            base-offset: 9803 
-            extent-offset: 9888 
-            scroll-percentage: 92.0 
+            base-offset: 9803
+            extent-offset: 9888
+            scroll-percentage: 92.0
           - name: BodyType.dynamic
-            base-offset: 9872 
-            extent-offset: 9888 
-            scroll-percentage: 92.0 
+            base-offset: 9872
+            extent-offset: 9888
+            scroll-percentage: 92.0
             scroll-seconds: 1
           - name: Varying density and friction
-            base-offset: 10206 
-            extent-offset: 10273 
-            scroll-percentage: 92.0 
+            base-offset: 10206
+            extent-offset: 10273
+            scroll-percentage: 92.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 10273 
-            scroll-percentage: 92.0 
+            extent-offset: 10273
+            scroll-percentage: 92.0
         tree:
           - directory: .vscode
           - directory: android
@@ -1599,64 +1298,64 @@ sections:
           - name: top
             extent-offset: 0
           - name: import brick.dart
-            base-offset: 328 
-            extent-offset: 348 
+            base-offset: 328
+            extent-offset: 348
           - name: pre-position for unawaited addBricks()
-            base-offset: 328 
-            extent-offset: 348 
+            base-offset: 328
+            extent-offset: 348
             scroll-percentage: 37.0
             scroll-seconds: 1
           - name: unawaited addBricks()
-            base-offset: 1429 
-            extent-offset: 1451 
-            scroll-percentage: 37.0 
+            base-offset: 1429
+            extent-offset: 1451
+            scroll-percentage: 37.0
           - name: preposition for addBricks() defn
-            base-offset: 1429 
-            extent-offset: 1451 
+            base-offset: 1429
+            extent-offset: 1451
             scroll-percentage: 54.0
             scroll-seconds: 1
           - name: addBricks() defn
-            base-offset: 1859 
-            extent-offset: 1889 
+            base-offset: 1859
+            extent-offset: 1889
             scroll-percentage: 54.0
             scroll-seconds: 1
           - name: for loop
-            base-offset: 1896 
-            extent-offset: 1923 
-            scroll-percentage: 55.0 
+            base-offset: 1896
+            extent-offset: 1923
+            scroll-percentage: 55.0
             scroll-seconds: 1
           - name: random factories
-            base-offset: 1932 
-            extent-offset: 2007 
-            scroll-percentage: 57.0 
+            base-offset: 1932
+            extent-offset: 2007
+            scroll-percentage: 57.0
             scroll-seconds: 1
           - name: Preposition for Brick to add
-            base-offset: 1932 
-            extent-offset: 2007 
-            scroll-percentage: 72.0 
+            base-offset: 1932
+            extent-offset: 2007
+            scroll-percentage: 72.0
             scroll-seconds: 1
           - name: Brick to add
-            base-offset: 2039 
-            extent-offset: 2467 
-            scroll-percentage: 72.0 
+            base-offset: 2039
+            extent-offset: 2467
+            scroll-percentage: 72.0
             scroll-seconds: 1
           - name: random position
-            base-offset: 2136 
-            extent-offset: 2273 
-            scroll-percentage: 72.0 
+            base-offset: 2136
+            extent-offset: 2273
+            scroll-percentage: 72.0
             scroll-seconds: 1
           - name: add brick to world
-            base-offset: 2014 
-            extent-offset: 2029 
-            scroll-percentage: 72.0 
+            base-offset: 2014
+            extent-offset: 2029
+            scroll-percentage: 72.0
             scroll-seconds: 1
           - name: then sleep for 500ms
-            base-offset: 2484 
-            extent-offset: 2545 
-            scroll-percentage: 72.0 
+            base-offset: 2484
+            extent-offset: 2545
+            scroll-percentage: 72.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 2545 
+            extent-offset: 2545
             scroll-percentage: 72.0
         tree:
           - directory: .vscode
@@ -1707,119 +1406,119 @@ sections:
           - name: top
             extent-offset: 0
           - name: Player configurable
-            base-offset: 226 
-            extent-offset: 248 
+            base-offset: 226
+            extent-offset: 248
             scroll-percentage: 0
           - name: enum PlayerColor
-            base-offset: 251 
-            extent-offset: 267  
+            base-offset: 251
+            extent-offset: 267
             scroll-percentage: 0
           - name: PlayerColor values
-            base-offset: 272 
-            extent-offset: 304 
+            base-offset: 272
+            extent-offset: 304
             scroll-percentage: 0
           - name: Preposition for Player class
             base-offset: 272
             extent-offset: 304
-            scroll-percentage: 17.0 
+            scroll-percentage: 17.0
             scroll-seconds: 1
           - name: class Player
-            base-offset: 517 
-            extent-offset: 523 
+            base-offset: 517
+            extent-offset: 523
             scroll-percentage: 17.0
             scroll-seconds: 1
           - name: extends BodyComponent
-            base-offset: 532 
-            extent-offset: 545 
+            base-offset: 532
+            extent-offset: 545
             scroll-percentage: 17.0
           - name: with DragCallbacks
-            base-offset: 551 
-            extent-offset: 564 
+            base-offset: 551
+            extent-offset: 564
             scroll-percentage: 17.0
           - name: super constructor
-            base-offset: 643 
-            extent-offset: 1055 
-            scroll-percentage: 17.0 
+            base-offset: 643
+            extent-offset: 1055
+            scroll-percentage: 17.0
             scroll-seconds: 1
           - name: BodyType.static
-            base-offset: 763 
-            extent-offset: 778 
-            scroll-percentage: 17.0 
+            base-offset: 763
+            extent-offset: 778
+            scroll-percentage: 17.0
             scroll-seconds: 1
           - name: Preposition for _sprite
-            base-offset: 763 
+            base-offset: 763
             extent-offset: 778
-            scroll-percentage: 30.0 
+            scroll-percentage: 30.0
             scroll-seconds: 1
           - name: _sprite
-            base-offset: 1060 
-            extent-offset: 1081 
-            scroll-percentage: 30.0 
+            base-offset: 1060
+            extent-offset: 1081
+            scroll-percentage: 30.0
             scroll-seconds: 1
           - name: SpriteComponent
-            base-offset: 1327 
-            extent-offset: 1487 
-            scroll-percentage: 30.0 
+            base-offset: 1327
+            extent-offset: 1487
+            scroll-percentage: 30.0
             scroll-seconds: 1
           - name: CustomPainterComponent
-            base-offset: 1140 
-            extent-offset: 1319 
+            base-offset: 1140
+            extent-offset: 1319
             scroll-percentage: 30.0
             scroll-seconds: 1
           - name: Preposition for update(dt)
-            base-offset: 1140 
-            extent-offset: 1319 
-            scroll-percentage: 46.0 
+            base-offset: 1140
+            extent-offset: 1319
+            scroll-percentage: 46.0
             scroll-seconds: 1
           - name: update(dt)
-            base-offset: 1542 
-            extent-offset: 1559 
-            scroll-percentage: 46.0 
+            base-offset: 1542
+            extent-offset: 1559
+            scroll-percentage: 46.0
             scroll-seconds: 1
           - name: if not awake
-            base-offset: 1589 
-            extent-offset: 1641 
-            scroll-percentage: 49.0 
+            base-offset: 1589
+            extent-offset: 1641
+            scroll-percentage: 49.0
             scroll-seconds: 1
           - name: if out of frame
-            base-offset: 1647 
-            extent-offset: 1791 
-            scroll-percentage: 53.0 
+            base-offset: 1647
+            extent-offset: 1791
+            scroll-percentage: 53.0
             scroll-seconds: 1
           - name: drag attributes
-            base-offset: 1799 
-            extent-offset: 1913 
-            scroll-percentage: 57.0 
+            base-offset: 1799
+            extent-offset: 1913
+            scroll-percentage: 57.0
             scroll-seconds: 1
           - name: drag start callback
-            base-offset: 1934 
-            extent-offset: 1967 
-            scroll-percentage: 59.0 
+            base-offset: 1934
+            extent-offset: 1967
+            scroll-percentage: 59.0
             scroll-seconds: 1
           - name: if static
-            base-offset: 2004 
-            extent-offset: 2041 
-            scroll-percentage: 60.0 
+            base-offset: 2004
+            extent-offset: 2041
+            scroll-percentage: 60.0
             scroll-seconds: 1
           - name: record drag start
-            base-offset: 2050 
-            extent-offset: 2082 
-            scroll-percentage: 61.0 
+            base-offset: 2050
+            extent-offset: 2082
+            scroll-percentage: 61.0
             scroll-seconds: 1
           - name: drag update callback
-            base-offset: 2114 
-            extent-offset: 2149 
+            base-offset: 2114
+            extent-offset: 2149
             scroll-percentage: 64.0
             scroll-seconds: 1
           - name: if static
-            base-offset: 2156 
-            extent-offset: 2193 
-            scroll-percentage: 65.0 
+            base-offset: 2156
+            extent-offset: 2193
+            scroll-percentage: 65.0
             scroll-seconds: 1
           - name: record drag update
-            base-offset: 2202 
-            extent-offset: 2250 
-            scroll-percentage: 66.0 
+            base-offset: 2202
+            extent-offset: 2250
+            scroll-percentage: 66.0
             scroll-seconds: 1
           - name: drag end callback
             base-offset: 2282
@@ -1827,14 +1526,14 @@ sections:
             scroll-percentage: 70.0
             scroll-seconds: 1
           - name: if static
-            base-offset: 2346 
-            extent-offset: 2383 
-            scroll-percentage: 71.0 
+            base-offset: 2346
+            extent-offset: 2383
+            scroll-percentage: 71.0
             scroll-seconds: 1
           - name: rip out custom painter component
-            base-offset: 2392 
-            extent-offset: 2501 
-            scroll-percentage: 74.0 
+            base-offset: 2392
+            extent-offset: 2501
+            scroll-percentage: 74.0
             scroll-seconds: 1
           - name: set dynamic
             base-offset: 2509
@@ -1842,9 +1541,9 @@ sections:
             scroll-percentage: 75.0
             scroll-seconds: 1
           - name: Get the player moving
-            base-offset: 2547 
-            extent-offset: 2588 
-            scroll-percentage: 75.0 
+            base-offset: 2547
+            extent-offset: 2588
+            scroll-percentage: 75.0
             scroll-seconds: 1
           - name: give the player component a limited time alive
             base-offset: 2596
@@ -1857,27 +1556,27 @@ sections:
             scroll-percentage: 100
             scroll-seconds: 1
           - name: class _DragPainter
-            base-offset: 2795 
-            extent-offset: 2807 
+            base-offset: 2795
+            extent-offset: 2807
             scroll-percentage: 100
             scroll-seconds: 1
           - name: extends CustomPainter
-            base-offset: 2816 
-            extent-offset: 2829 
+            base-offset: 2816
+            extent-offset: 2829
             scroll-percentage: 100
             scroll-seconds: 1
           - name: canvas.drawLine
-            base-offset: 3036 
-            extent-offset: 3271 
+            base-offset: 3036
+            extent-offset: 3271
             scroll-percentage: 100
             scroll-seconds: 1
           - name: should repaint?
-            base-offset: 3303 
-            extent-offset: 3361 
+            base-offset: 3303
+            extent-offset: 3361
             scroll-percentage: 100
             scroll-seconds: 1
           - name: done
-            extent-offset: 3361 
+            extent-offset: 3361
             scroll-percentage: 100
         tree:
           - directory: .vscode
@@ -1925,52 +1624,52 @@ sections:
           - name: top
             extent-offset: 0
           - name: import player.dart
-            base-offset: 371 
+            base-offset: 371
             extent-offset: 391
             scroll-percentage: 0
           - name: pre-position for addPlayer()
-            base-offset: 371 
+            base-offset: 371
             extent-offset: 391
             scroll-percentage: 34.0
             scroll-seconds: 1
           - name: addPlayer()
-            base-offset: 1479 
-            extent-offset: 1496 
-            scroll-percentage: 34.0 
+            base-offset: 1479
+            extent-offset: 1496
+            scroll-percentage: 34.0
             scroll-seconds: 1
           - name: Preposition for addPlayer() defn
-            base-offset: 1479 
-            extent-offset: 1496 
-            scroll-percentage: 67.0 
+            base-offset: 1479
+            extent-offset: 1496
+            scroll-percentage: 67.0
             scroll-seconds: 1
           - name: addPlayer() defn
-            base-offset: 2618 
-            extent-offset: 2629 
-            scroll-percentage: 67.0 
+            base-offset: 2618
+            extent-offset: 2629
+            scroll-percentage: 67.0
             scroll-seconds: 1
           - name: addPlayer() body
-            base-offset: 2639 
-            extent-offset: 2806 
+            base-offset: 2639
+            extent-offset: 2806
             scroll-percentage: 71.0
             scroll-seconds: 1
           - name: update(dt) for adding player
-            base-offset: 2823 
-            extent-offset: 2833 
+            base-offset: 2823
+            extent-offset: 2833
             scroll-percentage: 73.0
             scroll-seconds: 1
           - name: if there isn;t a player
-            base-offset: 2862 
-            extent-offset: 2922 
+            base-offset: 2862
+            extent-offset: 2922
             scroll-percentage: 75.0
             scroll-seconds: 1
           - name: Add a player
-            base-offset: 2931 
-            extent-offset: 2942 
-            scroll-percentage: 76.0 
+            base-offset: 2931
+            extent-offset: 2942
+            scroll-percentage: 76.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 2942 
-            scroll-percentage: 76.0 
+            extent-offset: 2942
+            scroll-percentage: 76.0
         tree:
           - directory: .vscode
           - directory: android
@@ -2023,80 +1722,80 @@ sections:
           - name: top
             extent-offset: 0
           - name: import body_component_with_user_data.dart
-            base-offset: 153 
-            extent-offset: 197 
+            base-offset: 153
+            extent-offset: 197
             scroll-percentage: 0
           - name: enum EnemyColor
-            base-offset: 223 
+            base-offset: 223
             extent-offset: 238
             scroll-percentage: 0
           - name: boss enemy enum
-            base-offset: 556 
-            extent-offset: 572 
+            base-offset: 556
+            extent-offset: 572
             scroll-percentage: 10
             scroll-seconds: 1
           - name: boss enemy file name
-            base-offset: 828 
-            extent-offset: 852 
+            base-offset: 828
+            extent-offset: 852
             scroll-percentage: 20
             scroll-seconds: 1
           - name: class Enemy
-            base-offset: 869 
-            extent-offset: 874 
+            base-offset: 869
+            extent-offset: 874
             scroll-percentage: 39.0
             scroll-seconds: 1
           - name: extends BodyComponentWithUserData
-            base-offset: 883 
-            extent-offset: 908 
-            scroll-percentage: 39.0 
+            base-offset: 883
+            extent-offset: 908
+            scroll-percentage: 39.0
             scroll-seconds: 1
           - name: with ContactCallbacks
-            base-offset: 914 
-            extent-offset: 930 
-            scroll-percentage: 39.0 
+            base-offset: 914
+            extent-offset: 930
+            scroll-percentage: 39.0
             scroll-seconds: 1
           - name: super constructor
-            base-offset: 982 
-            extent-offset: 1535 
-            scroll-percentage: 50.0 
+            base-offset: 982
+            extent-offset: 1535
+            scroll-percentage: 50.0
             scroll-seconds: 1
           - name: contact callback
-            base-offset: 1557 
-            extent-offset: 1600 
-            scroll-percentage: 68.0 
+            base-offset: 1557
+            extent-offset: 1600
+            scroll-percentage: 68.0
             scroll-seconds: 1
           - name: velocity delta
-            base-offset: 1639 
-            extent-offset: 1700 
-            scroll-percentage: 71.0 
+            base-offset: 1639
+            extent-offset: 1700
+            scroll-percentage: 71.0
             scroll-seconds: 1
           - name: collapse Vector2 to scalar
-            base-offset: 1713 
-            extent-offset: 1720 
-            scroll-percentage: 72.0 
+            base-offset: 1713
+            extent-offset: 1720
+            scroll-percentage: 72.0
             scroll-seconds: 1
           - name: absolute value
-            base-offset: 1733 
-            extent-offset: 1739 
-            scroll-percentage: 73.0 
+            base-offset: 1733
+            extent-offset: 1739
+            scroll-percentage: 73.0
             scroll-seconds: 1
           - name: Remove if hard enough hit
-            base-offset: 1745 
-            extent-offset: 1806 
-            scroll-percentage: 77.0 
+            base-offset: 1745
+            extent-offset: 1806
+            scroll-percentage: 77.0
             scroll-seconds: 1
           - name: update(dt)
-            base-offset: 1867 
-            extent-offset: 1884 
+            base-offset: 1867
+            extent-offset: 1884
             scroll-percentage: 86.0
             scroll-seconds: 1
           - name: remove from parent if outside of screen
-            base-offset: 1914 
-            extent-offset: 2058 
-            scroll-percentage: 95.0 
+            base-offset: 1914
+            extent-offset: 2058
+            scroll-percentage: 95.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 2058 
+            extent-offset: 2058
             scroll-percentage: 95.0
         tree:
           - directory: .vscode
@@ -2147,28 +1846,28 @@ sections:
           - name: top
             extent-offset: 0
           - name: class BodyComponentWithUserData
-            base-offset: 58 
-            extent-offset: 83 
+            base-offset: 58
+            extent-offset: 83
             scroll-percentage: 0
           - name: extends BodyComponent
-            base-offset: 92 
+            base-offset: 92
             extent-offset: 105
             scroll-percentage: 0
           - name: pass through constructor args
-            base-offset: 142 
-            extent-offset: 273 
+            base-offset: 142
+            extent-offset: 273
             scroll-percentage: 0
           - name: override createBody
-            base-offset: 283 
-            extent-offset: 312 
+            base-offset: 283
+            extent-offset: 312
             scroll-percentage: 0
           - name: add user data
-            base-offset: 364 
-            extent-offset: 381 
+            base-offset: 364
+            extent-offset: 381
             scroll-percentage: 0
           - name: done
-            extent-offset: 381 
-            scroll-percentage: 0              
+            extent-offset: 381
+            scroll-percentage: 0
         tree:
           - directory: .vscode
           - directory: android
@@ -2221,15 +1920,15 @@ sections:
           - name: top
             extent-offset: 0
           - name: import body_component_with_user_data.dart
-            base-offset: 92 
+            base-offset: 92
             extent-offset: 136
             scroll-percentage: 0
           - name: Update base class
-            base-offset: 184 
-            extent-offset: 209 
+            base-offset: 184
+            extent-offset: 209
             scroll-percentage: 0
           - name: done
-            extent-offset: 209 
+            extent-offset: 209
             scroll-percentage: 0
         tree:
           - directory: .vscode
@@ -2283,15 +1982,15 @@ sections:
           - name: top
             extent-offset: 0
           - name: import body_component_with_user_data.dart
-            base-offset: 226 
-            extent-offset: 270 
+            base-offset: 226
+            extent-offset: 270
           - name: update base class
-            base-offset: 578 
-            extent-offset: 603 
-            scroll-percentage: 8.0 
+            base-offset: 578
+            extent-offset: 603
+            scroll-percentage: 8.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 603 
+            extent-offset: 603
             scroll-percentage: 8.0
         tree:
           - directory: .vscode
@@ -2345,20 +2044,20 @@ sections:
           - name: top
             extent-offset: 0
           - name: import body_component_with_user_data.dart
-            base-offset: 177 
-            extent-offset: 221 
-          - name: Preposition for update base class
-            base-offset: 177 
+            base-offset: 177
             extent-offset: 221
-            scroll-percentage: 83.0 
+          - name: Preposition for update base class
+            base-offset: 177
+            extent-offset: 221
+            scroll-percentage: 83.0
             scroll-seconds: 3
           - name: update base class
-            base-offset: 9543 
-            extent-offset: 9568 
-            scroll-percentage: 83.0 
+            base-offset: 9543
+            extent-offset: 9568
+            scroll-percentage: 83.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 9568 
+            extent-offset: 9568
             scroll-percentage: 83.0
         tree:
           - directory: .vscode
@@ -2412,45 +2111,45 @@ sections:
           - name: top
             extent-offset: 0
           - name: import flutter/material.dart
-            base-offset: 197 
-            extent-offset: 235 
+            base-offset: 197
+            extent-offset: 235
             scroll-percentage: 0
           - name: import enemy.dart
-            base-offset: 389 
-            extent-offset: 409 
+            base-offset: 389
+            extent-offset: 409
             scroll-percentage: 0
           - name: preposition
-            base-offset: 389 
-            extent-offset: 409 
+            base-offset: 389
+            extent-offset: 409
             scroll-percentage: 20
             scroll-seconds: 1
           - name: Add enemies
-            base-offset: 1533 
-            extent-offset: 1559 
+            base-offset: 1533
+            extent-offset: 1559
             scroll-percentage: 20.0
             scroll-seconds: 1
           - name: Preposition for update(dt)
-            base-offset: 1533 
-            extent-offset: 1559 
-            scroll-percentage: 60.0 
+            base-offset: 1533
+            extent-offset: 1559
+            scroll-percentage: 60.0
             scroll-seconds: 1
           - name: update(dt) update adding player
-            base-offset: 2949 
-            extent-offset: 3100 
-            scroll-percentage: 60.0 
+            base-offset: 2949
+            extent-offset: 3100
+            scroll-percentage: 60.0
             scroll-seconds: 1
           - name: show win
-            base-offset: 3105 
-            extent-offset: 3715 
-            scroll-percentage: 71.0 
+            base-offset: 3105
+            extent-offset: 3715
+            scroll-percentage: 71.0
             scroll-seconds: 1
           - name: add enemies
-            base-offset: 3729 
-            extent-offset: 4275 
-            scroll-percentage: 83.0 
+            base-offset: 3729
+            extent-offset: 4275
+            scroll-percentage: 83.0
             scroll-seconds: 1
           - name: done
-            extent-offset: 4275 
+            extent-offset: 4275
             scroll-percentage: 83.0
         tree:
           - directory: .vscode
