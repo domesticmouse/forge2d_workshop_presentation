@@ -6,3 +6,9 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+  # Pub ecosystem.
+  - package-ecosystem: "pub"
+    versioning-strategy: "increase-if-necessary"
+    directory: "/"
+    schedule:
+      interval: "daily"
