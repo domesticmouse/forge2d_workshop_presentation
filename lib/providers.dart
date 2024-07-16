@@ -102,7 +102,7 @@ class Cursor extends _$Cursor {
       } else {
         _subStepNumber = 0;
       }
-    } else if (sections.length > _sectionNumber + 1) {
+    } else if (_sectionNumber > 0) {
       _sectionNumber--;
       _stepNumber = sections[_sectionNumber].steps.length - 1;
       var subSteps = sections[_sectionNumber].steps[_stepNumber].subSteps;
