@@ -21,7 +21,10 @@ dependencies:
   path: ^1.9.0
   riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
-  super_text_layout: ^0.1.9
+  super_text_layout:
+    git:
+      url: https://github.com/superlistapp/super_editor.git
+      path: super_text_layout
   syntax_highlight: ^0.4.0
   xml: ^6.5.0
 
