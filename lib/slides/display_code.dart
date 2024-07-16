@@ -307,7 +307,8 @@ class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
                 TextLayoutSelectionHighlight(
                   textLayout: textLayout,
                   style: SelectionHighlightStyle(
-                    color: Colors.blueAccent.withOpacity(0.4),
+                    color: Color.fromARGB(255, 60, 91, 183),
+                    borderRadius: BorderRadius.circular(4),
                   ),
                   selection: textSelection,
                 ),
