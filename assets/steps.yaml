@@ -846,7 +846,6 @@ sections:
           - name: done
             extent-offset: 2236
             scroll-percentage: 97.0
-
         tree:
           - directory: .vscode
           - directory: android
@@ -1014,7 +1013,6 @@ sections:
           - name: done
             extent-offset: 491
             scroll-percentage: 56.0
-
         tree:
           - directory: .vscode
           - directory: android
