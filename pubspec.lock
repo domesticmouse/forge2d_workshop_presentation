@@ -837,10 +837,10 @@ packages:
     description:
       path: super_text_layout
       ref: HEAD
-      resolved-ref: b7c0b9bad61298a94f0494e71ff463a3f124c856
+      resolved-ref: "2cf30b96efebad601ae9e946025cf6ee782b275f"
       url: "https://github.com/superlistapp/super_editor.git"
     source: git
-    version: "0.1.13"
+    version: "0.1.14"
   syntax_highlight:
     dependency: "direct main"
     description:
