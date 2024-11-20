@@ -835,12 +835,11 @@ packages:
   super_text_layout:
     dependency: "direct main"
     description:
-      path: super_text_layout
-      ref: HEAD
-      resolved-ref: f027d60e0d47e2a549cb4250875f3ffa7b519491
-      url: "https://github.com/superlistapp/super_editor.git"
-    source: git
-    version: "0.1.15"
+      name: super_text_layout
+      sha256: b99c2326fe56a21463c24a41c4fd3f30e38942a4a67524bc3069b2b052cdb6a2
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.14"
   syntax_highlight:
     dependency: "direct main"
     description:
