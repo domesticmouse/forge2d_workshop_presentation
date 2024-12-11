@@ -50,10 +50,10 @@ packages:
     dependency: transitive
     description:
       name: attributed_text
-      sha256: "38e14c70958d5066ec79ca1a2c1e28abee8422dd257715de06fe3e90d46205ff"
+      sha256: fb65cf441784612544eda4d5df7a3caad56e7f673c68bf1d48d9048228375189
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.3"
+    version: "0.4.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -857,10 +857,10 @@ packages:
     dependency: "direct main"
     description:
       name: super_text_layout
-      sha256: "972a6fa1841c8bacb525e8a75a71c839f99c515a736c869cb14df67633ad767c"
+      sha256: "0c85c295164edaab175c477584f2b7abc295dfd2a7f81987a88e538cf75b7898"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.15"
+    version: "0.1.17"
   syntax_highlight:
     dependency: "direct main"
     description:
