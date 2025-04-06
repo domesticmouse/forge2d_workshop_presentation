@@ -83,7 +83,7 @@ class _DisplayCodeState extends State<DisplayCode> {
                 style: GoogleFonts.robotoMono(
                   textStyle: TextStyle(
                     fontSize: 0.01972973 * size.height + 2,
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withAlpha(200),
                     fontWeight: entry.node.contents == widget.assetPath
                         ? FontWeight.w500
                         : FontWeight.w300,
@@ -96,7 +96,7 @@ class _DisplayCodeState extends State<DisplayCode> {
         ),
         VerticalDivider(
           thickness: 1,
-          color: Colors.white.withOpacity(0.3),
+          color: Colors.white.withAlpha(75),
         ),
         if (widget.fileType != 'png') ...[
           SizedBox(width: 12),

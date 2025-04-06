@@ -340,7 +340,7 @@ class _OffsetFinderTextViewHelperState
                           TextLayoutSelectionHighlight(
                             textLayout: textLayout,
                             style: SelectionHighlightStyle(
-                              color: Colors.blue.withOpacity(0.3),
+                              color: Colors.blue.withAlpha(75),
                             ),
                             selection: _cursor.textSelection,
                           ),

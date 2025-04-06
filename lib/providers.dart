@@ -4,6 +4,7 @@
 
 import 'package:checked_yaml/checked_yaml.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:syntax_highlight/syntax_highlight.dart';
 
@@ -12,7 +13,7 @@ import 'configuration.dart';
 part 'providers.g.dart';
 
 @riverpod
-Future<Configuration> configuration(ConfigurationRef ref) async {
+Future<Configuration> configuration(Ref ref) async {
   final yaml = await rootBundle.loadString('assets/steps.yaml');
   return checkedYamlDecode(yaml, (m) => Configuration.fromJson(m!));
 }
@@ -130,7 +131,7 @@ class Cursor extends _$Cursor {
 }
 
 @riverpod
-Future<Highlighters> highlighters(HighlightersRef ref) async {
+Future<Highlighters> highlighters(Ref ref) async {
   await Highlighter.initialize(['dart', 'yaml']);
   Highlighter.addLanguage('xml', xmlSyntax);
 

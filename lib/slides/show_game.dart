@@ -33,7 +33,7 @@ class ShowGame<T extends Game> extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
+                        color: Colors.black.withAlpha(75),
                         blurRadius: 16,
                         offset: const Offset(4, 8),
                       ),
