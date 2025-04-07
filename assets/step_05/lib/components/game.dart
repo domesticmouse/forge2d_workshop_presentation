@@ -15,10 +15,10 @@ import 'ground.dart';
 
 class MyPhysicsGame extends Forge2DGame {
   MyPhysicsGame()
-      : super(
-          gravity: Vector2(0, 10),
-          camera: CameraComponent.withFixedResolution(width: 800, height: 600),
-        );
+    : super(
+        gravity: Vector2(0, 10),
+        camera: CameraComponent.withFixedResolution(width: 800, height: 600),
+      );
 
   late final XmlSpriteSheet aliens;
   late final XmlSpriteSheet elements;
@@ -26,18 +26,25 @@ class MyPhysicsGame extends Forge2DGame {
 
   @override
   FutureOr<void> onLoad() async {
-    final [backgroundImage, aliensImage, elementsImage, tilesImage] = await [
-      images.load('colored_grass.png'),
-      images.load('spritesheet_aliens.png'),
-      images.load('spritesheet_elements.png'),
-      images.load('spritesheet_tiles.png'),
-    ].wait;
-    aliens = XmlSpriteSheet(aliensImage,
-        await rootBundle.loadString('assets/spritesheet_aliens.xml'));
-    elements = XmlSpriteSheet(elementsImage,
-        await rootBundle.loadString('assets/spritesheet_elements.xml'));
-    tiles = XmlSpriteSheet(tilesImage,
-        await rootBundle.loadString('assets/spritesheet_tiles.xml'));
+    final [backgroundImage, aliensImage, elementsImage, tilesImage] =
+        await [
+          images.load('colored_grass.png'),
+          images.load('spritesheet_aliens.png'),
+          images.load('spritesheet_elements.png'),
+          images.load('spritesheet_tiles.png'),
+        ].wait;
+    aliens = XmlSpriteSheet(
+      aliensImage,
+      await rootBundle.loadString('assets/spritesheet_aliens.xml'),
+    );
+    elements = XmlSpriteSheet(
+      elementsImage,
+      await rootBundle.loadString('assets/spritesheet_elements.xml'),
+    );
+    tiles = XmlSpriteSheet(
+      tilesImage,
+      await rootBundle.loadString('assets/spritesheet_tiles.xml'),
+    );
 
     await world.add(Background(sprite: Sprite(backgroundImage)));
     await addGround();
@@ -48,9 +55,11 @@ class MyPhysicsGame extends Forge2DGame {
 
   Future<void> addGround() {
     return world.addAll([
-      for (var x = camera.visibleWorldRect.left;
-          x < camera.visibleWorldRect.right + groundSize;
-          x += groundSize)
+      for (
+        var x = camera.visibleWorldRect.left;
+        x < camera.visibleWorldRect.right + groundSize;
+        x += groundSize
+      )
         Ground(
           Vector2(x, (camera.visibleWorldRect.height - groundSize) / 2),
           tiles.getSprite('grass.png'),
@@ -70,15 +79,14 @@ class MyPhysicsGame extends Forge2DGame {
           size: size,
           damage: BrickDamage.some,
           position: Vector2(
-              camera.visibleWorldRect.right / 3 +
-                  (_random.nextDouble() * 5 - 2.5),
-              0),
-          sprites: brickFileNames(type, size).map(
-            (key, filename) => MapEntry(
-              key,
-              elements.getSprite(filename),
-            ),
+            camera.visibleWorldRect.right / 3 +
+                (_random.nextDouble() * 5 - 2.5),
+            0,
           ),
+          sprites: brickFileNames(
+            type,
+            size,
+          ).map((key, filename) => MapEntry(key, elements.getSprite(filename))),
         ),
       );
       await Future<void>.delayed(const Duration(milliseconds: 500));

@@ -12,11 +12,7 @@ import 'package:super_text_layout/super_text_layout.dart';
 import 'configuration.dart';
 
 void main() {
-  runApp(
-    const ProviderScope(
-      child: TextOffsetFinderApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: TextOffsetFinderApp()));
 }
 
 class TextOffsetFinderApp extends StatelessWidget {
@@ -26,14 +22,10 @@ class TextOffsetFinderApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: GoogleFonts.robotoTextTheme(),
-      ),
+      theme: ThemeData(textTheme: GoogleFonts.robotoTextTheme()),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(
-            'Text Offset Finder',
-          ),
+          title: Text('Text Offset Finder'),
           actions: const [TextOffsetFinderAppMenu()],
         ),
         body: TextOffsetFinderBody(),
@@ -53,10 +45,11 @@ class TextOffsetFinderAppMenu extends ConsumerWidget {
     if (configuration == null) {
       return MenuAnchor(
         menuChildren: const [],
-        builder: (context, controller, child) => IconButton(
-          onPressed: () => controller.open(),
-          icon: Icon(Icons.file_open),
-        ),
+        builder:
+            (context, controller, child) => IconButton(
+              onPressed: () => controller.open(),
+              icon: Icon(Icons.file_open),
+            ),
       );
     }
 
@@ -69,39 +62,45 @@ class TextOffsetFinderAppMenu extends ConsumerWidget {
               section.name,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: section == currentSection
-                  ? Theme.of(context)
-                      .textTheme
-                      .titleLarge
-                      ?.copyWith(fontWeight: FontWeight.w800)
-                  : Theme.of(context).textTheme.titleLarge,
+              style:
+                  section == currentSection
+                      ? Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w800,
+                      )
+                      : Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          for (final step in section.steps.where((step) =>
-              step.displayCode != null && step.fileType != 'png')) ...[
+          for (final step in section.steps.where(
+            (step) => step.displayCode != null && step.fileType != 'png',
+          )) ...[
             MenuItemButton(
-              onPressed: () => ref
-                  .read(cursorProvider.notifier)
-                  .setCursorPosition(
-                      sectionNumber: configuration.sections.indexOf(section),
-                      stepNumber: section.steps.indexOf(step)),
-              child: Text(step.name,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: step == currentStep
-                      ? Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(fontWeight: FontWeight.w800)
-                      : Theme.of(context).textTheme.titleMedium),
+              onPressed:
+                  () => ref
+                      .read(cursorProvider.notifier)
+                      .setCursorPosition(
+                        sectionNumber: configuration.sections.indexOf(section),
+                        stepNumber: section.steps.indexOf(step),
+                      ),
+              child: Text(
+                step.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style:
+                    step == currentStep
+                        ? Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w800,
+                        )
+                        : Theme.of(context).textTheme.titleMedium,
+              ),
             ),
-          ]
+          ],
         ],
       ],
-      builder: (context, controller, child) => IconButton(
-        onPressed: () => controller.open(),
-        icon: Icon(Icons.file_open),
-      ),
+      builder:
+          (context, controller, child) => IconButton(
+            onPressed: () => controller.open(),
+            icon: Icon(Icons.file_open),
+          ),
     );
   }
 }
@@ -121,23 +120,21 @@ class _TextOffsetFinderBodyState extends ConsumerState<TextOffsetFinderBody> {
     final (currentSection, currentStep, _) = ref.watch(cursorProvider);
 
     if (configuration == null) {
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
+      return const Center(child: CircularProgressIndicator());
     }
 
     return SizedBox.expand(
-      child: OffsetFinderTextView(
-        section: currentSection,
-        step: currentStep,
-      ),
+      child: OffsetFinderTextView(section: currentSection, step: currentStep),
     );
   }
 }
 
 class OffsetFinderTextView extends StatefulWidget {
-  const OffsetFinderTextView(
-      {super.key, required this.section, required this.step});
+  const OffsetFinderTextView({
+    super.key,
+    required this.section,
+    required this.step,
+  });
 
   final Section section;
   final Step step;
@@ -177,17 +174,11 @@ class _OffsetFinderTextViewState extends State<OffsetFinderTextView> {
       future: content,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
 
         if (snapshot.hasError) {
-          return Center(
-            child: Text(
-              'Error: ${snapshot.error}',
-            ),
-          );
+          return Center(child: Text('Error: ${snapshot.error}'));
         }
 
         return OffsetFinderTextViewHelper(
@@ -242,57 +233,69 @@ class _OffsetFinderTextViewHelperState
 
     return CallbackShortcuts(
       bindings: {
-        SingleActivator(LogicalKeyboardKey.arrowLeft): () => setState(() {
+        SingleActivator(LogicalKeyboardKey.arrowLeft):
+            () => setState(() {
               _cursor.left();
               _scrollController.jumpTo(
-                  _scrollController.position.maxScrollExtent *
-                      _cursor.scrollPercentage);
+                _scrollController.position.maxScrollExtent *
+                    _cursor.scrollPercentage,
+              );
             }),
-        SingleActivator(LogicalKeyboardKey.arrowRight): () => setState(() {
+        SingleActivator(LogicalKeyboardKey.arrowRight):
+            () => setState(() {
               _cursor.right();
               _scrollController.jumpTo(
-                  _scrollController.position.maxScrollExtent *
-                      _cursor.scrollPercentage);
+                _scrollController.position.maxScrollExtent *
+                    _cursor.scrollPercentage,
+              );
             }),
-        SingleActivator(LogicalKeyboardKey.arrowUp): () => setState(() {
+        SingleActivator(LogicalKeyboardKey.arrowUp):
+            () => setState(() {
               _cursor.up();
               _scrollController.jumpTo(
-                  _scrollController.position.maxScrollExtent *
-                      _cursor.scrollPercentage);
+                _scrollController.position.maxScrollExtent *
+                    _cursor.scrollPercentage,
+              );
             }),
-        SingleActivator(LogicalKeyboardKey.arrowDown): () => setState(() {
+        SingleActivator(LogicalKeyboardKey.arrowDown):
+            () => setState(() {
               _cursor.down();
               _scrollController.jumpTo(
-                  _scrollController.position.maxScrollExtent *
-                      _cursor.scrollPercentage);
+                _scrollController.position.maxScrollExtent *
+                    _cursor.scrollPercentage,
+              );
             }),
-        SingleActivator(LogicalKeyboardKey.arrowLeft, shift: true): () =>
-            setState(() {
+        SingleActivator(LogicalKeyboardKey.arrowLeft, shift: true):
+            () => setState(() {
               _cursor.shiftLeft();
               _scrollController.jumpTo(
-                  _scrollController.position.maxScrollExtent *
-                      _cursor.scrollPercentage);
+                _scrollController.position.maxScrollExtent *
+                    _cursor.scrollPercentage,
+              );
             }),
-        SingleActivator(LogicalKeyboardKey.arrowRight, shift: true): () =>
-            setState(() {
+        SingleActivator(LogicalKeyboardKey.arrowRight, shift: true):
+            () => setState(() {
               _cursor.shiftRight();
               _scrollController.jumpTo(
-                  _scrollController.position.maxScrollExtent *
-                      _cursor.scrollPercentage);
+                _scrollController.position.maxScrollExtent *
+                    _cursor.scrollPercentage,
+              );
             }),
-        SingleActivator(LogicalKeyboardKey.arrowUp, shift: true): () =>
-            setState(() {
+        SingleActivator(LogicalKeyboardKey.arrowUp, shift: true):
+            () => setState(() {
               _cursor.shiftUp();
               _scrollController.jumpTo(
-                  _scrollController.position.maxScrollExtent *
-                      _cursor.scrollPercentage);
+                _scrollController.position.maxScrollExtent *
+                    _cursor.scrollPercentage,
+              );
             }),
-        SingleActivator(LogicalKeyboardKey.arrowDown, shift: true): () =>
-            setState(() {
+        SingleActivator(LogicalKeyboardKey.arrowDown, shift: true):
+            () => setState(() {
               _cursor.shiftDown();
               _scrollController.jumpTo(
-                  _scrollController.position.maxScrollExtent *
-                      _cursor.scrollPercentage);
+                _scrollController.position.maxScrollExtent *
+                    _cursor.scrollPercentage,
+              );
             }),
       },
       child: Column(
@@ -329,7 +332,8 @@ class _OffsetFinderTextViewHelperState
                               width: 2,
                             ),
                             position: TextPosition(
-                                offset: _cursor.textSelection.extentOffset),
+                              offset: _cursor.textSelection.extentOffset,
+                            ),
                           ),
                         ],
                       );
@@ -390,10 +394,10 @@ class Cursor {
   int extentColumn = 0;
 
   TextSelection get textSelection => TextSelection(
-        baseOffset: basePosition.offset,
-        extentOffset: extentPosition.offset,
-        affinity: TextAffinity.upstream,
-      );
+    baseOffset: basePosition.offset,
+    extentOffset: extentPosition.offset,
+    affinity: TextAffinity.upstream,
+  );
 
   late final List<CursorPosition> _positions;
 
@@ -404,12 +408,7 @@ class Cursor {
 
     for (final (index, glyph) in content.characters.indexed) {
       positions.add(
-        CursorPosition(
-          glyph: glyph,
-          offset: index,
-          line: line,
-          column: column,
-        ),
+        CursorPosition(glyph: glyph, offset: index, line: line, column: column),
       );
 
       if (glyph == '\n') {
@@ -425,8 +424,9 @@ class Cursor {
   double get scrollPercentage => extentLine / _positions.last.line;
 
   CursorPosition get basePosition {
-    final position = _positions.where((position) =>
-        position.line == baseLine && position.column == baseColumn);
+    final position = _positions.where(
+      (position) => position.line == baseLine && position.column == baseColumn,
+    );
     if (position.isNotEmpty) {
       return position.first;
     }
@@ -440,8 +440,10 @@ class Cursor {
   }
 
   CursorPosition get extentPosition {
-    final position = _positions.where((position) =>
-        position.line == extentLine && position.column == extentColumn);
+    final position = _positions.where(
+      (position) =>
+          position.line == extentLine && position.column == extentColumn,
+    );
     if (position.isNotEmpty) {
       return position.first;
     }

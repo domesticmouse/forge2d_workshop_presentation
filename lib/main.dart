@@ -17,11 +17,7 @@ import 'providers.dart';
 import 'slides/slides.dart';
 
 void main() {
-  runApp(
-    const ProviderScope(
-      child: MainApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MainApp()));
 }
 
 class MainApp extends ConsumerWidget {
@@ -44,8 +40,9 @@ class MainApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.sizeOf(context);
-    final (currentSection, currentStep, currentSubStep) =
-        ref.watch(cursorProvider);
+    final (currentSection, currentStep, currentSubStep) = ref.watch(
+      cursorProvider,
+    );
 
     return _EagerInitialization(
       child: MaterialApp(
@@ -55,10 +52,10 @@ class MainApp extends ConsumerWidget {
         themeMode: ThemeMode.dark,
         home: CallbackShortcuts(
           bindings: <ShortcutActivator, VoidCallback>{
-            SingleActivator(LogicalKeyboardKey.arrowRight): () =>
-                ref.read(cursorProvider.notifier).next(),
-            SingleActivator(LogicalKeyboardKey.arrowLeft): () =>
-                ref.read(cursorProvider.notifier).previous(),
+            SingleActivator(LogicalKeyboardKey.arrowRight):
+                () => ref.read(cursorProvider.notifier).next(),
+            SingleActivator(LogicalKeyboardKey.arrowLeft):
+                () => ref.read(cursorProvider.notifier).previous(),
           },
           child: Focus(
             autofocus: true,
@@ -70,8 +67,9 @@ class MainApp extends ConsumerWidget {
                   'Step ${currentSection.displayStepNumber}: ${currentSection.name}',
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
-                        fontSize: 0.02297297 * size.height + 7.594595,
-                        fontWeight: FontWeight.w300),
+                      fontSize: 0.02297297 * size.height + 7.594595,
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
                 ),
               ),
@@ -82,30 +80,33 @@ class MainApp extends ConsumerWidget {
                 currentStep.showGame,
               )) {
                 (String code, _, _) => DisplayCode(
-                    assetPath: code,
-                    fileType: currentStep.fileType ?? 'txt',
-                    tree: currentStep.tree ?? [],
-                    baseOffset: currentSubStep.baseOffset ??
-                        currentSubStep.extentOffset,
-                    extentOffset: currentSubStep.extentOffset,
-                    scrollPercentage: currentSubStep.scrollPercentage ?? 0,
-                    scrollSeconds: currentSubStep.scrollSeconds ?? 0,
-                  ),
+                  assetPath: code,
+                  fileType: currentStep.fileType ?? 'txt',
+                  tree: currentStep.tree ?? [],
+                  baseOffset:
+                      currentSubStep.baseOffset ?? currentSubStep.extentOffset,
+                  extentOffset: currentSubStep.extentOffset,
+                  scrollPercentage: currentSubStep.scrollPercentage ?? 0,
+                  scrollSeconds: currentSubStep.scrollSeconds ?? 0,
+                ),
                 (_, String markdown, _) => DisplayMarkdown(assetPath: markdown),
                 (_, _, 'step_02') => ShowGame(gameFactory: FlameGame.new),
-                (_, _, 'step_03') =>
-                  ShowGame(gameFactory: step_03.MyPhysicsGame.new),
-                (_, _, 'step_04') =>
-                  ShowGame(gameFactory: step_04.MyPhysicsGame.new),
-                (_, _, 'step_05') =>
-                  ShowGame(gameFactory: step_05.MyPhysicsGame.new),
-                (_, _, 'step_06') =>
-                  ShowGame(gameFactory: step_06.MyPhysicsGame.new),
-                (_, _, 'step_07') =>
-                  ShowGame(gameFactory: step_07.MyPhysicsGame.new),
-                _ => DisplayMarkdown(
-                    assetPath: 'assets/empty.txt',
-                  )
+                (_, _, 'step_03') => ShowGame(
+                  gameFactory: step_03.MyPhysicsGame.new,
+                ),
+                (_, _, 'step_04') => ShowGame(
+                  gameFactory: step_04.MyPhysicsGame.new,
+                ),
+                (_, _, 'step_05') => ShowGame(
+                  gameFactory: step_05.MyPhysicsGame.new,
+                ),
+                (_, _, 'step_06') => ShowGame(
+                  gameFactory: step_06.MyPhysicsGame.new,
+                ),
+                (_, _, 'step_07') => ShowGame(
+                  gameFactory: step_07.MyPhysicsGame.new,
+                ),
+                _ => DisplayMarkdown(assetPath: 'assets/empty.txt'),
               },
             ),
           ),
@@ -125,59 +126,70 @@ class NavigationDrawer extends ConsumerWidget {
 
     return Drawer(
       child: ListView(
-        children: configuration != null
-            ? [
-                for (final (sectionNumber, section)
-                    in configuration.value.sections.indexed) ...[
-                  ListTile(
-                    title: Text(
-                      section.name,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: section == currentSection
-                          ? Theme.of(context)
-                              .textTheme
-                              .titleLarge
-                              ?.copyWith(fontWeight: FontWeight.w800)
-                          : Theme.of(context).textTheme.titleLarge,
-                    ),
-                    onTap: () {
-                      ref.read(cursorProvider.notifier).setCursorPosition(
-                          sectionNumber: sectionNumber, stepNumber: 0);
-                    },
-                  ),
-                  if (section == currentSection)
-                    for (var (stepNumber, step) in section.steps.indexed)
-                      ListTile(
-                        title: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            SizedBox(width: 16),
-                            Expanded(
-                              child: Text(
-                                step.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: step == currentStep
-                                    ? Theme.of(context)
-                                        .textTheme
-                                        .titleMedium
-                                        ?.copyWith(fontWeight: FontWeight.w800)
-                                    : Theme.of(context).textTheme.titleMedium,
-                              ),
-                            ),
-                          ],
-                        ),
-                        onTap: () {
-                          ref.read(cursorProvider.notifier).setCursorPosition(
-                              sectionNumber: sectionNumber,
-                              stepNumber: stepNumber);
-                          Scaffold.of(context).openEndDrawer();
-                        },
+        children:
+            configuration != null
+                ? [
+                  for (final (sectionNumber, section)
+                      in configuration.value.sections.indexed) ...[
+                    ListTile(
+                      title: Text(
+                        section.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style:
+                            section == currentSection
+                                ? Theme.of(context).textTheme.titleLarge
+                                    ?.copyWith(fontWeight: FontWeight.w800)
+                                : Theme.of(context).textTheme.titleLarge,
                       ),
-                ],
-              ]
-            : [],
+                      onTap: () {
+                        ref
+                            .read(cursorProvider.notifier)
+                            .setCursorPosition(
+                              sectionNumber: sectionNumber,
+                              stepNumber: 0,
+                            );
+                      },
+                    ),
+                    if (section == currentSection)
+                      for (var (stepNumber, step) in section.steps.indexed)
+                        ListTile(
+                          title: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SizedBox(width: 16),
+                              Expanded(
+                                child: Text(
+                                  step.name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style:
+                                      step == currentStep
+                                          ? Theme.of(
+                                            context,
+                                          ).textTheme.titleMedium?.copyWith(
+                                            fontWeight: FontWeight.w800,
+                                          )
+                                          : Theme.of(
+                                            context,
+                                          ).textTheme.titleMedium,
+                                ),
+                              ),
+                            ],
+                          ),
+                          onTap: () {
+                            ref
+                                .read(cursorProvider.notifier)
+                                .setCursorPosition(
+                                  sectionNumber: sectionNumber,
+                                  stepNumber: stepNumber,
+                                );
+                            Scaffold.of(context).openEndDrawer();
+                          },
+                        ),
+                  ],
+                ]
+                : [],
       ),
     );
   }

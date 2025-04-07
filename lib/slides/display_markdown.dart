@@ -7,10 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
 class DisplayMarkdown extends StatefulWidget {
-  const DisplayMarkdown({
-    super.key,
-    required this.assetPath,
-  });
+  const DisplayMarkdown({super.key, required this.assetPath});
 
   final String assetPath;
 
@@ -47,20 +44,17 @@ class _DisplayMarkdownState extends State<DisplayMarkdown> {
               child: Markdown(
                 data: snapshot.data ?? '',
                 controller: controller,
-                styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context))
-                    .copyWith(textScaler: TextScaler.linear(1.75)),
+                styleSheet: MarkdownStyleSheet.fromTheme(
+                  Theme.of(context),
+                ).copyWith(textScaler: TextScaler.linear(1.75)),
               ),
             ),
           );
         }
         if (snapshot.hasError) {
-          return Center(
-            child: Text('Error: ${snapshot.error}'),
-          );
+          return Center(child: Text('Error: ${snapshot.error}'));
         }
-        return Center(
-          child: CircularProgressIndicator(),
-        );
+        return Center(child: CircularProgressIndicator());
       },
     );
   }

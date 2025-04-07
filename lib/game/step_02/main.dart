@@ -8,10 +8,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
   runApp(
-    ProviderScope(
-      child: GameWidget.controlled(
-        gameFactory: FlameGame.new,
-      ),
-    ),
+    ProviderScope(child: GameWidget.controlled(gameFactory: FlameGame.new)),
   );
 }

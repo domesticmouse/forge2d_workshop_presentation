@@ -6,10 +6,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
 class ShowGame<T extends Game> extends StatelessWidget {
-  const ShowGame({
-    super.key,
-    required this.gameFactory,
-  });
+  const ShowGame({super.key, required this.gameFactory});
 
   final GameFactory<T> gameFactory;
 
@@ -30,14 +27,15 @@ class ShowGame<T extends Game> extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withAlpha(75),
-                        blurRadius: 16,
-                        offset: const Offset(4, 8),
-                      ),
-                    ]),
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withAlpha(75),
+                      blurRadius: 16,
+                      offset: const Offset(4, 8),
+                    ),
+                  ],
+                ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: SizedBox(
@@ -52,9 +50,7 @@ class ShowGame<T extends Game> extends StatelessWidget {
                             ),
                           ),
                         ),
-                        CustomPaint(
-                          painter: _WindowControlsPainer(),
-                        ),
+                        CustomPaint(painter: _WindowControlsPainer()),
                       ],
                     ),
                   ),

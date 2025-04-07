@@ -10,10 +10,6 @@ import 'components/game.dart';
 
 void main() {
   runApp(
-    ProviderScope(
-      child: GameWidget.controlled(
-        gameFactory: MyPhysicsGame.new,
-      ),
-    ),
+    ProviderScope(child: GameWidget.controlled(gameFactory: MyPhysicsGame.new)),
   );
 }

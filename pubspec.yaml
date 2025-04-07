@@ -1,10 +1,10 @@
 name: forge2d_workshop_presentation
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.4.0 <4.0.0'
+  sdk: ^3.7.2
 
 dependencies:
   checked_yaml: ^2.0.3
@@ -39,40 +39,40 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-   - assets/
-   - assets/images/
-   - assets/markdown/
-   - assets/step_02/
-   - assets/step_02/bin/
-   - assets/step_02/lib/
-   - assets/step_02/macos/Runner/Base.lproj/
-   - assets/step_03/
-   - assets/step_03/assets/
-   - assets/step_03/assets/images/
-   - assets/step_03/bin/
-   - assets/step_03/lib/
-   - assets/step_03/lib/components/
-   - assets/step_04/
-   - assets/step_04/assets/
-   - assets/step_04/assets/images/
-   - assets/step_04/bin/
-   - assets/step_04/lib/
-   - assets/step_04/lib/components/
-   - assets/step_05/
-   - assets/step_05/assets/
-   - assets/step_05/assets/images/
-   - assets/step_05/bin/
-   - assets/step_05/lib/
-   - assets/step_05/lib/components/
-   - assets/step_06/
-   - assets/step_06/assets/
-   - assets/step_06/assets/images/
-   - assets/step_06/bin/
-   - assets/step_06/lib/
-   - assets/step_06/lib/components/
-   - assets/step_07/
-   - assets/step_07/assets/
-   - assets/step_07/assets/images/
-   - assets/step_07/bin/
-   - assets/step_07/lib/
-   - assets/step_07/lib/components/
+    - assets/
+    - assets/images/
+    - assets/markdown/
+    - assets/step_02/
+    - assets/step_02/bin/
+    - assets/step_02/lib/
+    - assets/step_02/macos/Runner/Base.lproj/
+    - assets/step_03/
+    - assets/step_03/assets/
+    - assets/step_03/assets/images/
+    - assets/step_03/bin/
+    - assets/step_03/lib/
+    - assets/step_03/lib/components/
+    - assets/step_04/
+    - assets/step_04/assets/
+    - assets/step_04/assets/images/
+    - assets/step_04/bin/
+    - assets/step_04/lib/
+    - assets/step_04/lib/components/
+    - assets/step_05/
+    - assets/step_05/assets/
+    - assets/step_05/assets/images/
+    - assets/step_05/bin/
+    - assets/step_05/lib/
+    - assets/step_05/lib/components/
+    - assets/step_06/
+    - assets/step_06/assets/
+    - assets/step_06/assets/images/
+    - assets/step_06/bin/
+    - assets/step_06/lib/
+    - assets/step_06/lib/components/
+    - assets/step_07/
+    - assets/step_07/assets/
+    - assets/step_07/assets/images/
+    - assets/step_07/bin/
+    - assets/step_07/lib/
+    - assets/step_07/lib/components/

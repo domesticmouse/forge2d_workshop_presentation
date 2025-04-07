@@ -17,9 +17,10 @@ String _$configurationHash() => r'b569038866dd3fdeb3d0c6a33b87bd30d832e699';
 final configurationProvider = AutoDisposeFutureProvider<Configuration>.internal(
   configuration,
   name: r'configurationProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$configurationHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$configurationHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -49,13 +50,13 @@ String _$cursorHash() => r'9763a27c8368c949b58f6398bd639c5be4e63884';
 @ProviderFor(Cursor)
 final cursorProvider =
     AutoDisposeNotifierProvider<Cursor, (Section, Step, SubStep)>.internal(
-  Cursor.new,
-  name: r'cursorProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$cursorHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      Cursor.new,
+      name: r'cursorProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product') ? null : _$cursorHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$Cursor = AutoDisposeNotifier<(Section, Step, SubStep)>;
 // ignore_for_file: type=lint

@@ -19,11 +19,7 @@ Future<Configuration> configuration(Ref ref) async {
 }
 
 class Highlighters {
-  Highlighters({
-    required this.dart,
-    required this.yaml,
-    required this.xml,
-  });
+  Highlighters({required this.dart, required this.yaml, required this.xml});
   Highlighter dart;
   Highlighter yaml;
   Highlighter xml;
@@ -36,14 +32,18 @@ class Cursor extends _$Cursor {
   var _subStepNumber = 0;
 
   @override
-  (Section, Step, SubStep) build() => ref.watch(configurationProvider).when(
+  (Section, Step, SubStep) build() => ref
+      .watch(configurationProvider)
+      .when(
         data: (configuration) {
-          final section = configuration.sections.length > _sectionNumber
-              ? configuration.sections[_sectionNumber]
-              : Section(name: 'Empty', steps: [], displayStepNumber: 0);
-          final step = section.steps.length > _stepNumber
-              ? section.steps[_stepNumber]
-              : Step(name: 'Empty');
+          final section =
+              configuration.sections.length > _sectionNumber
+                  ? configuration.sections[_sectionNumber]
+                  : Section(name: 'Empty', steps: [], displayStepNumber: 0);
+          final step =
+              section.steps.length > _stepNumber
+                  ? section.steps[_stepNumber]
+                  : Step(name: 'Empty');
           var subStep =
               step.subSteps != null && step.subSteps!.length > _subStepNumber
                   ? step.subSteps![_subStepNumber]
@@ -51,11 +51,12 @@ class Cursor extends _$Cursor {
           return (section, step, subStep);
         },
         error: (error, stackTrace) => throw error,
-        loading: () => (
-          Section(name: 'Empty', steps: [], displayStepNumber: 0),
-          Step(name: 'Empty', displayMarkdown: 'assets/empty.txt'),
-          SubStep(name: 'Empty', extentOffset: 0)
-        ),
+        loading:
+            () => (
+              Section(name: 'Empty', steps: [], displayStepNumber: 0),
+              Step(name: 'Empty', displayMarkdown: 'assets/empty.txt'),
+              SubStep(name: 'Empty', extentOffset: 0),
+            ),
       );
 
   void next() {
@@ -137,18 +138,9 @@ Future<Highlighters> highlighters(Ref ref) async {
 
   var theme = await HighlighterTheme.loadDarkTheme();
   return Highlighters(
-    dart: Highlighter(
-      language: 'dart',
-      theme: theme,
-    ),
-    yaml: Highlighter(
-      language: 'yaml',
-      theme: theme,
-    ),
-    xml: Highlighter(
-      language: 'xml',
-      theme: theme,
-    ),
+    dart: Highlighter(language: 'dart', theme: theme),
+    yaml: Highlighter(language: 'yaml', theme: theme),
+    xml: Highlighter(language: 'xml', theme: theme),
   );
 }
 

@@ -6,11 +6,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'configuration.g.dart';
 
-@JsonSerializable(
-  anyMap: true,
-  checked: true,
-  disallowUnrecognizedKeys: true,
-)
+@JsonSerializable(anyMap: true, checked: true, disallowUnrecognizedKeys: true)
 class Configuration {
   @JsonKey(required: true)
   final List<Section> sections;
@@ -29,11 +25,7 @@ class Configuration {
   String toString() => 'Configuration: ${toJson()}';
 }
 
-@JsonSerializable(
-  anyMap: true,
-  checked: true,
-  disallowUnrecognizedKeys: true,
-)
+@JsonSerializable(anyMap: true, checked: true, disallowUnrecognizedKeys: true)
 class Section {
   @JsonKey(required: true)
   final String name;
@@ -62,11 +54,7 @@ class Section {
   String toString() => 'Step: ${toJson()}';
 }
 
-@JsonSerializable(
-  anyMap: true,
-  checked: true,
-  disallowUnrecognizedKeys: true,
-)
+@JsonSerializable(anyMap: true, checked: true, disallowUnrecognizedKeys: true)
 class Step {
   @JsonKey(required: true)
   final String name;
@@ -101,44 +89,74 @@ class Step {
       throw ArgumentError.value(name, 'name', 'Cannot be empty.');
     }
     if (displayCode != null && displayMarkdown != null) {
-      throw ArgumentError.value(displayCode, 'display-code',
-          'Cannot have both display-code and display-markdown.');
+      throw ArgumentError.value(
+        displayCode,
+        'display-code',
+        'Cannot have both display-code and display-markdown.',
+      );
     }
     if (displayCode != null && showGame != null) {
-      throw ArgumentError.value(displayCode, 'display-code',
-          'Cannot have both display-code and show-game.');
+      throw ArgumentError.value(
+        displayCode,
+        'display-code',
+        'Cannot have both display-code and show-game.',
+      );
     }
     if (displayMarkdown != null && showGame != null) {
-      throw ArgumentError.value(displayMarkdown, 'display-markdown',
-          'Cannot have both display-markdown and show-game.');
+      throw ArgumentError.value(
+        displayMarkdown,
+        'display-markdown',
+        'Cannot have both display-markdown and show-game.',
+      );
     }
     if (displayCode != null && fileType == null) {
       throw ArgumentError.value(
-          fileType, 'file-type', 'Cannot be null if display-code is not null.');
+        fileType,
+        'file-type',
+        'Cannot be null if display-code is not null.',
+      );
     }
     if (displayCode != null && subSteps == null && fileType != 'png') {
       throw ArgumentError.value(
-          subSteps, 'sub-steps', 'Cannot be null if display-code is not null.');
+        subSteps,
+        'sub-steps',
+        'Cannot be null if display-code is not null.',
+      );
     }
     if (displayCode != null && tree == null) {
       throw ArgumentError.value(
-          tree, 'tree', 'Cannot be null if display-code is not null.');
+        tree,
+        'tree',
+        'Cannot be null if display-code is not null.',
+      );
     }
     if (fileType != null && displayCode == null) {
       throw ArgumentError.value(
-          fileType, 'file-type', 'Cannot be not null if display-code is null.');
+        fileType,
+        'file-type',
+        'Cannot be not null if display-code is null.',
+      );
     }
     if (subSteps != null && displayCode == null) {
       throw ArgumentError.value(
-          subSteps, 'sub-steps', 'Cannot be not null if display-code is null.');
+        subSteps,
+        'sub-steps',
+        'Cannot be not null if display-code is null.',
+      );
     }
     if (tree != null && displayCode == null) {
       throw ArgumentError.value(
-          tree, 'tree', 'Cannot be not null if display-code is null.');
+        tree,
+        'tree',
+        'Cannot be not null if display-code is null.',
+      );
     }
     if (showGame == null && displayCode == null && displayMarkdown == null) {
-      throw ArgumentError.value(showGame, 'show-game',
-          'Cannot be null if display-code and display-markdown are null.');
+      throw ArgumentError.value(
+        showGame,
+        'show-game',
+        'Cannot be null if display-code and display-markdown are null.',
+      );
     }
   }
 
@@ -150,11 +168,7 @@ class Step {
   String toString() => 'Step: ${toJson()}';
 }
 
-@JsonSerializable(
-  anyMap: true,
-  checked: true,
-  disallowUnrecognizedKeys: true,
-)
+@JsonSerializable(anyMap: true, checked: true, disallowUnrecognizedKeys: true)
 class SubStep {
   final String name;
 
@@ -179,16 +193,25 @@ class SubStep {
   }) {
     if (extentOffset < 0) {
       throw ArgumentError.value(
-          extentOffset, 'extent-offset', 'Cannot be negative.');
+        extentOffset,
+        'extent-offset',
+        'Cannot be negative.',
+      );
     }
     if (baseOffset != null && baseOffset! < 0) {
       throw ArgumentError.value(
-          baseOffset, 'base-offset', 'Cannot be negative.');
+        baseOffset,
+        'base-offset',
+        'Cannot be negative.',
+      );
     }
     if (scrollPercentage != null &&
         (scrollPercentage! < 0 || scrollPercentage! > 100)) {
       throw ArgumentError.value(
-          scrollPercentage, 'scroll-percentage', 'Must be between 0 and 100.');
+        scrollPercentage,
+        'scroll-percentage',
+        'Must be between 0 and 100.',
+      );
     }
   }
 
@@ -200,11 +223,7 @@ class SubStep {
   String toString() => 'SubStep: ${toJson()}';
 }
 
-@JsonSerializable(
-  anyMap: true,
-  checked: true,
-  disallowUnrecognizedKeys: true,
-)
+@JsonSerializable(anyMap: true, checked: true, disallowUnrecognizedKeys: true)
 class Node {
   final String? directory;
   final String? file;
@@ -225,21 +244,30 @@ class Node {
     if ((directory == null || directory!.isEmpty) &&
         (file == null || file!.isEmpty)) {
       throw ArgumentError.value(
-          directory, 'directory', 'Cannot be empty if file is empty.');
+        directory,
+        'directory',
+        'Cannot be empty if file is empty.',
+      );
     }
 
     if (file != null &&
         file!.isNotEmpty &&
         (fileType == null || fileType!.isEmpty)) {
       throw ArgumentError.value(
-          fileType, 'fileType', 'Cannot be empty if file is not empty.');
+        fileType,
+        'fileType',
+        'Cannot be empty if file is not empty.',
+      );
     }
 
     if ((directory == null || directory!.isEmpty) &&
         children != null &&
         children!.isNotEmpty) {
       throw ArgumentError.value(
-          children, 'children', 'Cannot have children if directory is empty.');
+        children,
+        'children',
+        'Cannot have children if directory is empty.',
+      );
     }
   }
 

@@ -67,37 +67,36 @@ class _DisplayCodeState extends State<DisplayCode> {
           child: AnimatedTreeView(
             padding: const EdgeInsets.all(12),
             treeController: treeController,
-            nodeBuilder: (context, entry) => TreeIndentation(
-              guide: IndentGuide.connectingLines(
-                indent: 0.01052632 * size.width + 5.052632,
-                color: Colors.grey,
-                thickness: 2.0,
-                origin: 0.6,
-                padding: EdgeInsets.symmetric(horizontal: 8),
-                // roundCorners: true,
-              ),
-              entry: entry,
-              child: Text(
-                entry.node.title,
-                maxLines: 1,
-                style: GoogleFonts.robotoMono(
-                  textStyle: TextStyle(
-                    fontSize: 0.01972973 * size.height + 2,
-                    color: Colors.white.withAlpha(200),
-                    fontWeight: entry.node.contents == widget.assetPath
-                        ? FontWeight.w500
-                        : FontWeight.w300,
-                    overflow: TextOverflow.ellipsis,
+            nodeBuilder:
+                (context, entry) => TreeIndentation(
+                  guide: IndentGuide.connectingLines(
+                    indent: 0.01052632 * size.width + 5.052632,
+                    color: Colors.grey,
+                    thickness: 2.0,
+                    origin: 0.6,
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    // roundCorners: true,
+                  ),
+                  entry: entry,
+                  child: Text(
+                    entry.node.title,
+                    maxLines: 1,
+                    style: GoogleFonts.robotoMono(
+                      textStyle: TextStyle(
+                        fontSize: 0.01972973 * size.height + 2,
+                        color: Colors.white.withAlpha(200),
+                        fontWeight:
+                            entry.node.contents == widget.assetPath
+                                ? FontWeight.w500
+                                : FontWeight.w300,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
           ),
         ),
-        VerticalDivider(
-          thickness: 1,
-          color: Colors.white.withAlpha(75),
-        ),
+        VerticalDivider(thickness: 1, color: Colors.white.withAlpha(75)),
         if (widget.fileType != 'png') ...[
           SizedBox(width: 12),
           Expanded(
@@ -112,11 +111,7 @@ class _DisplayCodeState extends State<DisplayCode> {
           ),
         ],
         if (widget.fileType == 'png')
-          Expanded(
-            child: Center(
-              child: Image.asset(widget.assetPath),
-            ),
-          )
+          Expanded(child: Center(child: Image.asset(widget.assetPath))),
       ],
     );
   }
@@ -163,34 +158,30 @@ class _DisplayCodeTextState extends ConsumerState<DisplayCodeText> {
   Widget build(BuildContext context) {
     final highlightersAsync = ref.watch(highlightersProvider);
     return highlightersAsync.when(
-      data: (highlighters) => FutureBuilder<String>(
-        future: content,
-        builder: (context, snapshot) =>
-            switch ((snapshot.hasData, snapshot.hasError)) {
-          (true, _) => _DisplayCodeTextHelper(
-              assetPath: widget.assetPath,
-              content: snapshot.data ?? '',
-              fileType: widget.fileType,
-              highlighters: highlighters,
-              baseOffset: widget.baseOffset,
-              extentOffset: widget.extentOffset,
-              scrollPercentage: widget.scrollPercentage,
-              scrollSeconds: widget.scrollSeconds,
-            ),
-          (_, true) => Center(
-              child: Text('Error: ${snapshot.error}'),
-            ),
-          _ => Center(
-              child: CircularProgressIndicator(),
-            ),
-        },
-      ),
-      loading: () => Center(
-        child: CircularProgressIndicator(),
-      ),
-      error: (error, stack) => Center(
-        child: Text('Error: $error\n$stack'),
-      ),
+      data:
+          (highlighters) => FutureBuilder<String>(
+            future: content,
+            builder:
+                (context, snapshot) => switch ((
+                  snapshot.hasData,
+                  snapshot.hasError,
+                )) {
+                  (true, _) => _DisplayCodeTextHelper(
+                    assetPath: widget.assetPath,
+                    content: snapshot.data ?? '',
+                    fileType: widget.fileType,
+                    highlighters: highlighters,
+                    baseOffset: widget.baseOffset,
+                    extentOffset: widget.extentOffset,
+                    scrollPercentage: widget.scrollPercentage,
+                    scrollSeconds: widget.scrollSeconds,
+                  ),
+                  (_, true) => Center(child: Text('Error: ${snapshot.error}')),
+                  _ => Center(child: CircularProgressIndicator()),
+                },
+          ),
+      loading: () => Center(child: CircularProgressIndicator()),
+      error: (error, stack) => Center(child: Text('Error: $error\n$stack')),
     );
   }
 }
@@ -247,9 +238,11 @@ class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
         curve: Curves.easeInOut,
       );
     } else {
-      scrollController.jumpTo(scrollController.position.maxScrollExtent *
-          widget.scrollPercentage /
-          100);
+      scrollController.jumpTo(
+        scrollController.position.maxScrollExtent *
+            widget.scrollPercentage /
+            100,
+      );
     }
   }
 
@@ -281,9 +274,9 @@ class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
                 'yaml' => widget.highlighters.yaml.highlight(widget.content),
                 'xml' => widget.highlighters.xml.highlight(widget.content),
                 _ => TextSpan(
-                    text: widget.content,
-                    style: const TextStyle(color: Colors.white),
-                  ),
+                  text: widget.content,
+                  style: const TextStyle(color: Colors.white),
+                ),
               },
             ],
           ),
@@ -292,10 +285,7 @@ class _DisplayCodeTextHelperState extends State<_DisplayCodeTextHelper> {
               children: [
                 TextLayoutCaret(
                   textLayout: textLayout,
-                  style: const CaretStyle(
-                    color: Colors.white,
-                    width: 2,
-                  ),
+                  style: const CaretStyle(color: Colors.white, width: 2),
                   position: TextPosition(offset: textSelection.extentOffset),
                 ),
               ],
