@@ -9,7 +9,7 @@ environment:
 dependencies:
   checked_yaml: ^2.0.3
   flame: ^1.17.0
-  flame_forge2d: ^0.18.0
+  flame_forge2d: ^0.19.0
   flutter:
     sdk: flutter
   flutter_fancy_tree_view: ^1.6.0
