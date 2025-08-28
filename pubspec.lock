@@ -293,10 +293,10 @@ packages:
     dependency: "direct main"
     description:
       name: flame
-      sha256: "1da87b0c07e09491517b28bcfdbfdb7b77c2e1527c4d160e394f66c3a9635026"
+      sha256: "86f63943349ef4d891fd1988ccd9fa3d27952eb8d9eb17b774a64e78cd62aaa6"
       url: "https://pub.dev"
     source: hosted
-    version: "1.31.0"
+    version: "1.32.0"
   flame_forge2d:
     dependency: "direct main"
     description:
