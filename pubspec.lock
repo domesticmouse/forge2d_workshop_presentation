@@ -301,10 +301,10 @@ packages:
     dependency: "direct main"
     description:
       name: flame_forge2d
-      sha256: "7ac0889b6c8264c2c7f1addd9aa665e37f24a884290ec7b431decab621bb0d15"
+      sha256: "861161681cfceb285fc91e436a591129c900611c2111820b20e5f6240d0d0dd6"
       url: "https://pub.dev"
     source: hosted
-    version: "0.19.1"
+    version: "0.19.2"
   flutter:
     dependency: "direct main"
     description: flutter
