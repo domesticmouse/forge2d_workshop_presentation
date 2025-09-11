@@ -23,7 +23,7 @@ void main() {
 class MainApp extends ConsumerWidget {
   const MainApp({super.key});
 
-  ThemeData _buildTheme(brightness) {
+  ThemeData _buildTheme(Brightness brightness) {
     var baseTheme = ThemeData(
       brightness: brightness,
       colorScheme: ColorScheme.fromSeed(
