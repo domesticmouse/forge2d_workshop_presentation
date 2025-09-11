@@ -10,54 +10,137 @@ part of 'providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(configuration)
+const configurationProvider = ConfigurationProvider._();
+
+final class ConfigurationProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<Configuration>,
+          Configuration,
+          FutureOr<Configuration>
+        >
+    with $FutureModifier<Configuration>, $FutureProvider<Configuration> {
+  const ConfigurationProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'configurationProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$configurationHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<Configuration> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<Configuration> create(Ref ref) {
+    return configuration(ref);
+  }
+}
+
 String _$configurationHash() => r'b569038866dd3fdeb3d0c6a33b87bd30d832e699';
 
-/// See also [configuration].
-@ProviderFor(configuration)
-final configurationProvider = AutoDisposeFutureProvider<Configuration>.internal(
-  configuration,
-  name: r'configurationProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$configurationHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+@ProviderFor(Cursor)
+const cursorProvider = CursorProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef ConfigurationRef = AutoDisposeFutureProviderRef<Configuration>;
-String _$highlightersHash() => r'2a2b82c9d44dfe2a7408cb2229e574cd9acfc4a6';
+final class CursorProvider
+    extends $NotifierProvider<Cursor, (Section, Step, SubStep)> {
+  const CursorProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'cursorProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
 
-/// See also [highlighters].
-@ProviderFor(highlighters)
-final highlightersProvider = AutoDisposeFutureProvider<Highlighters>.internal(
-  highlighters,
-  name: r'highlightersProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$highlightersHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+  @override
+  String debugGetCreateSourceHash() => _$cursorHash();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef HighlightersRef = AutoDisposeFutureProviderRef<Highlighters>;
+  @$internal
+  @override
+  Cursor create() => Cursor();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue((Section, Step, SubStep) value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<(Section, Step, SubStep)>(value),
+    );
+  }
+}
+
 String _$cursorHash() => r'9763a27c8368c949b58f6398bd639c5be4e63884';
 
-/// See also [Cursor].
-@ProviderFor(Cursor)
-final cursorProvider =
-    AutoDisposeNotifierProvider<Cursor, (Section, Step, SubStep)>.internal(
-      Cursor.new,
-      name: r'cursorProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product') ? null : _$cursorHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
+abstract class _$Cursor extends $Notifier<(Section, Step, SubStep)> {
+  (Section, Step, SubStep) build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref =
+        this.ref as $Ref<(Section, Step, SubStep), (Section, Step, SubStep)>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<(Section, Step, SubStep), (Section, Step, SubStep)>,
+              (Section, Step, SubStep),
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
 
-typedef _$Cursor = AutoDisposeNotifier<(Section, Step, SubStep)>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+@ProviderFor(highlighters)
+const highlightersProvider = HighlightersProvider._();
+
+final class HighlightersProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<Highlighters>,
+          Highlighters,
+          FutureOr<Highlighters>
+        >
+    with $FutureModifier<Highlighters>, $FutureProvider<Highlighters> {
+  const HighlightersProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'highlightersProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$highlightersHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<Highlighters> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<Highlighters> create(Ref ref) {
+    return highlighters(ref);
+  }
+}
+
+String _$highlightersHash() => r'2a2b82c9d44dfe2a7408cb2229e574cd9acfc4a6';
