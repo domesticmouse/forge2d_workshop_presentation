@@ -20,7 +20,7 @@ dependencies:
   json_annotation: ^4.9.0
   path: ^1.9.0
   riverpod: ^3.0.0
-  riverpod_annotation: ^3.0.0
+  riverpod_annotation: ^4.0.0
   super_text_layout: ^0.1.15
   syntax_highlight: ^0.5.0
   xml: ^6.5.0
@@ -32,7 +32,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.8.0
-  riverpod_generator: ^3.0.0
+  riverpod_generator: ^4.0.0+1
   riverpod_lint: ^3.0.0
   test: ^1.25.2
 
