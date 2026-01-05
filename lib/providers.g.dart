@@ -14,7 +14,7 @@ part of 'providers.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(configuration)
-const configurationProvider = ConfigurationProvider._();
+final configurationProvider = ConfigurationProvider._();
 
 final class ConfigurationProvider
     extends
@@ -24,7 +24,7 @@ final class ConfigurationProvider
           FutureOr<Configuration>
         >
     with $FutureModifier<Configuration>, $FutureProvider<Configuration> {
-  const ConfigurationProvider._()
+  ConfigurationProvider._()
     : super(
         from: null,
         argument: null,
@@ -53,11 +53,11 @@ final class ConfigurationProvider
 String _$configurationHash() => r'b569038866dd3fdeb3d0c6a33b87bd30d832e699';
 
 @ProviderFor(Cursor)
-const cursorProvider = CursorProvider._();
+final cursorProvider = CursorProvider._();
 
 final class CursorProvider
     extends $NotifierProvider<Cursor, (Section, Step, SubStep)> {
-  const CursorProvider._()
+  CursorProvider._()
     : super(
         from: null,
         argument: null,
@@ -91,7 +91,6 @@ abstract class _$Cursor extends $Notifier<(Section, Step, SubStep)> {
   @$mustCallSuper
   @override
   void runBuild() {
-    final created = build();
     final ref =
         this.ref as $Ref<(Section, Step, SubStep), (Section, Step, SubStep)>;
     final element =
@@ -102,12 +101,12 @@ abstract class _$Cursor extends $Notifier<(Section, Step, SubStep)> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    element.handleCreate(ref, build);
   }
 }
 
 @ProviderFor(highlighters)
-const highlightersProvider = HighlightersProvider._();
+final highlightersProvider = HighlightersProvider._();
 
 final class HighlightersProvider
     extends
@@ -117,7 +116,7 @@ final class HighlightersProvider
           FutureOr<Highlighters>
         >
     with $FutureModifier<Highlighters>, $FutureProvider<Highlighters> {
-  const HighlightersProvider._()
+  HighlightersProvider._()
     : super(
         from: null,
         argument: null,
